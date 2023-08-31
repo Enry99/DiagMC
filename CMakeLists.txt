@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project("DiagMC" VERSION 1.0)
+project("DiagMC" VERSION 0.1)
 
 
 #Set compilation options
@@ -18,9 +18,12 @@ include(CTest)
 add_library(functions src/functions.cpp)
 target_include_directories(functions PUBLIC include)
 
+add_library(diagram src/diagram.cpp)
+target_include_directories(diagram PUBLIC include)
+
 #Add main program executable
 add_executable(2level.out src/main.cpp)
-target_link_libraries(2level.out functions)
+target_link_libraries(2level.out functions diagram)
 
 #Add tests
 if (BUILD_TESTING)

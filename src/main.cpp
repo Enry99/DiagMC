@@ -1,17 +1,18 @@
 #include <iostream>
 #include <diagmc/functions.h>
+#include <diagmc/diagram.h>
 
 
 
 int main(int argc, char** argv)
 {
 
-	std::cout<<"Esecuzione del programma principale: 5+5="<<somma(5,5)<<'\n';
+	std::cout<<"Esecuzione del programma principale:\n";
 
 
-#ifdef _WIN32
+	#ifdef _WIN32
 	system("pause");
-#endif
+	#endif
 
 	return 0;
 }
