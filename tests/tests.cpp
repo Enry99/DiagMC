@@ -298,11 +298,11 @@ TEST(TestDiagram_core, attempt_add_segment_correct_rate_beginning)
     double rn1 = tau1 / beta;
     double rn2 = (tau2 - tau1) / (tau3 - tau1);
 
-    Diagram_core diag_new(10, 1, 1, GAMMA,  {tau1, tau2, tau3, 5,6,7,8,9});
+    Diagram_core diag_new(10, 1, 1, GAMMA,      {tau1, tau2, tau3, 5,6,7,8,9});
     Diagram_core diag_current(10, 1, 1, GAMMA,  {            tau3, 5,6,7,8,9});
 
-    Diagram_core diag_test1(10, 1, 1, 1,{            tau3, 5,6,7,8,9});
-    Diagram_core diag_test2 = diag_test2;
+    Diagram_core diag_test1 = diag_current;
+    Diagram_core diag_test2 = diag_current;
 
     double expected_acceptance_rate = diag_new / diag_current * GAMMA*GAMMA * beta * (tau3 - tau1) / (diag_current.order() + 1);
 
@@ -361,7 +361,6 @@ TEST(TestDiagram_core, attempt_add_segment_correct_rate_zeroorder)
     EXPECT_FALSE(diag_test2.attempt_add_segment(rn1, rn2, expected_acceptance_rate + 0.00001));  //recjected if RNG > acc
     
 }
-
 
 TEST(TestDiagram_core, attempt_remove_segment_correct_rate)
 {
@@ -439,15 +438,14 @@ TEST(TestDiagram_core, attempt_spin_flip_correct_rate)
     Diagram_core diag_new(10,-1, 1, 1, {1,2, 7,9});
     Diagram_core diag_current(10, 1, 1, 1, {1,2, 7,9});
 
-    Diagram_core diag_test1(10, 1, 1, 1, {1,2, 7,9});
-    Diagram_core diag_test2 = diag_test2;
+    Diagram_core diag_test1 = diag_current;
+    Diagram_core diag_test2 = diag_current;
 
     double expected_acceptance_rate = diag_new / diag_current;
 
     EXPECT_TRUE(diag_test1.attempt_spin_flip(expected_acceptance_rate - 0.00001));   //acctepted if RNG < acc
     EXPECT_FALSE(diag_test2.attempt_spin_flip(expected_acceptance_rate + 0.00001));  //recjected if RNG > acc    
 }
-
 
 TEST(TestDiagram_core, attempt_remove_segment_always_rejects_for_zero_order)
 {
