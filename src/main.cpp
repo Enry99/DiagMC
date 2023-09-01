@@ -9,7 +9,6 @@ int main(int argc, char** argv)
 
 	std::cout<<"Esecuzione del programma principale:\n";
 
-
 	#ifdef _WIN32
 	system("pause");
 	#endif

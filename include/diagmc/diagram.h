@@ -1,6 +1,6 @@
 /**
  * @file diagram.h
- * @brief Diagram class
+ * @brief Header file for Diagram and Diagram_core classes
  * @author Enrico Pedretti
  * @date 2023-08-31
  */
@@ -22,19 +22,94 @@
 class Diagram_core
 {
 
+    protected:
+
+    double _beta;                 ///< length of the diagram. Must be > 0.
+    int _s0;                      ///< spin of the first segment of the diagram. Must be +1 or -1
+    double _H;                    ///< value of the longitudinal component of magnetic field
+    double _GAMMA;                ///< value of the transversal component of magnetic field
+    std::list<double> _vertices;  ///< list containing the times of the diagram _vertices
+
+
     public:
 
     /**
-     * @brief Construct a new diagram, setting its defining parameters. The list of vertices is optional: 
-     * by default it is the 0-th order diagram [0]-------[beta]
+     * @brief Construct a new diagram, setting its defining parameters. The list of _vertices is optional: 
+     * by default it is the 0-th order diagram [0]-------[_beta]
      * 
      * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
      * @param s0         Spin of the first segment of the diagram. Must be +1 or -1.
      * @param H          Value of the longitudinal component of magnetic field
      * @param GAMMA      Value of the transversal component of magnetic field
-     * @param vertices   (optional) List containing the times of diagram vertices, with t1<t2<t3... (they need to be already sorted)
+     * @param vertices   (optional) List containing the times of diagram _vertices, with t1<t2<t3... < _beta (they need to be already sorted)
      */
     Diagram_core(double beta, int s0, double H, double GAMMA, std::list<double> vertices=std::list<double>() );
+
+    /**
+     * @brief operator to test wether two Diagram_core objects are equal
+     * 
+     * @param other other Diagram_core object
+     * @return true 
+     * @return false 
+     */
+    bool operator==(const Diagram_core & other) const;
+
+    /**
+     * @brief Returns the ratio of the weights of the two diagrams, i.e. this->value()/other.value()
+     * 
+     * @return double 
+     */
+    double operator/(const Diagram_core & other) const;
+
+    /**
+     * @brief Returns the value ("weight") of the current diagram
+     * 
+     * @return double 
+     */
+    double value() const;
+
+    /**
+     * @brief Get the order of the diagram (number of _vertices)
+     * 
+     * @return size_t 
+     */
+    size_t order() const; 
+
+    /**
+     * @brief Get the value of _beta (length of the diagram)
+     * 
+     * @return double (>0)
+     */
+    double get_beta() const;
+
+    /**
+     * @brief Get the value of the spin of the first segment of the diagram
+     * 
+     * @return int (+1 or -1)
+     */
+    int get_s0() const;
+
+    /**
+     * @brief Get the value of the longitudinal field _H
+     * 
+     * @return double 
+     */
+    double get_H() const;
+
+    /**
+     * @brief Get the value of the transverse field _GAMMA
+     * 
+     * @return double 
+     */
+    double get_GAMMA() const;
+
+    /**
+     * @brief Get a copy of the list of _vertices
+     * 
+     * @return std::list<double> 
+     */
+    std::list<double> get_vertices() const;
+
 
     /**
      * @brief Returns the acceptance rate for the ADD_SEGMENT update for the given parameters
@@ -61,7 +136,7 @@ class Diagram_core
     /**
      * @brief Returns the acceptance rate for the SPIN_FLIP update for the given parameter
      * 
-     * @param sum_deltatau alternate sign sum of the vertices (... +t4-t3 + t2-t1)
+     * @param sum_deltatau alternate sign sum of the _vertices (... +t4-t3 + t2-t1)
      * @return double 
      */
     double acceptance_rate_flip(double sum_deltatau) const;
@@ -100,14 +175,6 @@ class Diagram_core
     bool attempt_spin_flip(double RNacc);
 
 
-    protected:
-
-    double beta;                 ///< length of the diagram. Must be > 0.
-    int s0;                      ///< spin of the first segment of the diagram. Must be +1 or -1
-    double H;                    ///< value of the longitudinal component of magnetic field
-    double GAMMA;                ///< value of the transversal component of magnetic field
-    std::list<double> vertices;  ///< list containing the times of the diagram vertices
-
 };
 
 
@@ -119,66 +186,32 @@ class Diagram_core
  */
 class Diagram: public Diagram_core
 {
+
+    private:
+        std::uniform_real_distribution<double> _uniform_dist; ///< uniform distribution for random number generation
+        std::mt19937 _mt_generator;                           //Mersenne-Twister random number generator
+
+
     public:
 
     /**
-     * @brief Construct a new Diagram object, setting its defining parameters. The list of vertices is optional: 
-     * by default it is the empty list, corresponding to the 0-th order diagram [0]-------[beta].
+     * @brief Construct a new Diagram object, setting its defining parameters. The list of _vertices is optional: 
+     * by default it is the empty list, corresponding to the 0-th order diagram [0]-------[_beta].
      * Optionally, a seed for the Mersenne-Twister random number generator can be explicitly set.
      * 
      * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
      * @param s0         Spin of the first segment of the diagram. Must be +1 or -1.
      * @param H          Value of the longitudinal component of magnetic field
      * @param GAMMA      Value of the transversal component of magnetic field
-     * @param vertices   (optional) List containing the times of diagram vertices, with t1<t2<t3... (they need to be already sorted)
+     * @param vertices   (optional) List containing the times of diagram _vertices, with t1<t2<t3... (they need to be already sorted)
      * @param seed       (optional) Seed to initialize the random number generator
      */
     Diagram(double beta, int s0, double H, double GAMMA, 
-        std::list<double> vertices=std::list<double>(), 
+        std::list<double> _vertices=std::list<double>(), 
         unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count());
 
-
-    /**
-     * @brief Get the value of beta (length of the diagram)
-     * 
-     * @return double (>0)
-     */
-    double get_beta() const;
-
-    /**
-     * @brief Get the value of the spin of the first segment of the diagram
-     * 
-     * @return int (+1 or -1)
-     */
-    int get_s0() const;
-
-    /**
-     * @brief Get the value of the longitudinal field H
-     * 
-     * @return double 
-     */
-    double get_H() const;
-
-    /**
-     * @brief Get the value of the transverse field GAMMA
-     * 
-     * @return double 
-     */
-    double get_GAMMA() const;
-
-    /**
-     * @brief Get a copy of the list of vertices
-     * 
-     * @return std::list<double> 
-     */
-    std::list<double> get_vertices() const;
-
-    /**
-     * @brief Get the order of the diagram (number of vertices)
-     * 
-     * @return size_t 
-     */
-    size_t order() const; 
+    using Diagram_core::operator/ ;
+    using Diagram_core::operator== ;
 
 
     /**
@@ -208,19 +241,15 @@ class Diagram: public Diagram_core
     /**
      * @brief Reset all diagram parameters with the new values.
      * 
-     * @param _beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
-     * @param _s0         Spin of the first segment of the diagram. Must be +1 or -1.
-     * @param _H          Value of the longitudinal component of magnetic field
-     * @param _GAMMA      Value of the transversal component of magnetic field
-     * @param _vertices   (optional) List containing the times of diagram vertices, with t1<t2<t3... (they need to be already sorted)
-     * @param _seed       (optional) Seed to initialize the random number generator
+     * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
+     * @param s0         Spin of the first segment of the diagram. Must be +1 or -1.
+     * @param H          Value of the longitudinal component of magnetic field
+     * @param GAMMA      Value of the transversal component of magnetic field
+     * @param vertices   (optional) List containing the times of diagram _vertices, with t1<t2<t3... < _beta (they need to be already sorted)
+     * @param seed       (optional) Seed to initialize the random number generator
      */
-    void reset_diagram(double _beta, int _s0, double _H, double _GAMMA, 
-        std::list<double> _vertices=std::list<double>(), 
-        unsigned int _seed = std::chrono::system_clock::now().time_since_epoch().count());
-
-    private:
-        std::uniform_real_distribution<double> uniform_dist; ///< uniform distribution for random number generation
-        std::mt19937 mt_generator;                           //Mersenne-Twister random number generator
+    void reset_diagram(double beta, int s0, double H, double GAMMA, 
+        std::list<double> vertices=std::list<double>(), 
+        unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count());
 
 };
