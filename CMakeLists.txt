@@ -15,15 +15,16 @@ include(CTest)
 
 
 #Add library with functions
-add_library(functions src/functions.cpp)
-target_include_directories(functions PUBLIC include)
-
 add_library(diagram src/diagram.cpp)
 target_include_directories(diagram PUBLIC include)
 
+add_library(simulation src/simulation.cpp)
+target_include_directories(simulation PUBLIC include)
+
+
 #Add main program executable
 add_executable(2level.out src/main.cpp)
-target_link_libraries(2level.out functions diagram)
+target_link_libraries(2level.out simulation diagram)
 
 #Add tests
 if (BUILD_TESTING)

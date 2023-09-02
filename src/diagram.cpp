@@ -10,6 +10,7 @@
 #include <stdexcept>
 #include <string>
 #include <random>
+#include <chrono>
 #include <limits>
 #include <cmath>
 #include <algorithm>
@@ -79,7 +80,7 @@ double Diagram_core::operator/(const Diagram_core &other) const
     return this->value()/other.value();
 }
 
-double Diagram_core::value() const
+double Diagram_core::sum_deltatau() const
 {
     //sum (... +t4-t3 + t2-t1)
     double sum_deltatau = 0;
@@ -89,8 +90,15 @@ double Diagram_core::value() const
         ++it;
         sum_deltatau += *it;  //+t2
         ++it;
-    }              
-    double val = std::pow(_GAMMA, order()) * std::exp(_H * _s0 *( -_beta + 2*sum_deltatau));
+    } 
+
+    return sum_deltatau;
+}
+
+double Diagram_core::value() const
+{
+             
+    double val = std::pow(_GAMMA, order()) * std::exp(_H * _s0 *( -_beta + 2*sum_deltatau()));
 
     return val;
 }

@@ -62,6 +62,14 @@ class Diagram_core
     double operator/(const Diagram_core & other) const;
 
     /**
+     * @brief Small helper function, performing the sum (... +t4-t3 + t2-t1)
+     * 
+     * @return double 
+     */
+    double sum_deltatau() const;
+
+
+    /**
      * @brief Returns the value ("weight") of the current diagram
      * 
      * @return double 
