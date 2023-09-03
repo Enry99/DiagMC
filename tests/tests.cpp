@@ -48,9 +48,9 @@ TEST(TestDiagram_core, constructor_throws_for_invalid_spin)
  * WHEN: they are provided as parameters to Diagram_core's class constructor
  * THEN: a std::invalid_argument exception is thrown
  */
-TEST(TestDiagram_core, constructor_throws_for_invalid_H_GAMMA_bothzero)
+TEST(TestDiagram_core, constructor_throws_for_invalid_GAMMA)
 {
-    EXPECT_THROW( Diagram_core(1, 1, 0, 0) , std::invalid_argument );
+    EXPECT_THROW( Diagram_core(1, 1, 1, 0) , std::invalid_argument );
 }
 
 
@@ -136,10 +136,10 @@ TEST(TestDiagram, reset_diagram_throws_for_invalid_spin_argument)
  * WHEN: they are provided as parameters to the reset_diagram method of Diagram class
  * THEN: a std::invalid_argument exception is thrown
  */
-TEST(TestDiagram, reset_diagram_throws_for_invalid_H_GAMMA_bothzero)
+TEST(TestDiagram, reset_diagram_throws_for_invalid_GAMMA)
 {
     Diagram diag(1,1,1,1);
-    EXPECT_THROW( diag.reset_diagram(1, 1, 0, 0) , std::invalid_argument );
+    EXPECT_THROW( diag.reset_diagram(1, 1, 1, 0) , std::invalid_argument );
 }
 
 

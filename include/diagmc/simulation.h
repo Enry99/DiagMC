@@ -59,7 +59,7 @@ class SingleRunResults
      * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
      * @param s0         Spin of the first segment of the diagram. Must be +1 or -1.
      * @param H          Value of the longitudinal component of magnetic field
-     * @param GAMMA      Value of the transversal component of magnetic field
+     * @param GAMMA      Value of the transversal component of magnetic field. Must be != 0.
      * @param N_total_steps Total number of steps of the MCMC algorithm
      * @param N_thermalization_steps  Number of initial steps for which statistics is not collected
      * @param update_choice_seed  Seed for the Mersenne-Twister random number generator to choose WHICH update to attempt
@@ -111,7 +111,7 @@ class SingleRunResults
  * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
  * @param s0         Spin of the first segment of the diagram. Must be +1 or -1.
  * @param H          Value of the longitudinal component of magnetic field
- * @param GAMMA      Value of the transversal component of magnetic field
+ * @param GAMMA      Value of the transversal component of magnetic field. Must be != 0.
  * @param N_total_steps Total number of steps of the MCMC algorithm
  * @param N_thermalization_steps  Number of initial steps for which statistics is not collected
  * @param update_choice_seed  (optional) Seed for the Mersenne-Twister random number generator to choose WHICH update to attempt.

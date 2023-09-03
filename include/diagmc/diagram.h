@@ -28,20 +28,20 @@ class Diagram_core
     double _beta;                 ///< length of the diagram. Must be > 0.
     int _s0;                      ///< spin of the first segment of the diagram. Must be +1 or -1
     double _H;                    ///< value of the longitudinal component of magnetic field
-    double _GAMMA;                ///< value of the transversal component of magnetic field
-    std::list<double> _vertices;  ///< list containing the times of the diagram _vertices
+    double _GAMMA;                ///< Value of the transversal component of magnetic field. Must be != 0.
+    std::list<double> _vertices;  ///< list containing the times of the diagram vertices
 
 
     public:
 
     /**
-     * @brief Construct a new diagram, setting its defining parameters. The list of _vertices is optional: 
-     * by default it is the 0-th order diagram [0]-------[_beta]
+     * @brief Construct a new diagram, setting its defining parameters. The list of vertices is optional: 
+     * by default it is the 0-th order diagram [0]-------[beta]
      * 
      * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
      * @param s0         Spin of the first segment of the diagram. Must be +1 or -1.
      * @param H          Value of the longitudinal component of magnetic field
-     * @param GAMMA      Value of the transversal component of magnetic field
+     * @param GAMMA      Value of the transversal component of magnetic field. Must be != 0.
      * @param vertices   (optional) List containing the times of diagram _vertices, with t1<t2<t3... < _beta (they need to be already sorted)
      */
     Diagram_core(double beta, int s0, double H, double GAMMA, std::list<double> vertices=std::list<double>() );
@@ -203,14 +203,14 @@ class Diagram: public Diagram_core
     public:
 
     /**
-     * @brief Construct a new Diagram object, setting its defining parameters. The list of _vertices is optional: 
-     * by default it is the empty list, corresponding to the 0-th order diagram [0]-------[_beta].
+     * @brief Construct a new Diagram object, setting its defining parameters. The list of vertices is optional: 
+     * by default it is the empty list, corresponding to the 0-th order diagram [0]-------[beta].
      * Optionally, a seed for the Mersenne-Twister random number generator can be explicitly set.
      * 
      * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
      * @param s0         Spin of the first segment of the diagram. Must be +1 or -1.
      * @param H          Value of the longitudinal component of magnetic field
-     * @param GAMMA      Value of the transversal component of magnetic field
+     * @param GAMMA      Value of the transversal component of magnetic field. Must be != 0.
      * @param vertices   (optional) List containing the times of diagram _vertices, with t1<t2<t3... (they need to be already sorted)
      * @param seed       (optional) Seed to initialize the random number generator
      */
@@ -252,7 +252,7 @@ class Diagram: public Diagram_core
      * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
      * @param s0         Spin of the first segment of the diagram. Must be +1 or -1.
      * @param H          Value of the longitudinal component of magnetic field
-     * @param GAMMA      Value of the transversal component of magnetic field
+     * @param GAMMA      Value of the transversal component of magnetic field. Must be != 0.
      * @param vertices   (optional) List containing the times of diagram _vertices, with t1<t2<t3... < _beta (they need to be already sorted)
      * @param seed       (optional) Seed to initialize the random number generator
      */

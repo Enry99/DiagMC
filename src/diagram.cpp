@@ -38,10 +38,10 @@ Diagram_core::Diagram_core(double beta, int s0, double H, double GAMMA, std::lis
             );
     }
     
-    if(std::abs(H) < std::numeric_limits<double>::epsilon() && std::abs(GAMMA) < std::numeric_limits<double>::epsilon() ) 
+    if(std::abs(GAMMA) < std::numeric_limits<double>::epsilon() ) 
     {
         throw std::invalid_argument( 
-            std::string("H and GAMMA cannot both be 0.")
+            std::string("GAMMA must be different from 0.")
             ); 
     }
 
@@ -266,7 +266,7 @@ void Diagram::reset_diagram(double beta, int s0, double H, double GAMMA, std::li
     if(! (beta > 0)) 
     {
         throw std::invalid_argument( 
-            std::string("_beta must be > 0, but ") 
+            std::string("beta must be > 0, but ") 
             + std::to_string(beta) + std::string(" was provided.") 
             );
     }    
@@ -282,7 +282,7 @@ void Diagram::reset_diagram(double beta, int s0, double H, double GAMMA, std::li
     if(std::abs(H) < std::numeric_limits<double>::epsilon() && std::abs(GAMMA) < std::numeric_limits<double>::epsilon() ) 
     {
         throw std::invalid_argument( 
-            std::string("_H and _GAMMA cannot both be 0.")
+            std::string("GAMMA must be different from 0.")
             ); 
     }
 
@@ -296,7 +296,7 @@ void Diagram::reset_diagram(double beta, int s0, double H, double GAMMA, std::li
 
     for(auto v : vertices)
     {
-        if (v > beta) throw std::invalid_argument("The _vertices list contains values > _beta."); 
+        if (v > beta) throw std::invalid_argument("The vertices list contains values > beta."); 
     }
     
 
