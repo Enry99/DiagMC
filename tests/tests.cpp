@@ -855,7 +855,8 @@ TEST(TestDiagram_core, attempt_remove_segment_always_rejects_for_zero_order)
 /*
 
 TEST: 
--Controllo sia su value() che su acceptance_rate() con valori numerici calcolati "a mano"
+-Controllo sia su value() che sui 3 acceptance_rate() con valori numerici calcolati "a mano"
+-Test per sum_deltatau
 -Insead of checking for equality of the diagrams, should I check float equality of their values?
 
 */

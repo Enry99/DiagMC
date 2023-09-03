@@ -1,18 +1,16 @@
 #include <iostream>
-#include <diagmc/simulation.h>
-#include <diagmc/diagram.h>
+#include <diagmc/setup.h>
 
 
 
 int main(int argc, char** argv)
 {
 
-	std::cout<<"Esecuzione del programma principale:\n";
+	std::cout<<"Diagrammatic Monte Carlo code for a two level spin sistem in a magnetic field.\n\n";
 
 
-	SingleRunResults res = run_simulation(1,1,1,1,50'000'000, 1'000'000);
 
-	res.print_results();
+	launch_calculations(argc == 2 ? argv[1] : "settings.json");
 
 
 	#ifdef _WIN32

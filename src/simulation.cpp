@@ -1,7 +1,15 @@
+/**
+ * @file simulation.cpp
+ * @brief Definition of the MCMC algorithm function, and of the SingleRunResults class that stores the results
+ * @author Enrico Pedretti
+ * @date 2023-09-03
+ */
+
 #include <diagmc/simulation.h>
 #include <diagmc/diagram.h>
 #include <chrono>
 #include <iostream>
+#include <format>
 
 
 SingleRunResults::SingleRunResults(
@@ -19,10 +27,56 @@ SingleRunResults::SingleRunResults(
       diagram_seed(diagram_seed) { }
 
 
-std::ostream &operator<<(std::ostream &os, const SingleRunResults &results)
+std::string SingleRunResults::ostream_output_header()
 {
-    // TODO: inserire l'istruzione return qui
-    return os;
+    return std::format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}\n", 
+        "beta", 
+        "s0", 
+        "H", 
+        "GAMMA",
+        "measured_sigmax",
+        "measured_sigmaz",
+        "N_measures",
+        "N_attempted_flips",
+        "N_accepted_flips" ,
+        "N_attempted_addsegment",
+        "N_accepted_addsegment",
+        "N_attempted_removesegment",
+        "N_accepted_removesegment",
+        "max_diagram_order",
+        "avg_diagram_order",
+        "run_time",
+        "N_total_steps", 
+        "N_thermalization_steps", 
+        "update_choice_seed", 
+        "diagram_seed" 
+        );
+}
+
+std::ostream & operator<<(std::ostream &os, const SingleRunResults &results)
+{
+    return os << std::format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}", 
+            results.beta, 
+            results.s0, 
+            results.H, 
+            results.GAMMA,
+            results.measured_sigmax,
+            results.measured_sigmaz,
+            results.N_measures,
+            results.N_attempted_flips,
+            results.N_accepted_flips ,
+            results.N_attempted_addsegment,
+            results.N_accepted_addsegment,
+            results.N_attempted_removesegment,
+            results.N_accepted_removesegment,
+            results.max_diagram_order,
+            results.avg_diagram_order,
+            results.run_time,
+            results.N_total_steps, 
+            results.N_thermalization_steps, 
+            results.update_choice_seed, 
+            results.diagram_seed    
+        ) << std::endl;
 }
 
 
@@ -33,6 +87,8 @@ void SingleRunResults::print_results() const
     double E = sqrt(H * H + GAMMA * GAMMA);
     double mz_exact = -H / E * tanh(beta * E);
     double mx_exact = -GAMMA / E * tanh(beta * E);
+
+    std::cout << "\nResults:\n\n";
 
     std::cout << "Parameters:\n";
     std::cout << "beta  : " << beta << '\n';

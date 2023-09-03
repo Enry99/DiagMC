@@ -1,9 +1,23 @@
+/**
+ * @file simulation.h
+ * @brief Header file of the MCMC algorithm function, and of the SingleRunResults class that stores the results
+ * @author Enrico Pedretti
+ * @date 2023-09-03
+ */
+
+#pragma once
+
 #include <diagmc/diagram.h>
 #include <ostream>
 #include <chrono>
 
-#pragma once
 
+/**
+ * @brief Container class to store all the simulation parameters, and the results of a run.
+ * It provides methods to print the results on standard output, and also to produce a 
+ * formatted single-line output, e.g. for writing to file
+ * 
+ */
 class SingleRunResults 
 {
 
@@ -68,6 +82,14 @@ class SingleRunResults
      * 
      */
     void print_results() const;
+
+
+    /**
+     * @brief Returns a line containing the titles of the columns of the output file
+     * 
+     * @return std::string 
+     */
+    static std::string ostream_output_header();
 
 
     /**

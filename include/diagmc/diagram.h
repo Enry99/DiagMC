@@ -6,6 +6,7 @@
  */
 
 #pragma once
+
 #include <list>
 #include <random>
 #include <chrono>
@@ -144,10 +145,9 @@ class Diagram_core
     /**
      * @brief Returns the acceptance rate for the SPIN_FLIP update for the given parameter
      * 
-     * @param sum_deltatau alternate sign sum of the _vertices (... +t4-t3 + t2-t1)
      * @return double 
      */
-    double acceptance_rate_flip(double sum_deltatau) const;
+    double acceptance_rate_flip() const;
 
     /**
      * @brief Attemps the ADD_SEGMENT update for the current status of the diagram, 
@@ -219,7 +219,7 @@ class Diagram: public Diagram_core
         unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count());
 
     using Diagram_core::operator/ ;
-    using Diagram_core::operator== ;
+    //using Diagram_core::operator== ;
 
 
     /**

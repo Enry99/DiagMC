@@ -117,8 +117,8 @@ double Diagram_core::acceptance_rate_remove(double tau1, double tau2, double tau
     return std::exp(2 * _H * segment_toberemoved_spin * (tau2-tau1)) * (_vertices.size() - 1) / ( _GAMMA*_GAMMA * _beta * (tau2max-tau1) );
 }
 
-double Diagram_core::acceptance_rate_flip(double sum_deltatau) const {
-    return std::exp(2*_H*_s0*(_beta - 2 *sum_deltatau));
+double Diagram_core::acceptance_rate_flip() const {
+    return std::exp(2*_H*_s0*(_beta - 2 * sum_deltatau()));
 }
 
 
@@ -203,18 +203,8 @@ bool Diagram_core::attempt_remove_segment(double RN1, double RNacc) {
 
 bool Diagram_core::attempt_spin_flip(double RNacc) {
 
-    //sum (... +t4-t3 + t2-t1)
-    double sum_deltatau = 0;
-    for (auto it = _vertices.begin(); it != _vertices.end();)
-    {
-        sum_deltatau -= *it;  //-t1
-        ++it;
-        sum_deltatau += *it;  //+t2
-        ++it;
-    }      
-
     //attempt update, flipping spins of all diagram if accepted (and returning true); doing nothing (and returning false) if rejected         
-    if (RNacc < acceptance_rate_flip(sum_deltatau))
+    if (RNacc < acceptance_rate_flip())
     {
         _s0 *= -1;
         return true;
