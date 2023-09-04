@@ -1,0 +1,11 @@
+{
+    "CALC_TYPE" : "single",
+
+    "beta" : 1,
+    "s0" : 1,
+    "H" : 1,
+    "GAMMA" : 1,
+    "N_total_steps" : 50000000,
+    "N_thermalization_steps" : 1000000
+
+}
