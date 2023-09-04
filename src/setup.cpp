@@ -63,19 +63,19 @@ std::vector<double> log_range_generator(const json & settings, std::string which
     
     std::vector<double> range_vector;
 
-    if (settings.contains(which+"_min") && settings.contains(which+"_max") && settings.contains(which+"_steps_per_decade"))
+    if (settings.contains(which+"_min") && settings.contains(which+"_max") && settings.contains(which+"_points_per_decade"))
     {
         double min_value = settings[which+"_min"];
         double max_value = settings[which+"_max"];
-        double steps_per_decade = settings[which+"_steps_per_decade"];
+        double points_per_decade = settings[which+"_points_per_decade"];
 
         double logmin = std::log10(min_value);
         double logmax = std::log10(max_value);
-        double logrange = logmax - logmin;
-        double logstep = logrange / steps_per_decade;
+        double number_of_decades = logmax - logmin; //
+        double logstep = 1. / points_per_decade; //distance between two subsequent points in logscale
         
-        for (int n = 0; n < steps_per_decade * logrange; ++n)
-            range_vector.push_back(std::exp(logmin + n * logstep));
+        for (int n = 0; n <= number_of_decades / logstep; ++n)
+            range_vector.push_back(std::pow(10, logmin + n * logstep)); //go back to linear scale
     }
     else if (settings.contains(which))
     {
@@ -83,7 +83,7 @@ std::vector<double> log_range_generator(const json & settings, std::string which
     }
     else
     {
-        std::cerr << "Error: missing " << which << " in settings.json. "<< std::endl;
+        std::cerr << "Error: incorrect/missing " << which << " in settings.json. "<< std::endl;
         exit(EXIT_FAILURE);        
     }
 
@@ -98,7 +98,7 @@ void print_progress_bar(double progress)
 
     int pos = barWidth * progress;
     for (int i = 0; i < barWidth; ++i) {
-        if (i <= pos) std::cout << "|"; //full char if inside completed part
+        if (i <= pos) std::cout << "="; //full char if inside completed part
         else std::cout << " "; //empty char for the non-completed portion
     }
     std::cout << "] " << int(progress * 100.0) << "%\r"; //carriage return to overwrite line
@@ -276,7 +276,7 @@ void convergence_test(const json & settings)
     unsigned long long int diagram_seed = settings.contains("diagram_seed") ? int(settings["diagram_seed"]) : std::chrono::system_clock::now().time_since_epoch().count();
 
     std::ofstream output_file_stream(static_cast<std::string>(settings["output_file"]));
-
+    output_file_stream << SingleRunResults::ostream_output_header();
 
     std::cout<<"Running convergence test...\n";
 
@@ -298,7 +298,8 @@ void convergence_test(const json & settings)
             );
             output_file_stream << results;
             
-            print_progress_bar(current_run/total_number_of_runs);
+            ++current_run;
+            print_progress_bar( (double) current_run/total_number_of_runs);
 
         }
     }

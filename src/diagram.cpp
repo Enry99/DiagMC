@@ -279,7 +279,7 @@ void Diagram::reset_diagram(double beta, int s0, double H, double GAMMA, std::li
             );
     }
    
-    if(std::abs(H) < std::numeric_limits<double>::epsilon() && std::abs(GAMMA) < std::numeric_limits<double>::epsilon() ) 
+    if(std::abs(GAMMA) < std::numeric_limits<double>::epsilon() ) 
     {
         throw std::invalid_argument( 
             std::string("GAMMA must be different from 0.")
