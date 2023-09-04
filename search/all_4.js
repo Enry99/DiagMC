@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['max_5fdiagram_5forder_0',['max_diagram_order',['../classSingleRunResults.html#a2894df8e5433a205192ad8e6936f1df0',1,'SingleRunResults']]],
-  ['measured_5fsigmax_1',['measured_sigmax',['../classSingleRunResults.html#a64ee3d5735c92ec5e61ac5715058636b',1,'SingleRunResults']]],
-  ['measured_5fsigmaz_2',['measured_sigmaz',['../classSingleRunResults.html#aed8874f9e03a16c69ecccc3fabc02bbe',1,'SingleRunResults']]]
+  ['get_5fbeta_0',['get_beta',['../classDiagram__core.html#a7b726b6313904a5853fff2b6d997f1e5',1,'Diagram_core']]],
+  ['get_5fgamma_1',['get_GAMMA',['../classDiagram__core.html#a4d8108bdb1f11ddc661060a758aca137',1,'Diagram_core']]],
+  ['get_5fh_2',['get_H',['../classDiagram__core.html#a632884423a23dfb018b78465362a3cf9',1,'Diagram_core']]],
+  ['get_5fs0_3',['get_s0',['../classDiagram__core.html#a3a2ee71c170e8ac0f488ca9c6283ba49',1,'Diagram_core']]],
+  ['get_5fvertices_4',['get_vertices',['../classDiagram__core.html#a49563cf293423982c1c2f3ad8a04c5e0',1,'Diagram_core']]]
 ];

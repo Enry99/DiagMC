@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['reset_5fdiagram_0',['reset_diagram',['../classDiagram.html#adfcf825aea6bfe7aeaecb2f5e7197264',1,'Diagram']]],
-  ['run_5fsimulation_1',['run_simulation',['../simulation_8h.html#ae0d9c1c11b6af63dca28c830ae96f0b6',1,'simulation.h']]],
-  ['run_5ftime_2',['run_time',['../classSingleRunResults.html#a341ccc5212199d108fe734388783aedb',1,'SingleRunResults']]]
+  ['operator_2f_0',['operator/',['../classDiagram__core.html#a148caefd3fb39abe311c6d42a6e0a8f5',1,'Diagram_core::operator/()'],['../classDiagram.html#a148caefd3fb39abe311c6d42a6e0a8f5',1,'Diagram::operator/()']]],
+  ['operator_3c_3c_1',['operator&lt;&lt;',['../classSingleRunResults.html#ab5a84f76d01b7a83b7db6f656b99fadd',1,'SingleRunResults']]],
+  ['operator_3d_3d_2',['operator==',['../classDiagram__core.html#aa8dd175c90e15c42ed4e823e540f6e8e',1,'Diagram_core']]],
+  ['order_3',['order',['../classDiagram__core.html#a74892a732b9414cefef74b0eea4b73bf',1,'Diagram_core']]],
+  ['ostream_5foutput_5fheader_4',['ostream_output_header',['../classSingleRunResults.html#a3ff3e7516326a312da78df6bf39bbdfe',1,'SingleRunResults']]]
 ];

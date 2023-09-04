@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['print_5fresults_0',['print_results',['../classSingleRunResults.html#a600328d00c196b540fa4410ef1fc2900',1,'SingleRunResults']]]
+  ['launch_5fcalculations_0',['launch_calculations',['../setup_8h.html#ad25d54ac505ccfded1d15d2c4f32b0e9',1,'setup.h']]],
+  ['log_5frange_5fgenerator_1',['log_range_generator',['../setup_8h.html#af378b8795b1128b418e0cc0f8a9ace47',1,'setup.h']]]
 ];

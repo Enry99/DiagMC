@@ -77,30 +77,47 @@ $(function() {
   <div class="headertitle"><div class="title">setup.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="setup_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using </span>json = nlohmann::json;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> check_required_keys_presence(<span class="keyword">const</span> json &amp;  settings, std::vector&lt;std::string&gt; list_of_keys);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>std::vector&lt;double&gt; range_generator(<span class="keyword">const</span> json &amp;  settings, std::string which);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>std::vector&lt;double&gt; log_range_generator(<span class="keyword">const</span> json &amp; settings, std::string which);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> print_progress_bar(<span class="keywordtype">double</span> progress);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>json read_settings(std::string = <span class="stringliteral">&quot;settings.json&quot;</span>);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="setup_8h.html#afdb49f49e6c7333504542da5638c939a">   21</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="setup_8h.html#afdb49f49e6c7333504542da5638c939a">check_required_keys_presence</a>(<span class="keyword">const</span> json &amp;  settings, std::vector&lt;std::string&gt; list_of_keys);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> single_run(<span class="keyword">const</span> json &amp;);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> sweep(<span class="keyword">const</span> json &amp;);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> convergence_test(<span class="keyword">const</span> json &amp;);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> launch_calculations(std::string settings_filename);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="setup_8h.html#a369b6fa41d7afdb0e0ab6a9be510e1c2">   35</a></span>std::vector&lt;double&gt; <a class="code hl_function" href="setup_8h.html#a369b6fa41d7afdb0e0ab6a9be510e1c2">range_generator</a>(<span class="keyword">const</span> json &amp;  settings, std::string which);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="setup_8h.html#af378b8795b1128b418e0cc0f8a9ace47">   49</a></span>std::vector&lt;double&gt; <a class="code hl_function" href="setup_8h.html#af378b8795b1128b418e0cc0f8a9ace47">log_range_generator</a>(<span class="keyword">const</span> json &amp; settings, std::string which);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="setup_8h.html#a506b8ab5d5070bea3064cfcbfa31a4fc">   57</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="setup_8h.html#a506b8ab5d5070bea3064cfcbfa31a4fc">print_progress_bar</a>(<span class="keywordtype">double</span> progress);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="setup_8h.html#a9691f2f45fc64000be23fa46d3e6ef4f">   68</a></span>json <a class="code hl_function" href="setup_8h.html#a9691f2f45fc64000be23fa46d3e6ef4f">read_settings</a>(std::string filename = <span class="stringliteral">&quot;settings.json&quot;</span>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="setup_8h.html#abe0a2ac4ac19c9f3a943aae1793d5989">   77</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="setup_8h.html#abe0a2ac4ac19c9f3a943aae1793d5989">single_run</a>(<span class="keyword">const</span> json &amp; settings);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="setup_8h.html#a3c2ad19be477867d5f9bf10a38802a49">   89</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="setup_8h.html#a3c2ad19be477867d5f9bf10a38802a49">sweep</a>(<span class="keyword">const</span> json &amp; settings);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="setup_8h.html#a2666281b75172fa0af3157a04b697781">  101</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="setup_8h.html#a2666281b75172fa0af3157a04b697781">convergence_test</a>(<span class="keyword">const</span> json &amp; settings);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="setup_8h.html#ad25d54ac505ccfded1d15d2c4f32b0e9">  109</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="setup_8h.html#ad25d54ac505ccfded1d15d2c4f32b0e9">launch_calculations</a>(std::string settings_filename);</div>
+<div class="ttc" id="asetup_8h_html_a2666281b75172fa0af3157a04b697781"><div class="ttname"><a href="setup_8h.html#a2666281b75172fa0af3157a04b697781">convergence_test</a></div><div class="ttdeci">void convergence_test(const json &amp;settings)</div><div class="ttdoc">Perform a convergence test on the number of steps for the MCMC algorithm, by performing multiple runs...</div></div>
+<div class="ttc" id="asetup_8h_html_a369b6fa41d7afdb0e0ab6a9be510e1c2"><div class="ttname"><a href="setup_8h.html#a369b6fa41d7afdb0e0ab6a9be510e1c2">range_generator</a></div><div class="ttdeci">std::vector&lt; double &gt; range_generator(const json &amp;settings, std::string which)</div><div class="ttdoc">If &quot;which&quot;_min, &quot;which&quot;_max and &quot;which&quot;_step parameter are present in settings, returns a vector of l...</div></div>
+<div class="ttc" id="asetup_8h_html_a3c2ad19be477867d5f9bf10a38802a49"><div class="ttname"><a href="setup_8h.html#a3c2ad19be477867d5f9bf10a38802a49">sweep</a></div><div class="ttdeci">void sweep(const json &amp;settings)</div><div class="ttdoc">Perform multiple runs for different values of the beta, H and GAMMA parameters, sweeping the range be...</div></div>
+<div class="ttc" id="asetup_8h_html_a506b8ab5d5070bea3064cfcbfa31a4fc"><div class="ttname"><a href="setup_8h.html#a506b8ab5d5070bea3064cfcbfa31a4fc">print_progress_bar</a></div><div class="ttdeci">void print_progress_bar(double progress)</div><div class="ttdoc">Prints a progress bar on standard output.</div></div>
+<div class="ttc" id="asetup_8h_html_a9691f2f45fc64000be23fa46d3e6ef4f"><div class="ttname"><a href="setup_8h.html#a9691f2f45fc64000be23fa46d3e6ef4f">read_settings</a></div><div class="ttdeci">json read_settings(std::string filename=&quot;settings.json&quot;)</div><div class="ttdoc">Read settings for the simulation from json file, and returns them as a json dictionary-like object If...</div></div>
+<div class="ttc" id="asetup_8h_html_abe0a2ac4ac19c9f3a943aae1793d5989"><div class="ttname"><a href="setup_8h.html#abe0a2ac4ac19c9f3a943aae1793d5989">single_run</a></div><div class="ttdeci">void single_run(const json &amp;settings)</div><div class="ttdoc">Perform a single run for the given parameters in setting, printing a summary of the results on standa...</div></div>
+<div class="ttc" id="asetup_8h_html_ad25d54ac505ccfded1d15d2c4f32b0e9"><div class="ttname"><a href="setup_8h.html#ad25d54ac505ccfded1d15d2c4f32b0e9">launch_calculations</a></div><div class="ttdeci">void launch_calculations(std::string settings_filename)</div><div class="ttdoc">Call the read_settings function to read settings from file, and select which calculation to run.</div></div>
+<div class="ttc" id="asetup_8h_html_af378b8795b1128b418e0cc0f8a9ace47"><div class="ttname"><a href="setup_8h.html#af378b8795b1128b418e0cc0f8a9ace47">log_range_generator</a></div><div class="ttdeci">std::vector&lt; double &gt; log_range_generator(const json &amp;settings, std::string which)</div><div class="ttdoc">If &quot;which&quot;_min, &quot;which&quot;_max and &quot;which&quot;_points_per_decade parameter are present in settings,...</div></div>
+<div class="ttc" id="asetup_8h_html_afdb49f49e6c7333504542da5638c939a"><div class="ttname"><a href="setup_8h.html#afdb49f49e6c7333504542da5638c939a">check_required_keys_presence</a></div><div class="ttdeci">void check_required_keys_presence(const json &amp;settings, std::vector&lt; std::string &gt; list_of_keys)</div><div class="ttdoc">Check that all keys in list_of_keys are present in settings, otherwise terminate the program with EXI...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

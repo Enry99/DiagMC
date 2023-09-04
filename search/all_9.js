@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['simulation_2eh_0',['simulation.h',['../simulation_8h.html',1,'']]],
-  ['singlerunresults_1',['SingleRunResults',['../classSingleRunResults.html',1,'SingleRunResults'],['../classSingleRunResults.html#aab1e3d9ef0d7140ece8706f379a91f2e',1,'SingleRunResults::SingleRunResults()']]],
-  ['sum_5fdeltatau_2',['sum_deltatau',['../classDiagram__core.html#aba13d374579835ad2facb23c4c8391e0',1,'Diagram_core']]]
+  ['print_5fprogress_5fbar_0',['print_progress_bar',['../setup_8h.html#a506b8ab5d5070bea3064cfcbfa31a4fc',1,'setup.h']]],
+  ['print_5fresults_1',['print_results',['../classSingleRunResults.html#a600328d00c196b540fa4410ef1fc2900',1,'SingleRunResults']]]
 ];
