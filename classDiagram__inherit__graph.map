@@ -1,0 +1,4 @@
+<map id="Diagram" name="Diagram">
+<area shape="rect" id="node1" title="This is the main Diagram class, containing the variables defining the diagram &#45; inherited from Diagra..." alt="" coords="21,79,92,104"/>
+<area shape="rect" id="node2" href="$classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function..." alt="" coords="5,5,108,31"/>
+</map>

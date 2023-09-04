@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function..." alt="" coords="5,5,108,31"/>
+<area shape="rect" id="node2" href="$classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram &#45; inherited from Diagra..." alt="" coords="156,5,227,31"/>
+</map>

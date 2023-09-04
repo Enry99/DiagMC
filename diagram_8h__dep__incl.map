@@ -1,0 +1,5 @@
+<map id="include/diagmc/diagram.h" name="include/diagmc/diagram.h">
+<area shape="rect" id="node1" title="Header file for Diagram and Diagram_core classes." alt="" coords="96,5,265,31"/>
+<area shape="rect" id="node2" href="$simulation_8h.html" title="Header file of the MCMC algorithm function, and of the SingleRunResults class that stores the results..." alt="" coords="5,79,188,104"/>
+<area shape="rect" id="node3" href="$tests_8cpp.html" title="File with tests for Diagram and Diagram_core most relevant functions." alt="" coords="212,79,320,104"/>
+</map>
