@@ -14,7 +14,7 @@
 
 SingleRunResults::SingleRunResults(
         double beta, 
-        double s0, 
+        double initial_s0, 
         double H, 
         double GAMMA, 
         unsigned long long int N_total_steps, 
@@ -22,7 +22,7 @@ SingleRunResults::SingleRunResults(
         unsigned long long int update_choice_seed, 
         unsigned long long int diagram_seed
         )
-    : beta(beta), s0(s0), H(H), GAMMA(GAMMA), N_total_steps(N_total_steps), 
+    : beta(beta), initial_s0(initial_s0), H(H), GAMMA(GAMMA), N_total_steps(N_total_steps), 
       N_thermalization_steps(N_thermalization_steps), update_choice_seed(update_choice_seed), 
       diagram_seed(diagram_seed) { }
 
@@ -31,7 +31,7 @@ std::string SingleRunResults::ostream_output_header()
 {
     return 
         "beta,"
-        "s0,"
+        "initial_s0,"
         "H,"
         "GAMMA,"
         "measured_sigmax,"
@@ -56,7 +56,7 @@ std::ostream & operator<<(std::ostream &os, const SingleRunResults &results)
 {
     return os << 
             results.beta << ',' <<
-            results.s0 << ',' <<
+            results.initial_s0 << ',' <<
             results.H << ',' <<
             results.GAMMA << ',' <<
             results.measured_sigmax << ',' <<
@@ -115,7 +115,7 @@ void SingleRunResults::print_results() const
 
 SingleRunResults run_simulation(
     double beta, 
-    double s0, 
+    double initial_s0, 
     double H, 
     double GAMMA, 
     unsigned long long int N_total_steps, 
@@ -132,11 +132,11 @@ SingleRunResults run_simulation(
 
 
     //initialize diagram object, to be a 0-order diagram with the given parameters
-    Diagram diagram(beta, s0, H, GAMMA, {}, diagram_seed);
+    Diagram diagram(beta, initial_s0, H, GAMMA, {}, diagram_seed);
 
 
     //initialize results object, inserting the simulation parameters, and setting to 0 the statistics variables.
-    SingleRunResults results(beta, s0, H, GAMMA, N_total_steps, N_thermalization_steps, update_choice_seed, diagram_seed);
+    SingleRunResults results(beta, initial_s0, H, GAMMA, N_total_steps, N_thermalization_steps, update_choice_seed, diagram_seed);
 
 
     //define probabilities of choosing the updates. There is no need in principle for the user to 

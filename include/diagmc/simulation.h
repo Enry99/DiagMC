@@ -24,31 +24,31 @@ class SingleRunResults
     private:
 
     //parameters of the simulation
-    double beta;
-    double s0;
-    double H;
-    double GAMMA;
-    unsigned long long int N_total_steps;
-    unsigned long long int N_thermalization_steps;   
-    unsigned long long int update_choice_seed;
-    unsigned long long int diagram_seed; 
+    double beta;                                    ///< length of the diagram (here representing the thermondinamical $\beta$ = 1/T). Must be > 0.
+    double initial_s0;                                      ///< spin of the 0-th segment of the diagram [0---t1] at the beginning of the simulation. Must be +1 or -1
+    double H;                                       ///< value of the longitudinal component of magnetic field
+    double GAMMA;                                   ///< Value of the transversal component of magnetic field. Must be != 0.
+    unsigned long long int N_total_steps;           ///<Total number of steps of the MCMC algorithm
+    unsigned long long int N_thermalization_steps;  ///<Number of initial steps for which statistics is not collected
+    unsigned long long int update_choice_seed;      ///<Seed for the Mersenne-Twister random number generator to choose WHICH update to attempt
+    unsigned long long int diagram_seed;            ///<Seed for the diagram, used INSIDE the updates
 
 
     public:
  
     //variables to store the statistics of the simulation
-    unsigned long long int N_measures = 0;
-    unsigned long long int N_attempted_flips = 0;
-    unsigned long long int N_accepted_flips = 0;
-    unsigned long long int N_attempted_addsegment = 0;
-    unsigned long long int N_accepted_addsegment = 0;
-    unsigned long long int N_attempted_removesegment = 0;
-    unsigned long long int N_accepted_removesegment = 0;
-    unsigned long long int max_diagram_order = 0;
-    unsigned long long int avg_diagram_order = 0;
-    unsigned long long int run_time = 0;
-    double measured_sigmax = 0;
-    double measured_sigmaz = 0;
+    unsigned long long int N_measures = 0;                  ///< Number of samples (iterations) for which the magnetizations and diagram order statstics were collected
+    unsigned long long int N_attempted_flips = 0;           ///< Number of times the SPIN_FLIP update was attempted
+    unsigned long long int N_accepted_flips = 0;            ///< Number of times the SPIN_FLIP update was accepted
+    unsigned long long int N_attempted_addsegment = 0;      ///< Number of times the ADD_SEGMENT update was attempted
+    unsigned long long int N_accepted_addsegment = 0;       ///< Number of times the ADD_SEGMENT update was accepted
+    unsigned long long int N_attempted_removesegment = 0;   ///< Number of times the REMOVE_SEGMENT update was attempted
+    unsigned long long int N_accepted_removesegment = 0;    ///< Number of times the REMOVE_SEGMENT update was accepted
+    unsigned long long int max_diagram_order = 0;           ///< Maximum diagram order during the whole run
+    unsigned long long int avg_diagram_order = 0;           ///< Average diagram order during the whole run
+    unsigned long long int run_time = 0;                    ///< Execution time (in nanoseconds) for the Markov Chain loop (not the program run time)
+    double measured_sigmax = 0;                             ///< Final value of the magnetization along x calculated through the MCMC algorithm
+    double measured_sigmaz = 0;                             ///< Final value of the magnetization along z calculated through the MCMC algorithm
 
 
 
@@ -57,7 +57,7 @@ class SingleRunResults
      * and the statistics variables to 0.
      * 
      * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
-     * @param s0         Spin of the first segment of the diagram. Must be +1 or -1.
+     * @param initial_s0         Spin of the 0-th segment of the diagram [0---t1]. Must be +1 or -1.
      * @param H          Value of the longitudinal component of magnetic field
      * @param GAMMA      Value of the transversal component of magnetic field. Must be != 0.
      * @param N_total_steps Total number of steps of the MCMC algorithm
@@ -67,7 +67,7 @@ class SingleRunResults
      */
     SingleRunResults(
         double beta, 
-        double s0, 
+        double initial_s0, 
         double H, 
         double GAMMA, 
         unsigned long long int N_total_steps, 
@@ -109,7 +109,7 @@ class SingleRunResults
  * returning the results statistics
  * 
  * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
- * @param s0         Spin of the first segment of the diagram. Must be +1 or -1.
+ * @param initial_s0         Spin of the 0-th segment of the diagram [0---t1] at the beginning of the simulation. Must be +1 or -1
  * @param H          Value of the longitudinal component of magnetic field
  * @param GAMMA      Value of the transversal component of magnetic field. Must be != 0.
  * @param N_total_steps Total number of steps of the MCMC algorithm
@@ -120,7 +120,7 @@ class SingleRunResults
  */
 SingleRunResults run_simulation(
         double beta, 
-        double s0, 
+        double initial_s0, 
         double H, 
         double GAMMA,
         unsigned long long int N_total_steps, 
