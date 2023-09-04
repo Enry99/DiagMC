@@ -84,20 +84,25 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;gtest/gtest.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="diagram_8h_source.html">diagmc/diagram.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="simulation_8h_source.html">diagmc/simulation.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for tests.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="tests_8cpp__incl.png" border="0" usemap="#atests_2tests_8cpp" alt=""/></div>
 <map name="atests_2tests_8cpp" id="atests_2tests_8cpp">
-<area shape="rect" title="File with tests for Diagram and Diagram_core most relevant functions." alt="" coords="65,5,173,31"/>
+<area shape="rect" title="File with tests for Diagram and Diagram_core most relevant functions." alt="" coords="84,5,192,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,100,104"/>
-<area shape="rect" href="diagram_8h.html" title="Header file for Diagram and Diagram_core classes." alt="" coords="124,79,248,104"/>
-<area shape="rect" title=" " alt="" coords="91,152,129,177"/>
-<area shape="rect" title=" " alt="" coords="153,152,219,177"/>
-<area shape="rect" title=" " alt="" coords="243,152,305,177"/>
+<area shape="rect" href="diagram_8h.html" title="Header file for Diagram and Diagram_core classes." alt="" coords="79,152,203,177"/>
+<area shape="rect" href="simulation_8h.html" title="Header file of the MCMC algorithm function, and of the SingleRunResults class that stores the results..." alt="" coords="176,79,313,104"/>
+<area shape="rect" title=" " alt="" coords="49,225,88,251"/>
+<area shape="rect" title=" " alt="" coords="112,225,177,251"/>
+<area shape="rect" title=" " alt="" coords="207,225,269,251"/>
+<area shape="rect" title=" " alt="" coords="278,152,347,177"/>
 </map>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="tests_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a504eb80ab41ac818f9d8577b82601d9b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8cpp.html#a504eb80ab41ac818f9d8577b82601d9b">TEST</a> (TestDiagram_core, constructor_throws_for_invalid_beta)</td></tr>
@@ -140,6 +145,24 @@ Functions</h2></td></tr>
 <tr class="memitem:a30e0a387c20ad820725829c6adff0b70"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8cpp.html#a30e0a387c20ad820725829c6adff0b70">TEST</a> (TestDiagram, reset_diagram_sets_correct_values)</td></tr>
 <tr class="memdesc:a30e0a387c20ad820725829c6adff0b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">This test checks that the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class stores correctly the new parameters in the class variables.  <a href="tests_8cpp.html#a30e0a387c20ad820725829c6adff0b70">More...</a><br /></td></tr>
 <tr class="separator:a30e0a387c20ad820725829c6adff0b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6935d8c036db49f54afca96d0857c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8cpp.html#a5f6935d8c036db49f54afca96d0857c8">TEST</a> (TestDiagram_core, sum_deltatau_returns_correct_value)</td></tr>
+<tr class="memdesc:a5f6935d8c036db49f54afca96d0857c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This test checks that the sum_deltatau method of Diagrm_core class works as expected.  <a href="tests_8cpp.html#a5f6935d8c036db49f54afca96d0857c8">More...</a><br /></td></tr>
+<tr class="separator:a5f6935d8c036db49f54afca96d0857c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae50106376b1b4ba1def23d6f03452a84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8cpp.html#ae50106376b1b4ba1def23d6f03452a84">TEST</a> (TestDiagram_core, sum_deltatau_returns_correct_value_zeroorder)</td></tr>
+<tr class="memdesc:ae50106376b1b4ba1def23d6f03452a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">This test checks that the sum_deltatau method of Diagrm_core class works as expected, in the specific case of a zero order diagram (with no vertices)  <a href="tests_8cpp.html#ae50106376b1b4ba1def23d6f03452a84">More...</a><br /></td></tr>
+<tr class="separator:ae50106376b1b4ba1def23d6f03452a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6f7200017ac3bba9d3f2e350ff2d545"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8cpp.html#aa6f7200017ac3bba9d3f2e350ff2d545">TEST</a> (TestDiagram_core, value_method_returns_correct_value)</td></tr>
+<tr class="memdesc:aa6f7200017ac3bba9d3f2e350ff2d545"><td class="mdescLeft">&#160;</td><td class="mdescRight">This test checks that <a class="el" href="classDiagram__core.html#a1f5b753c4d6b05025256eefdff36b478" title="Returns the value (&quot;weight&quot;) of the current diagram.">Diagram_core::value</a> returns the correct value.  <a href="tests_8cpp.html#aa6f7200017ac3bba9d3f2e350ff2d545">More...</a><br /></td></tr>
+<tr class="separator:aa6f7200017ac3bba9d3f2e350ff2d545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac15af891d9f1a6ac889695dd2124d62e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8cpp.html#ac15af891d9f1a6ac889695dd2124d62e">TEST</a> (TestDiagram_core, acceptance_rate_add_returns_correct_value)</td></tr>
+<tr class="memdesc:ac15af891d9f1a6ac889695dd2124d62e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This test checks that <a class="el" href="classDiagram__core.html#a135fa49c23c0d8cc167ea4474bbe3665" title="Returns the acceptance rate for the ADD_SEGMENT update for the given parameters.">Diagram_core::acceptance_rate_add</a> returns the correct value. It is meaningful only if value_method_returns_correct_value is passing.  <a href="tests_8cpp.html#ac15af891d9f1a6ac889695dd2124d62e">More...</a><br /></td></tr>
+<tr class="separator:ac15af891d9f1a6ac889695dd2124d62e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a063aae7bdfc6a011ce51a22217c85f5e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8cpp.html#a063aae7bdfc6a011ce51a22217c85f5e">TEST</a> (TestDiagram_core, acceptance_rate_remove_returns_correct_value)</td></tr>
+<tr class="memdesc:a063aae7bdfc6a011ce51a22217c85f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This test checks that <a class="el" href="classDiagram__core.html#a67fc42f29b5c3fd7b498585e5399c0b8" title="Returns the acceptance rate for the REMOVE_SEGMENT update for the given parameters.">Diagram_core::acceptance_rate_remove</a> returns the correct value It is meaningful only if value_method_returns_correct_value is passing.  <a href="tests_8cpp.html#a063aae7bdfc6a011ce51a22217c85f5e">More...</a><br /></td></tr>
+<tr class="separator:a063aae7bdfc6a011ce51a22217c85f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e4af9bd6cbc58769f988003a731e247"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8cpp.html#a5e4af9bd6cbc58769f988003a731e247">TEST</a> (TestDiagram_core, acceptance_rate_flip_returns_correct_value)</td></tr>
+<tr class="memdesc:a5e4af9bd6cbc58769f988003a731e247"><td class="mdescLeft">&#160;</td><td class="mdescRight">This test checks that <a class="el" href="classDiagram__core.html#ac5fb020c25a1420378ed6e0fcd2cf58b" title="Returns the acceptance rate for the SPIN_FLIP update for the given parameter.">Diagram_core::acceptance_rate_flip</a> returns the correct value It is meaningful only if value_method_returns_correct_value is passing.  <a href="tests_8cpp.html#a5e4af9bd6cbc58769f988003a731e247">More...</a><br /></td></tr>
+<tr class="separator:a5e4af9bd6cbc58769f988003a731e247"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c4115153664ba3c9cb5c1c64b1b8fb7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8cpp.html#a2c4115153664ba3c9cb5c1c64b1b8fb7">TEST</a> (TestDiagram_core, attempt_add_segment_creates_correct_diagram)</td></tr>
 <tr class="memdesc:a2c4115153664ba3c9cb5c1c64b1b8fb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This test checks that when the ADD_SEGMENT update is accepted in the determinitic attempt_add_segment method, the diagram is correctly modified with the new segment.  <a href="tests_8cpp.html#a2c4115153664ba3c9cb5c1c64b1b8fb7">More...</a><br /></td></tr>
 <tr class="separator:a2c4115153664ba3c9cb5c1c64b1b8fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,9 +219,11 @@ Functions</h2></td></tr>
 <div class="textblock"><p >File with tests for <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> and <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> most relevant functions. </p>
 <dl class="section author"><dt>Author</dt><dd>Enrico Pedretti </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-09-01 </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a30e0a387c20ad820725829c6adff0b70" name="a30e0a387c20ad820725829c6adff0b70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30e0a387c20ad820725829c6adff0b70">&#9670;&#160;</a></span>TEST() <span class="overload">[1/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a30e0a387c20ad820725829c6adff0b70">&#9670;&#160;</a></span>TEST() <span class="overload">[1/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,12 +249,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This test checks that the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class stores correctly the new parameters in the class variables. </p>
-<p >GIVEN: valid beta, s0 , H, GAMMA, vertices, seed parameters WHEN: they are provided as parameters to the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class THEN: the object whose reset_diagram method is equal to a newly constructed object with the same parameters </p>
+<p >GIVEN: a test <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> initialized with beta=s0=H=GAMMA=1 and empty vertices, and a comparison <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> initialized with different parameters and a list of vertices WHEN: the <a class="el" href="classDiagram.html#adfcf825aea6bfe7aeaecb2f5e7197264" title="Reset all diagram parameters with the new values.">Diagram::reset_diagram</a> of the first (test) diagram is called, with the parameters given to the second (comparison) diagram THEN: the test diagram is equal to the comparison diagram </p>
+
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00202">202</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
 <a id="aa482a07f0192d80c76f3b4455a8a1d34" name="aa482a07f0192d80c76f3b4455a8a1d34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa482a07f0192d80c76f3b4455a8a1d34">&#9670;&#160;</a></span>TEST() <span class="overload">[2/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa482a07f0192d80c76f3b4455a8a1d34">&#9670;&#160;</a></span>TEST() <span class="overload">[2/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,10 +284,12 @@ Functions</h2></td></tr>
 <p>This test checks that the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class throws an exception if the beta parameter is &lt; 0. </p>
 <p >GIVEN: valid s0, H, gamma parameters, but beta parameter &lt; 0 WHEN: they are provided as parameters to the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00113">113</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a4ebb6e049b04d7cbe883dffba3cc699c" name="a4ebb6e049b04d7cbe883dffba3cc699c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ebb6e049b04d7cbe883dffba3cc699c">&#9670;&#160;</a></span>TEST() <span class="overload">[3/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ebb6e049b04d7cbe883dffba3cc699c">&#9670;&#160;</a></span>TEST() <span class="overload">[3/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,10 +318,12 @@ Functions</h2></td></tr>
  both H and GAMMA parameters are 0. </p>
 <p >GIVEN: valid beta, s0 parameters, but H=0 and GAMMA=0 WHEN: they are provided as parameters to the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00143">143</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="af6692b0458b288cf04fb2a80ec3f5567" name="af6692b0458b288cf04fb2a80ec3f5567"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6692b0458b288cf04fb2a80ec3f5567">&#9670;&#160;</a></span>TEST() <span class="overload">[4/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af6692b0458b288cf04fb2a80ec3f5567">&#9670;&#160;</a></span>TEST() <span class="overload">[4/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -320,10 +351,12 @@ Functions</h2></td></tr>
 <p>This test checks that the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class throws an exception if the spin parameter is different from +1 or -1. </p>
 <p >GIVEN: valid beta, H, gamma parameters, but s0 parameter != +1/-1 WHEN: they are provided as parameters to the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00128">128</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ab3c8569ac833f7c841cd37c98bf73430" name="ab3c8569ac833f7c841cd37c98bf73430"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3c8569ac833f7c841cd37c98bf73430">&#9670;&#160;</a></span>TEST() <span class="overload">[5/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3c8569ac833f7c841cd37c98bf73430">&#9670;&#160;</a></span>TEST() <span class="overload">[5/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -351,10 +384,12 @@ Functions</h2></td></tr>
 <p>This test checks that the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class throws an exception if the (optional) parameter 'vertices' contains a non-even number of elements. </p>
 <p >GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter is a list with an odd number of elements WHEN: they are provided as parameters to the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00158">158</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a7f382e6b4230f335a6f441164b805fe2" name="a7f382e6b4230f335a6f441164b805fe2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f382e6b4230f335a6f441164b805fe2">&#9670;&#160;</a></span>TEST() <span class="overload">[6/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f382e6b4230f335a6f441164b805fe2">&#9670;&#160;</a></span>TEST() <span class="overload">[6/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -382,10 +417,12 @@ Functions</h2></td></tr>
 <p>This test checks that the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class throws an exception if the (optional) parameter 'vertices' contains a value greater than beta. </p>
 <p >GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter contains a value &gt; beta WHEN: they are provided as parameters to the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00173">173</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ac62db4b48d58e0420462f29b14ae04ce" name="ac62db4b48d58e0420462f29b14ae04ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac62db4b48d58e0420462f29b14ae04ce">&#9670;&#160;</a></span>TEST() <span class="overload">[7/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac62db4b48d58e0420462f29b14ae04ce">&#9670;&#160;</a></span>TEST() <span class="overload">[7/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -413,10 +450,111 @@ Functions</h2></td></tr>
 <p>This test checks that the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class throws an exception if the (optional) parameter 'vertices' contains a non-sorted list. </p>
 <p >GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter contains a non-sorted list of numbers WHEN: they are provided as parameters to the reset_diagram method of <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00187">187</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac15af891d9f1a6ac889695dd2124d62e" name="ac15af891d9f1a6ac889695dd2124d62e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac15af891d9f1a6ac889695dd2124d62e">&#9670;&#160;</a></span>TEST() <span class="overload">[8/36]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">TestDiagram_core&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">acceptance_rate_add_returns_correct_value&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This test checks that <a class="el" href="classDiagram__core.html#a135fa49c23c0d8cc167ea4474bbe3665" title="Returns the acceptance rate for the ADD_SEGMENT update for the given parameters.">Diagram_core::acceptance_rate_add</a> returns the correct value. It is meaningful only if value_method_returns_correct_value is passing. </p>
+<p >GIVEN: two diagram objects with the same parameters, one of order 4 (current), and the other of order 6 (new), with two more vertices in the middle WHEN: the acceptance_rate_add() method is called from the 4-th order diagram, with additional vertices of the 6-th order diagram THEN: the method returns the expected theoretical value </p>
+
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00281">281</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5e4af9bd6cbc58769f988003a731e247" name="a5e4af9bd6cbc58769f988003a731e247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e4af9bd6cbc58769f988003a731e247">&#9670;&#160;</a></span>TEST() <span class="overload">[9/36]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">TestDiagram_core&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">acceptance_rate_flip_returns_correct_value&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This test checks that <a class="el" href="classDiagram__core.html#ac5fb020c25a1420378ed6e0fcd2cf58b" title="Returns the acceptance rate for the SPIN_FLIP update for the given parameter.">Diagram_core::acceptance_rate_flip</a> returns the correct value It is meaningful only if value_method_returns_correct_value is passing. </p>
+<p >GIVEN: two diagram objects with the same parameters, but opposite spin WHEN: the acceptance_rate_flip() method is called from the (current) spin = -1 diagram THEN: the method returns the expected theoretical value </p>
+
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00331">331</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a063aae7bdfc6a011ce51a22217c85f5e" name="a063aae7bdfc6a011ce51a22217c85f5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063aae7bdfc6a011ce51a22217c85f5e">&#9670;&#160;</a></span>TEST() <span class="overload">[10/36]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">TestDiagram_core&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">acceptance_rate_remove_returns_correct_value&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This test checks that <a class="el" href="classDiagram__core.html#a67fc42f29b5c3fd7b498585e5399c0b8" title="Returns the acceptance rate for the REMOVE_SEGMENT update for the given parameters.">Diagram_core::acceptance_rate_remove</a> returns the correct value It is meaningful only if value_method_returns_correct_value is passing. </p>
+<p >GIVEN: two diagram objects with the same parameters, one of order 6 (current), and the other of order 4 (new), with two less in the middle WHEN: the acceptance_rate_remove() method is called from the 6-th order diagram, with the vertices to be removed THEN: the method returns the expected theoretical value </p>
+
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00306">306</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a289e65d54ce34d6b7c6746a8f7e7d1db" name="a289e65d54ce34d6b7c6746a8f7e7d1db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a289e65d54ce34d6b7c6746a8f7e7d1db">&#9670;&#160;</a></span>TEST() <span class="overload">[8/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a289e65d54ce34d6b7c6746a8f7e7d1db">&#9670;&#160;</a></span>TEST() <span class="overload">[11/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -446,10 +584,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00649">649</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a1f973206c0b87e3fcbd9ea95676b8a0f" name="a1f973206c0b87e3fcbd9ea95676b8a0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f973206c0b87e3fcbd9ea95676b8a0f">&#9670;&#160;</a></span>TEST() <span class="overload">[9/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f973206c0b87e3fcbd9ea95676b8a0f">&#9670;&#160;</a></span>TEST() <span class="overload">[12/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -479,10 +619,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00693">693</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a585cd19a37002f747f1caf2d26da8dce" name="a585cd19a37002f747f1caf2d26da8dce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a585cd19a37002f747f1caf2d26da8dce">&#9670;&#160;</a></span>TEST() <span class="overload">[10/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a585cd19a37002f747f1caf2d26da8dce">&#9670;&#160;</a></span>TEST() <span class="overload">[13/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -512,10 +654,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00736">736</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ae791ab2ce4cfb1242b5920475d26bd65" name="ae791ab2ce4cfb1242b5920475d26bd65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae791ab2ce4cfb1242b5920475d26bd65">&#9670;&#160;</a></span>TEST() <span class="overload">[11/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae791ab2ce4cfb1242b5920475d26bd65">&#9670;&#160;</a></span>TEST() <span class="overload">[14/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -545,10 +689,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00779">779</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a2c4115153664ba3c9cb5c1c64b1b8fb7" name="a2c4115153664ba3c9cb5c1c64b1b8fb7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c4115153664ba3c9cb5c1c64b1b8fb7">&#9670;&#160;</a></span>TEST() <span class="overload">[12/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c4115153664ba3c9cb5c1c64b1b8fb7">&#9670;&#160;</a></span>TEST() <span class="overload">[15/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -578,10 +724,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc are passed as parameters to the attempt_add_segment of the diagram object with 4 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 6 vertices, containing the same 4 vertices of the test diagram, plus the [tau1, tau2] segment </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00363">363</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a7aa6d122977f3be146b182d5400128af" name="a7aa6d122977f3be146b182d5400128af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7aa6d122977f3be146b182d5400128af">&#9670;&#160;</a></span>TEST() <span class="overload">[13/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aa6d122977f3be146b182d5400128af">&#9670;&#160;</a></span>TEST() <span class="overload">[16/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -611,10 +759,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc are passed as parameters to the attempt_add_segment of the diagram object with 4 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 8 vertices, containing the same 6 vertices of the test diagram, plus the [tau1, tau2] segment in front </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00401">401</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ad35c3d387d46770906137e40a3a9976d" name="ad35c3d387d46770906137e40a3a9976d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad35c3d387d46770906137e40a3a9976d">&#9670;&#160;</a></span>TEST() <span class="overload">[14/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad35c3d387d46770906137e40a3a9976d">&#9670;&#160;</a></span>TEST() <span class="overload">[17/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -644,10 +794,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc are passed as parameters to the attempt_add_segment of the diagram object with 6 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 8 vertices, containing the same 6 vertices of the test diagram, plus the [tau1, tau2] segment at the end </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00439">439</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a25d426c7d6fa71329aae35a01ae5c65f" name="a25d426c7d6fa71329aae35a01ae5c65f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25d426c7d6fa71329aae35a01ae5c65f">&#9670;&#160;</a></span>TEST() <span class="overload">[15/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a25d426c7d6fa71329aae35a01ae5c65f">&#9670;&#160;</a></span>TEST() <span class="overload">[18/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -677,10 +829,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc are passed as parameters to the attempt_add_segment of the diagram object with no vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 2 vertices, containing the [tau1, tau2] segment </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00476">476</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="aa20131071bc062fc2335dcfe401a388b" name="aa20131071bc062fc2335dcfe401a388b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa20131071bc062fc2335dcfe401a388b">&#9670;&#160;</a></span>TEST() <span class="overload">[16/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa20131071bc062fc2335dcfe401a388b">&#9670;&#160;</a></span>TEST() <span class="overload">[19/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -710,10 +864,12 @@ Functions</h2></td></tr>
 <p >WHEN: RNacc = -1 is passed to attempt_remove_segment, so that in principle the update should be always accepted</p>
 <p >THEN: the update is rejected </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00965">965</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a9407827a83294959e4f9b78492cc786e" name="a9407827a83294959e4f9b78492cc786e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9407827a83294959e4f9b78492cc786e">&#9670;&#160;</a></span>TEST() <span class="overload">[17/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9407827a83294959e4f9b78492cc786e">&#9670;&#160;</a></span>TEST() <span class="overload">[20/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -743,10 +899,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00821">821</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a7883b2e9cc499501c8457c11ce4904c0" name="a7883b2e9cc499501c8457c11ce4904c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7883b2e9cc499501c8457c11ce4904c0">&#9670;&#160;</a></span>TEST() <span class="overload">[18/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7883b2e9cc499501c8457c11ce4904c0">&#9670;&#160;</a></span>TEST() <span class="overload">[21/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -776,10 +934,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00862">862</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a8a6ef4d66540d82019718648618c39d9" name="a8a6ef4d66540d82019718648618c39d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a6ef4d66540d82019718648618c39d9">&#9670;&#160;</a></span>TEST() <span class="overload">[19/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a6ef4d66540d82019718648618c39d9">&#9670;&#160;</a></span>TEST() <span class="overload">[22/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -809,10 +969,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00903">903</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="aa8ba5c52aa309c5900eb21237cf52993" name="aa8ba5c52aa309c5900eb21237cf52993"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8ba5c52aa309c5900eb21237cf52993">&#9670;&#160;</a></span>TEST() <span class="overload">[20/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8ba5c52aa309c5900eb21237cf52993">&#9670;&#160;</a></span>TEST() <span class="overload">[23/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -842,10 +1004,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc are passed as parameters to the attempt_remove_segment of the diagram object with 6 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 4 vertices, containing the same vertices of the test diagram, minus the removed one </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00511">511</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a2d0f4dd8086c92494fb338a15854078a" name="a2d0f4dd8086c92494fb338a15854078a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d0f4dd8086c92494fb338a15854078a">&#9670;&#160;</a></span>TEST() <span class="overload">[21/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d0f4dd8086c92494fb338a15854078a">&#9670;&#160;</a></span>TEST() <span class="overload">[24/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -875,10 +1039,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc are passed as parameters to the attempt_remove_segment of the diagram object with 6 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 4 vertices, containing the same vertices of the test diagram, minus the removed one </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00544">544</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="ad356881293a3d9fc32111f5addc49a77" name="ad356881293a3d9fc32111f5addc49a77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad356881293a3d9fc32111f5addc49a77">&#9670;&#160;</a></span>TEST() <span class="overload">[22/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad356881293a3d9fc32111f5addc49a77">&#9670;&#160;</a></span>TEST() <span class="overload">[25/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -908,10 +1074,12 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc are passed as parameters to the attempt_remove_segment of the diagram object with 6 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 4 vertices, containing the same vertices of the test diagram, minus the removed one </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00577">577</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a465ee5e488590b11ec582cd29939133a" name="a465ee5e488590b11ec582cd29939133a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a465ee5e488590b11ec582cd29939133a">&#9670;&#160;</a></span>TEST() <span class="overload">[23/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a465ee5e488590b11ec582cd29939133a">&#9670;&#160;</a></span>TEST() <span class="overload">[26/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -941,10 +1109,12 @@ Functions</h2></td></tr>
 <p >WHEN: RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 is passed as parameter to two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00939">939</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a1af69cca1b256de5f785c8cc09fde14a" name="a1af69cca1b256de5f785c8cc09fde14a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1af69cca1b256de5f785c8cc09fde14a">&#9670;&#160;</a></span>TEST() <span class="overload">[24/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1af69cca1b256de5f785c8cc09fde14a">&#9670;&#160;</a></span>TEST() <span class="overload">[27/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -974,10 +1144,12 @@ Functions</h2></td></tr>
 <p >WHEN: RNacc is passed twice as parameters to the attempt_remove_segment of the tested diagram object</p>
 <p >THEN: the diagram under test, intially with spin up(s0=+1), becomes equal to another diagram with spin down(s0=-1) when attempt_spin_flip is executed for the first time. Then, executing again attempt_spin_flip the test diagram becomes equal to the diagram with spin up, and so also to its initial value before the double flip. </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00609">609</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a504eb80ab41ac818f9d8577b82601d9b" name="a504eb80ab41ac818f9d8577b82601d9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a504eb80ab41ac818f9d8577b82601d9b">&#9670;&#160;</a></span>TEST() <span class="overload">[25/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a504eb80ab41ac818f9d8577b82601d9b">&#9670;&#160;</a></span>TEST() <span class="overload">[28/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1005,10 +1177,12 @@ Functions</h2></td></tr>
 <p>This test checks that the <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> class constructor throws an exception if the beta parameter is &lt; 0. </p>
 <p >GIVEN: valid s0, H, gamma parameters, but beta parameter &lt; 0 WHEN: they are provided as parameters to <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a>'s class constructor THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00025">25</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a925e40003722a243ef2ec5e4ce03b2b2" name="a925e40003722a243ef2ec5e4ce03b2b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a925e40003722a243ef2ec5e4ce03b2b2">&#9670;&#160;</a></span>TEST() <span class="overload">[26/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a925e40003722a243ef2ec5e4ce03b2b2">&#9670;&#160;</a></span>TEST() <span class="overload">[29/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1036,10 +1210,12 @@ Functions</h2></td></tr>
 <p>This test checks that the <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> class constructor throws an exception if both H and GAMMA parameters are 0. </p>
 <p >GIVEN: valid beta, s0 parameters, but H=0 and GAMMA=0 WHEN: they are provided as parameters to <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a>'s class constructor THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00055">55</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a3cbcb5259cac0bed233804449656c78b" name="a3cbcb5259cac0bed233804449656c78b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cbcb5259cac0bed233804449656c78b">&#9670;&#160;</a></span>TEST() <span class="overload">[27/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cbcb5259cac0bed233804449656c78b">&#9670;&#160;</a></span>TEST() <span class="overload">[30/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1067,10 +1243,12 @@ Functions</h2></td></tr>
 <p>This test checks that the <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> class constructor throws an exception if the spin parameter is different from +1 or -1. </p>
 <p >GIVEN: valid beta, H, gamma parameters, but s0 parameter != +1/-1 WHEN: they are provided as parameters to <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a>'s class constructor THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00039">39</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a2f007efe97dadfb56580b39b5876224e" name="a2f007efe97dadfb56580b39b5876224e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f007efe97dadfb56580b39b5876224e">&#9670;&#160;</a></span>TEST() <span class="overload">[28/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f007efe97dadfb56580b39b5876224e">&#9670;&#160;</a></span>TEST() <span class="overload">[31/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1098,10 +1276,12 @@ Functions</h2></td></tr>
 <p>This test checks that the <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> class constructor throws an exception if the (optional) parameter 'vertices' contains a non-even number of elements. </p>
 <p >GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter is a list with an odd number of elements WHEN: they are provided as parameters to <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a>'s class constructor THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00069">69</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="af490d8491c83e86b7dd886113ac8c464" name="af490d8491c83e86b7dd886113ac8c464"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af490d8491c83e86b7dd886113ac8c464">&#9670;&#160;</a></span>TEST() <span class="overload">[29/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af490d8491c83e86b7dd886113ac8c464">&#9670;&#160;</a></span>TEST() <span class="overload">[32/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1129,10 +1309,12 @@ Functions</h2></td></tr>
 <p>This test checks that the <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> class constructor throws an exception if the (optional) parameter 'vertices' contains a value greater than beta. </p>
 <p >GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter contains a value &gt; beta WHEN: they are provided as parameters to <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a>'s class constructor THEN: a std::invalid_argument exception is thrown </p>
 
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00083">83</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a635712c4f36dd3e876f93368a655b5c0" name="a635712c4f36dd3e876f93368a655b5c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a635712c4f36dd3e876f93368a655b5c0">&#9670;&#160;</a></span>TEST() <span class="overload">[30/30]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a635712c4f36dd3e876f93368a655b5c0">&#9670;&#160;</a></span>TEST() <span class="overload">[33/36]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1159,6 +1341,107 @@ Functions</h2></td></tr>
 
 <p>This test checks that the <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> class constructor throws an exception if the (optional) parameter 'vertices' contains a non-sorted list. </p>
 <p >GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter contains a non-sorted list of numbers WHEN: they are provided as parameters to <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a>'s class constructor THEN: a std::invalid_argument exception is thrown </p>
+
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00097">97</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5f6935d8c036db49f54afca96d0857c8" name="a5f6935d8c036db49f54afca96d0857c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f6935d8c036db49f54afca96d0857c8">&#9670;&#160;</a></span>TEST() <span class="overload">[34/36]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">TestDiagram_core&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sum_deltatau_returns_correct_value&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This test checks that the sum_deltatau method of Diagrm_core class works as expected. </p>
+<p >GIVEN: a <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> object initialized with a list of vertices WHEN: the <a class="el" href="classDiagram__core.html#aba13d374579835ad2facb23c4c8391e0" title="Small helper function, performing the sum (... +t4-t3 + t2-t1)">Diagram_core::sum_deltatau()</a> is called from the object THEN: the value returned by the method is the one expected, calculated "manually" </p>
+
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00233">233</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae50106376b1b4ba1def23d6f03452a84" name="ae50106376b1b4ba1def23d6f03452a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae50106376b1b4ba1def23d6f03452a84">&#9670;&#160;</a></span>TEST() <span class="overload">[35/36]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">TestDiagram_core&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sum_deltatau_returns_correct_value_zeroorder&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This test checks that the sum_deltatau method of Diagrm_core class works as expected, in the specific case of a zero order diagram (with no vertices) </p>
+<p >GIVEN: a zero-order <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> object initialized with an empty list of vetices WHEN: the <a class="el" href="classDiagram__core.html#aba13d374579835ad2facb23c4c8391e0" title="Small helper function, performing the sum (... +t4-t3 + t2-t1)">Diagram_core::sum_deltatau()</a> is 0 </p>
+
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00248">248</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa6f7200017ac3bba9d3f2e350ff2d545" name="aa6f7200017ac3bba9d3f2e350ff2d545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f7200017ac3bba9d3f2e350ff2d545">&#9670;&#160;</a></span>TEST() <span class="overload">[36/36]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">TestDiagram_core&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">value_method_returns_correct_value&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This test checks that <a class="el" href="classDiagram__core.html#a1f5b753c4d6b05025256eefdff36b478" title="Returns the value (&quot;weight&quot;) of the current diagram.">Diagram_core::value</a> returns the correct value. </p>
+<p >GIVEN: two diagram objects with different parameters WHEN: the value() method is called for both objects THEN: both objects return the theoretical value calculated "by hand" </p>
+
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00263">263</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>

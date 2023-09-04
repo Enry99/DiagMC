@@ -75,7 +75,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">diagram.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -101,9 +103,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="diagram_8h__dep__incl.png" border="0" usemap="#ainclude_2diagmc_2diagram_8hdep" alt=""/></div>
 <map name="ainclude_2diagmc_2diagram_8hdep" id="ainclude_2diagmc_2diagram_8hdep">
-<area shape="rect" title="Header file for Diagram and Diagram_core classes." alt="" coords="96,5,265,31"/>
+<area shape="rect" title="Header file for Diagram and Diagram_core classes." alt="" coords="76,5,245,31"/>
 <area shape="rect" href="simulation_8h.html" title="Header file of the MCMC algorithm function, and of the SingleRunResults class that stores the results..." alt="" coords="5,79,188,104"/>
-<area shape="rect" href="tests_8cpp.html" title="File with tests for Diagram and Diagram_core most relevant functions." alt="" coords="212,79,320,104"/>
+<area shape="rect" href="tests_8cpp.html" title="File with tests for Diagram and Diagram_core most relevant functions." alt="" coords="107,152,215,177"/>
 </map>
 </div>
 </div>
@@ -117,12 +119,83 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiagram.html">Diagram</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> class, containing the variables defining the diagram - inherited from <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> - and the functions to attempt the updates.  <a href="classDiagram.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a002b2f4894492820fe708b1b7e7c5e70"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diagram_8h.html#a002b2f4894492820fe708b1b7e7c5e70">EPSILON</a>&#160;&#160;&#160;1e-10</td></tr>
+<tr class="separator:a002b2f4894492820fe708b1b7e7c5e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0bcd7c564627b7a65e25dcef3bad2985"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diagram_8h.html#a0bcd7c564627b7a65e25dcef3bad2985">lists_are_float_equal</a> (const std::list&lt; double &gt; &amp;list1, const std::list&lt; double &gt; &amp;list2)</td></tr>
+<tr class="memdesc:a0bcd7c564627b7a65e25dcef3bad2985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Small helper function that checks if two lists of floating points numbers are equal, performing element-by-element comparison. If list1[i] and list2[i] are within EPSILON=1e-10 for every i, the two lists are considered equal.  <a href="diagram_8h.html#a0bcd7c564627b7a65e25dcef3bad2985">More...</a><br /></td></tr>
+<tr class="separator:a0bcd7c564627b7a65e25dcef3bad2985"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Header file for <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> and <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> classes. </p>
 <dl class="section author"><dt>Author</dt><dd>Enrico Pedretti </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-08-31 </dd></dl>
-</div></div><!-- contents -->
+
+<p class="definition">Definition in file <a class="el" href="diagram_8h_source.html">diagram.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a002b2f4894492820fe708b1b7e7c5e70" name="a002b2f4894492820fe708b1b7e7c5e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a002b2f4894492820fe708b1b7e7c5e70">&#9670;&#160;</a></span>EPSILON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EPSILON&#160;&#160;&#160;1e-10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="diagram_8h_source.html#l00014">14</a> of file <a class="el" href="diagram_8h_source.html">diagram.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a0bcd7c564627b7a65e25dcef3bad2985" name="a0bcd7c564627b7a65e25dcef3bad2985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bcd7c564627b7a65e25dcef3bad2985">&#9670;&#160;</a></span>lists_are_float_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lists_are_float_equal </td>
+          <td>(</td>
+          <td class="paramtype">const std::list&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>list1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::list&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>list2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Small helper function that checks if two lists of floating points numbers are equal, performing element-by-element comparison. If list1[i] and list2[i] are within EPSILON=1e-10 for every i, the two lists are considered equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list1</td><td>First list </td></tr>
+    <tr><td class="paramname">list2</td><td>Second list </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if lists are equal </dd>
+<dd>
+false otherwise </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
