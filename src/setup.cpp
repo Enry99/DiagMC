@@ -162,10 +162,10 @@ void single_run(const json & settings)
             "H",
             "GAMMA",
             "N_total_steps",
-            "N_thermalization_steps"
         }
     );
 
+    unsigned long long N_thermalization_steps = settings.contains("N_thermalization_steps") ? (unsigned long long) settings["N_thermalization_steps"] : 0;
 
     std::cout<<"Running single run simulation...\n";
 
@@ -178,7 +178,7 @@ void single_run(const json & settings)
             settings["H"], 
             settings["GAMMA"], 
             settings["N_total_steps"], 
-            settings["N_thermalization_steps"], 
+            N_thermalization_steps, 
             settings["update_choice_seed"], 
             settings["diagram_seed"]
         ).print_results();
@@ -191,7 +191,7 @@ void single_run(const json & settings)
             settings["H"], 
             settings["GAMMA"], 
             settings["N_total_steps"], 
-            settings["N_thermalization_steps"]
+            N_thermalization_steps
         ).print_results();
     }
 
@@ -205,7 +205,6 @@ void sweep(const json & settings)
         {
             "s0",
             "N_total_steps",
-            "N_thermalization_steps",
             "output_file"
         }
     );
@@ -215,9 +214,10 @@ void sweep(const json & settings)
     std::vector<double> H_values = range_generator(settings, "H");
     std::vector<double> GAMMA_values = range_generator(settings, "GAMMA");
     int s0 = settings["s0"];
-    int N_total_steps = settings["N_total_steps"];
-    int N_thermalization_steps = settings["N_thermalization_steps"];
+    unsigned long long N_total_steps = settings["N_total_steps"];
+    unsigned long long N_thermalization_steps = settings.contains("N_thermalization_steps") ? (unsigned long long) settings["N_thermalization_steps"] : 0;
     int samples_per_point = settings.contains("samples_per_point") ? int(settings["samples_per_point"]) : 1;
+
 
     std::ofstream output_file_stream(static_cast<std::string>(settings["output_file"]));
     output_file_stream << SingleRunResults::ostream_output_header();
@@ -271,7 +271,10 @@ void convergence_test(const json & settings)
     );
 
     std::vector<double> N_total_steps_values = log_range_generator(settings, "N_total_steps");
-    std::vector<double> N_thermalization_steps_values = log_range_generator(settings, "N_thermalization_steps");
+    std::vector<double> N_thermalization_steps_values;
+    if( !settings.contains("N_thermalization_steps") && !settings.contains("N_thermalization_step_max")) N_thermalization_steps_values = {0};
+    else N_thermalization_steps_values = log_range_generator(settings, "N_thermalization_steps");
+
     unsigned long long int update_choice_seed = settings.contains("update_choice_seed") ? int(settings["update_choice_seed"]) : std::chrono::system_clock::now().time_since_epoch().count();
     unsigned long long int diagram_seed = settings.contains("diagram_seed") ? int(settings["diagram_seed"]) : std::chrono::system_clock::now().time_since_epoch().count();
 
@@ -281,7 +284,9 @@ void convergence_test(const json & settings)
     std::cout<<"Running convergence test...\n";
 
     int total_number_of_runs = N_total_steps_values.size() * N_thermalization_steps_values.size();
-    int current_run = 0; 
+    int current_run = 0;
+    print_progress_bar(current_run/total_number_of_runs);
+
     for (auto N_total_steps : N_total_steps_values)
     {
         for(auto N_thermalization_steps : N_thermalization_steps_values)

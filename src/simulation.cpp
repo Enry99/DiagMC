@@ -181,7 +181,7 @@ SingleRunResults run_simulation(
         
 
         //collect statistics
-        if (loop_iteration > N_thermalization_steps)   //measure samples only after thermalization steps
+        if (loop_iteration >= N_thermalization_steps)   //measure samples only after thermalization steps (the = since counter starts from 0)
         {
             
             auto current_diagorder = diagram.order(); //local variable to avoid calling the method multiple times
