@@ -5,13 +5,15 @@
 
 
     "beta" : 10,
+
     "H_min" : -1,
     "H_max" : 1,
     "H_step": 0.2,
+
     "GAMMA_min" : 0,
     "GAMMA_max" : 1,
     "GAMMA_step" : 0.2,
-    "N_total_steps" : 50000000,
-    "N_thermalization_steps" : 1000000
+    
+    "N_total_steps" : 50000000
 
 }

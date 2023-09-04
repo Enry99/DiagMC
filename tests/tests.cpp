@@ -15,11 +15,11 @@
 //incorrect parameters are passed to Diagram_core constructor or Diagram::reset_diagram method
 
 /**
- * @brief This test checks that the Diagram_core class constructor throws an exception if 
+ * @brief This test checks that the Diagram_core::Diagram_core class constructor throws an exception if 
  * the beta parameter is < 0.
  * 
  * GIVEN: valid s0, H, gamma parameters, but beta parameter < 0
- * WHEN: they are provided as parameters to Diagram_core's class constructor
+ * WHEN: they are provided as parameters to Diagram_core::Diagram_core class constructor
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram_core, constructor_throws_for_invalid_beta)
@@ -29,11 +29,11 @@ TEST(TestDiagram_core, constructor_throws_for_invalid_beta)
 
 
 /**
- * @brief This test checks that the Diagram_core class constructor throws an exception if 
+ * @brief This test checks that the Diagram_core::Diagram_core class constructor throws an exception if 
  * the spin parameter is different from +1 or -1
  * 
  * GIVEN: valid beta, H, gamma parameters, but s0 parameter != +1/-1
- * WHEN: they are provided as parameters to Diagram_core's class constructor
+ * WHEN: they are provided as parameters to Diagram_core::Diagram_core class constructor
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram_core, constructor_throws_for_invalid_spin)
@@ -45,11 +45,11 @@ TEST(TestDiagram_core, constructor_throws_for_invalid_spin)
 
 
 /**
- * @brief This test checks that the Diagram_core class constructor throws an exception if 
+ * @brief This test checks that the Diagram_core::Diagram_core class constructor throws an exception if 
  * both H and GAMMA parameters are 0
  * 
  * GIVEN: valid beta, s0 parameters, but H=0 and GAMMA=0
- * WHEN: they are provided as parameters to Diagram_core's class constructor
+ * WHEN: they are provided as parameters to Diagram_core::Diagram_core class constructor
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram_core, constructor_throws_for_invalid_GAMMA)
@@ -59,11 +59,11 @@ TEST(TestDiagram_core, constructor_throws_for_invalid_GAMMA)
 
 
 /**
- * @brief This test checks that the Diagram_core class constructor throws an exception if 
+ * @brief This test checks that the Diagram_core::Diagram_core class constructor throws an exception if 
  * the (optional) parameter 'vertices' contains a non-even number of elements
  * 
  * GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter is a list with an odd number of elements
- * WHEN: they are provided as parameters to Diagram_core's class constructor
+ * WHEN: they are provided as parameters to Diagram_core::Diagram_core class constructor
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram_core, constructor_throws_for_non_even_number_vertices)
@@ -73,11 +73,11 @@ TEST(TestDiagram_core, constructor_throws_for_non_even_number_vertices)
 
 
 /**
- * @brief This test checks that the Diagram_core class constructor throws an exception if 
+ * @brief This test checks that the Diagram_core::Diagram_core class constructor throws an exception if 
  * the (optional) parameter 'vertices' contains a value greater than beta
  * 
  * GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter contains a value > beta
- * WHEN: they are provided as parameters to Diagram_core's class constructor
+ * WHEN: they are provided as parameters to Diagram_core::Diagram_core class constructor
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram_core, constructor_throws_for_vertices_greaterthan_beta)
@@ -87,11 +87,11 @@ TEST(TestDiagram_core, constructor_throws_for_vertices_greaterthan_beta)
 
 
 /**
- * @brief This test checks that the Diagram_core class constructor throws an exception if 
+ * @brief This test checks that the Diagram_core::Diagram_core class constructor throws an exception if 
  * the (optional) parameter 'vertices' contains a non-sorted list
  * 
  * GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter contains a non-sorted list of numbers
- * WHEN: they are provided as parameters to Diagram_core's class constructor
+ * WHEN: they are provided as parameters to Diagram_core::Diagram_core class constructor
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram_core, constructor_throws_for_vertices_notsorted)
@@ -103,11 +103,11 @@ TEST(TestDiagram_core, constructor_throws_for_vertices_notsorted)
 
 
 /**
- * @brief This test checks that the reset_diagram method of Diagram class throws an exception if 
+ * @brief This test checks that the Diagram::reset_diagram method throws an exception if 
  * the beta parameter is < 0.
  * 
  * GIVEN: valid s0, H, gamma parameters, but beta parameter < 0
- * WHEN: they are provided as parameters to the reset_diagram method of Diagram class
+ * WHEN: they are provided as parameters to the Diagram::reset_diagram method
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram, reset_diagram_throws_for_invalid_beta_argument)
@@ -118,11 +118,11 @@ TEST(TestDiagram, reset_diagram_throws_for_invalid_beta_argument)
 
 
 /**
- * @brief This test checks that the reset_diagram method of Diagram class throws an exception if 
+ * @brief This test checks that the Diagram::Diagram::reset_diagram method throws an exception if 
  * the spin parameter is different from +1 or -1
  * 
  * GIVEN: valid beta, H, gamma parameters, but s0 parameter != +1/-1
- * WHEN: they are provided as parameters to the reset_diagram method of Diagram class
+ * WHEN: they are provided as parameters to the Diagram::reset_diagram method
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram, reset_diagram_throws_for_invalid_spin_argument)
@@ -133,11 +133,11 @@ TEST(TestDiagram, reset_diagram_throws_for_invalid_spin_argument)
 
 
 /**
- * @brief This test checks that the reset_diagram method of Diagram class throws an exception if  
+ * @brief This test checks that the Diagram::reset_diagram method throws an exception if  
  * both H and GAMMA parameters are 0
  * 
  * GIVEN: valid beta, s0 parameters, but H=0 and GAMMA=0
- * WHEN: they are provided as parameters to the reset_diagram method of Diagram class
+ * WHEN: they are provided as parameters to the Diagram::reset_diagram method
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram, reset_diagram_throws_for_invalid_GAMMA)
@@ -148,11 +148,11 @@ TEST(TestDiagram, reset_diagram_throws_for_invalid_GAMMA)
 
 
 /**
- * @brief This test checks that the reset_diagram method of Diagram class throws an exception if
+ * @brief This test checks that the Diagram::reset_diagram method throws an exception if
  * the (optional) parameter 'vertices' contains a non-even number of elements
  * 
  * GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter is a list with an odd number of elements
- * WHEN: they are provided as parameters to the reset_diagram method of Diagram class
+ * WHEN: they are provided as parameters to the Diagram::reset_diagram method
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram, reset_diagram_throws_for_non_even_number_vertices)
@@ -163,11 +163,11 @@ TEST(TestDiagram, reset_diagram_throws_for_non_even_number_vertices)
 
 
 /**
- * @brief This test checks that the reset_diagram method of Diagram class throws an exception if
+ * @brief This test checks that the Diagram::reset_diagram method throws an exception if
  * the (optional) parameter 'vertices' contains a value greater than beta
  * 
  * GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter contains a value > beta
- * WHEN: they are provided as parameters to the reset_diagram method of Diagram class
+ * WHEN: they are provided as parameters to the Diagram::reset_diagram method
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram, reset_diagram_throws_for_vertices_argument_greaterthan_beta)
@@ -177,11 +177,11 @@ TEST(TestDiagram, reset_diagram_throws_for_vertices_argument_greaterthan_beta)
 
 
 /**
- * @brief This test checks that the reset_diagram method of Diagram class throws an exception if
+ * @brief This test checks that the Diagram::reset_diagram method throws an exception if
  * the (optional) parameter 'vertices' contains a non-sorted list
  * 
  * GIVEN: valid beta, s0 , H, GAMMA parameters, but the vertices parameter contains a non-sorted list of numbers
- * WHEN: they are provided as parameters to the reset_diagram method of Diagram class
+ * WHEN: they are provided as parameters to the Diagram::reset_diagram method
  * THEN: a std::invalid_argument exception is thrown
  */
 TEST(TestDiagram, reset_diagram_throws_for_vertices_argument_notsorted)
@@ -192,7 +192,7 @@ TEST(TestDiagram, reset_diagram_throws_for_vertices_argument_notsorted)
 
 
 /**
- * @brief This test checks that the reset_diagram method of Diagram class stores correctly
+ * @brief This test checks that the Diagram::reset_diagram method stores correctly
  * the new parameters in the class variables
  * 
  * GIVEN: a test Diagram initialized with beta=s0=H=GAMMA=1 and empty vertices, and a comparison Diagram initialized with different parameters and a list of vertices
@@ -224,7 +224,7 @@ TEST(TestDiagram, reset_diagram_sets_correct_values)
 //correctly according to the theoretical formulas
 
 /**
- * @brief This test checks that the sum_deltatau method of Diagrm_core class works as expected
+ * @brief This test checks that the Diagram_core::sum_deltatau method works as expected
  * 
  * GIVEN: a Diagram_core object initialized with a list of vertices
  * WHEN: the Diagram_core::sum_deltatau() is called from the object
@@ -239,11 +239,12 @@ TEST(TestDiagram_core, sum_deltatau_returns_correct_value)
 
 
 /**
- * @brief This test checks that the sum_deltatau method of Diagrm_core class works as expected,
+ * @brief This test checks that the Diagram_core::sum_deltatau method works as expected,
  * in the specific case of a zero order diagram (with no vertices)
  * 
  * GIVEN: a zero-order Diagram_core object initialized with an empty list of vetices
- * WHEN: the Diagram_core::sum_deltatau() is 0
+ * WHEN: the Diagram_core::sum_deltatau() is called from the object
+ * THEN: the value returned by the method is 0
  */
 TEST(TestDiagram_core, sum_deltatau_returns_correct_value_zeroorder)
 {
@@ -257,7 +258,7 @@ TEST(TestDiagram_core, sum_deltatau_returns_correct_value_zeroorder)
  * @brief This test checks that Diagram_core::value returns the correct value
  * 
  * GIVEN: two diagram objects with different parameters
- * WHEN: the value() method is called for both objects
+ * WHEN: the Diagram_core::value() method is called for both objects
  * THEN: both objects return the theoretical value calculated "by hand"
  */
 TEST(TestDiagram_core, value_method_returns_correct_value)
@@ -265,8 +266,8 @@ TEST(TestDiagram_core, value_method_returns_correct_value)
     Diagram_core diag_test1(10, -1, 0.5, 1.1, {1,2, 7,9});
     Diagram_core diag_test2(10, 1, 0.2, 0.5, {1,2, 7,9});
 
-    EXPECT_NEAR(diag_test1.value(), 10.8183170344, 1e-8);
-    EXPECT_NEAR(diag_test2.value(), 0.0280830602573, 1e-8);
+    EXPECT_NEAR(diag_test1.value(), 10.8183170344, 1e-8) << "diag_test1 value not correct";
+    EXPECT_NEAR(diag_test2.value(), 0.0280830602573, 1e-8) << "diag_test2 value not correct";
 }
 
 
@@ -275,7 +276,7 @@ TEST(TestDiagram_core, value_method_returns_correct_value)
  * It is meaningful only if value_method_returns_correct_value is passing
  * 
  * GIVEN: two diagram objects with the same parameters, one of order 4 (current), and the other of order 6 (new), with two more vertices in the middle
- * WHEN: the acceptance_rate_add() method is called from the 4-th order diagram, with additional vertices of the 6-th order diagram
+ * WHEN: the Diagram_core::acceptance_rate_add() method is called from the 4-th order diagram, with additional vertices of the 6-th order diagram
  * THEN: the method returns the expected theoretical value 
  */
 TEST(TestDiagram_core, acceptance_rate_add_returns_correct_value)
@@ -300,7 +301,7 @@ TEST(TestDiagram_core, acceptance_rate_add_returns_correct_value)
  * It is meaningful only if value_method_returns_correct_value is passing
  * 
  * GIVEN: two diagram objects with the same parameters, one of order 6 (current), and the other of order 4 (new), with two less in the middle
- * WHEN: the acceptance_rate_remove() method is called from the 6-th order diagram, with the vertices to be removed
+ * WHEN: the Diagram_core::acceptance_rate_remove() method is called from the 6-th order diagram, with the vertices to be removed
  * THEN: the method returns the expected theoretical value 
  */
 TEST(TestDiagram_core, acceptance_rate_remove_returns_correct_value)
@@ -325,7 +326,7 @@ TEST(TestDiagram_core, acceptance_rate_remove_returns_correct_value)
  * It is meaningful only if value_method_returns_correct_value is passing
  * 
  * GIVEN: two diagram objects with the same parameters, but opposite spin
- * WHEN: the acceptance_rate_flip() method is called from the (current) spin = -1 diagram
+ * WHEN: the Diagram_core::acceptance_rate_flip() method is called from the (current) spin = -1 diagram
  * THEN: the method returns the expected theoretical value 
  */
 TEST(TestDiagram_core, acceptance_rate_flip_returns_correct_value)
@@ -349,13 +350,13 @@ TEST(TestDiagram_core, acceptance_rate_flip_returns_correct_value)
 
 /**
  * @brief This test checks that when the ADD_SEGMENT update is accepted in the determinitic
- * attempt_add_segment method, the diagram is correctly modified with the new segment
+ * Diagram_core::attempt_add_segment method, the diagram is correctly modified with the new segment
  * 
  * GIVEN: a diagram with 4 vertices ([1,2,7,9]), two "fake random numbers" RN1 and RN2 that should result
  * in the new vertices [tau1=5, tau2=5.5] of the added segment, and the parameter RNacc = -1, which ensures
  * that the update is accepted, since the condition is RNacc < acceptance_rate, and acceptance_rate is >= 0
  * 
- * WHEN: RN1, RN2 and RNacc are passed as parameters to the attempt_add_segment of the diagram object with 4 vertices
+ * WHEN: RN1, RN2 and RNacc are passed as parameters to the Diagram_core::attempt_add_segment of the diagram object with 4 vertices
  * 
  * THEN: the diagram under test becomes equal to another diagram with 6 vertices, containing the same 4 vertices of the
  * test diagram, plus the [tau1, tau2] segment
@@ -384,7 +385,7 @@ TEST(TestDiagram_core, attempt_add_segment_creates_correct_diagram)
 
 /**
  * @brief This test checks that when the ADD_SEGMENT update is accepted in the determinitic
- * attempt_add_segment method, the diagram is correctly modified with the new segment, in the specific
+ * Diagram_core::attempt_add_segment method, the diagram is correctly modified with the new segment, in the specific
  * case where the segment is added at the beginning. This can be useful to spot problems in the 
  * boundary cases of the algorithm that sweeps the vertices list.
  * 
@@ -393,7 +394,7 @@ TEST(TestDiagram_core, attempt_add_segment_creates_correct_diagram)
  * and the parameter RNacc = -1, which ensures that the update is accepted, since the condition is RNacc < acceptance_rate, 
  * and acceptance_rate is >= 0
  * 
- * WHEN: RN1, RN2 and RNacc are passed as parameters to the attempt_add_segment of the diagram object with 4 vertices
+ * WHEN: RN1, RN2 and RNacc are passed as parameters to the Diagram_core::attempt_add_segment of the diagram object with 4 vertices
  * 
  * THEN: the diagram under test becomes equal to another diagram with 8 vertices, containing the same 6 vertices of the
  * test diagram, plus the [tau1, tau2] segment in front
@@ -422,7 +423,7 @@ TEST(TestDiagram_core, attempt_add_segment_creates_correct_diagram_beginning)
 
 /**
  * @brief This test checks that when the ADD_SEGMENT update is accepted in the determinitic
- * attempt_add_segment method, the diagram is correctly modified with the new segment, in the specific
+ * Diagram_core::attempt_add_segment method, the diagram is correctly modified with the new segment, in the specific
  * case where the segment is added at the end. This can be useful to spot problems in the 
  * boundary cases of the algorithm that sweeps the vertices list.
  * 
@@ -431,7 +432,7 @@ TEST(TestDiagram_core, attempt_add_segment_creates_correct_diagram_beginning)
  * and the parameter RNacc = -1, which ensures that the update is accepted, since the condition is RNacc < acceptance_rate, 
  * and acceptance_rate is >= 0
  * 
- * WHEN: RN1, RN2 and RNacc are passed as parameters to the attempt_add_segment of the diagram object with 6 vertices
+ * WHEN: RN1, RN2 and RNacc are passed as parameters to the Diagram_core::attempt_add_segment of the diagram object with 6 vertices
  * 
  * THEN: the diagram under test becomes equal to another diagram with 8 vertices, containing the same 6 vertices of the
  * test diagram, plus the [tau1, tau2] segment at the end
@@ -460,7 +461,7 @@ TEST(TestDiagram_core, attempt_add_segment_creates_correct_diagram_end)
 
 /**
  * @brief This test checks that when the ADD_SEGMENT update is accepted in the determinitic
- * attempt_add_segment method, the diagram is correctly modified with the new segment, in the specific
+ * Diagram_core::attempt_add_segment method, the diagram is correctly modified with the new segment, in the specific
  * case where the initial diagram is of zero order (no vertices). This can be useful to spot problems in the 
  * boundary cases of the algorithm that sweeps the vertices list.
  * 
@@ -469,7 +470,7 @@ TEST(TestDiagram_core, attempt_add_segment_creates_correct_diagram_end)
  * which ensures that the update is accepted, since the condition is RNacc < acceptance_rate, 
  * and acceptance_rate is >= 0
  * 
- * WHEN: RN1, RN2 and RNacc are passed as parameters to the attempt_add_segment of the diagram object with no vertices
+ * WHEN: RN1, RN2 and RNacc are passed as parameters to the Diagram_core::attempt_add_segment of the diagram object with no vertices
  * 
  * THEN: the diagram under test becomes equal to another diagram with 2 vertices, containing the [tau1, tau2] segment
  */
@@ -497,13 +498,13 @@ TEST(TestDiagram_core, attempt_add_segment_creates_correct_diagram_zeroorder)
 
 /**
  * @brief This test checks that when the REMOVE_SEGMENT update is accepted in the determinitic
- * attempt_remove_segment method, the diagram is correctly modified with the new segment
+ * Diagram_core::attempt_remove_segment method, the diagram is correctly modified with the new segment
  * 
  * GIVEN: a diagram with 6 vertices ([1, 2,  5, 5.5,  8, 9]), a "fake random number" RN1 that should result
  * in the removal of the third segment (with index=2 starting from 0) [tau1=5, tau2=5.5], and the parameter RNacc = -1, which ensures
  * that the update is accepted, since the condition is RNacc < acceptance_rate, and acceptance_rate is >= 0
  * 
- * WHEN: RN1 and RNacc are passed as parameters to the attempt_remove_segment of the diagram object with 6 vertices
+ * WHEN: RN1 and RNacc are passed as parameters to the Diagram_core::attempt_remove_segment of the diagram object with 6 vertices
  * 
  * THEN: the diagram under test becomes equal to another diagram with 4 vertices, containing the same vertices of the
  * test diagram, minus the removed one
@@ -528,7 +529,7 @@ TEST(TestDiagram_core, attempt_remove_segment_creates_correct_diagram)
 
 /**
  * @brief This test checks that when the REMOVE_SEGMENT update is accepted in the determinitic
- * attempt_remove_segment method, the diagram is correctly modified with the new segment,
+ * Diagram_core::attempt_remove_segment method, the diagram is correctly modified with the new segment,
  * in the specific case where the removed segment is at the front of the list. This can be useful 
  * to spot problems in the boundary cases of the algorithm that sweeps the vertices list.
  * 
@@ -536,7 +537,7 @@ TEST(TestDiagram_core, attempt_remove_segment_creates_correct_diagram)
  * in the removal of the first segment (with index=0 starting from 0) [tau1=1, tau2=2], and the parameter RNacc = -1, which ensures
  * that the update is accepted, since the condition is RNacc < acceptance_rate, and acceptance_rate is >= 0
  * 
- * WHEN: RN1 and RNacc are passed as parameters to the attempt_remove_segment of the diagram object with 6 vertices
+ * WHEN: RN1 and RNacc are passed as parameters to the Diagram_core::attempt_remove_segment of the diagram object with 6 vertices
  * 
  * THEN: the diagram under test becomes equal to another diagram with 4 vertices, containing the same vertices of the
  * test diagram, minus the removed one
@@ -561,7 +562,7 @@ TEST(TestDiagram_core, attempt_remove_segment_creates_correct_diagram_beginning)
 
 /**
  * @brief This test checks that when the REMOVE_SEGMENT update is accepted in the determinitic
- * attempt_remove_segment method, the diagram is correctly modified with the new segment,
+ * Diagram_core::attempt_remove_segment method, the diagram is correctly modified with the new segment,
  * in the specific case where the removed segment is at the end of the list. This can be useful 
  * to spot problems in the boundary cases of the algorithm that sweeps the vertices list.
  * 
@@ -569,7 +570,7 @@ TEST(TestDiagram_core, attempt_remove_segment_creates_correct_diagram_beginning)
  * in the removal of the last segment (with index=4 starting from 0) [tau1=8, tau2=9], and the parameter RNacc = -1, which ensures
  * that the update is accepted, since the condition is RNacc < acceptance_rate, and acceptance_rate is >= 0
  * 
- * WHEN: RN1 and RNacc are passed as parameters to the attempt_remove_segment of the diagram object with 6 vertices
+ * WHEN: RN1 and RNacc are passed as parameters to the Diagram_core::attempt_remove_segment of the diagram object with 6 vertices
  * 
  * THEN: the diagram under test becomes equal to another diagram with 4 vertices, containing the same vertices of the
  * test diagram, minus the removed one
@@ -594,13 +595,13 @@ TEST(TestDiagram_core, attempt_remove_segment_creates_correct_diagram_end)
 
 /**
  * @brief This test checks that when the SPIN_FLIP update is accepted in the determinitic
- * attempt_spin_flip method, the diagram is correctly modified with the new spin value, and
+ * Diagram_core::attempt_spin_flip method, the diagram is correctly modified with the new spin value, and
  * also that a double flip results in the initial diagram.
  * 
  * GIVEN: a diagram starting with spin up (s0 = +1), and the parameter RNacc = -1, which ensures
  * that the update is accepted, since the condition is RNacc < acceptance_rate, and acceptance_rate is >= 0
  * 
- * WHEN: RNacc is passed twice as parameters to the attempt_remove_segment of the tested diagram object
+ * WHEN: RNacc is passed twice as parameters to the Diagram_core::attempt_remove_segment of the tested diagram object
  * 
  * THEN: the diagram under test, intially with spin up(s0=+1), becomes equal to another diagram with spin down(s0=-1)
  * when attempt_spin_flip is executed for the first time. Then, executing again attempt_spin_flip the test diagram
@@ -615,11 +616,11 @@ TEST(TestDiagram_core, attempt_spin_flip_creates_correct_diagram)
 
     diag_test.attempt_spin_flip(-1); //force acceptance
 
-    EXPECT_EQ(diag_test, diag_dw);
+    ASSERT_EQ(diag_test, diag_dw) << "first flip (up->down) not correct";
 
     diag_test.attempt_spin_flip(-1); //force acceptance
 
-    EXPECT_EQ(diag_test, diag_up);        
+    ASSERT_EQ(diag_test, diag_up) << "second flip (down->up) not correct";      
 
 }
 
@@ -633,7 +634,7 @@ TEST(TestDiagram_core, attempt_spin_flip_creates_correct_diagram)
 
 /**
  * @brief This test checks that when the ADD_SEGMENT update is attempted through the 
- * attempt_add_segment method, it is accepted with the correct rate. This test is useful
+ * Diagram_core::attempt_add_segment method, it is accepted with the correct rate. This test is useful
  * to check that the vertices and spin of the new segment are calculated correctly by the method.
  * 
  * GIVEN: a diagram with 4 vertices ([1,2,8,9]), two "fake random numbers" RN1 and RN2 that should result
@@ -642,7 +643,7 @@ TEST(TestDiagram_core, attempt_spin_flip_creates_correct_diagram)
  * faster expression inside the method. 
  * 
  * WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to 
- * two copies of the same test diagram
+ * the method Diagram_core::attempt_add_segment of two copies of the same test diagram
  * 
  * THEN: the update is accepted if RNacc < expected_acceptance_rate, rejected if RNacc > expected_acceptance_rate
  */
@@ -667,15 +668,15 @@ TEST(TestDiagram_core, attempt_add_segment_correct_rate)
 
     double expected_acceptance_rate = diag_new / diag_current * GAMMA*GAMMA * beta * (tau3 - tau1) / (diag_current.order() + 1);
 
-    EXPECT_TRUE(diag_test1.attempt_add_segment(RN1, RN2, expected_acceptance_rate - 0.00001));   //acctepted if RNG < acc
-    EXPECT_FALSE(diag_test2.attempt_add_segment(RN1, RN2, expected_acceptance_rate + 0.00001));  //recjected if RNG > acc
+    EXPECT_TRUE(diag_test1.attempt_add_segment(RN1, RN2, expected_acceptance_rate - 0.00001)) << "not accepted even if RNG < acc";
+    EXPECT_FALSE(diag_test2.attempt_add_segment(RN1, RN2, expected_acceptance_rate + 0.00001)) << "not rejected even if RNG > acc";
     
 }
 
 
 /**
  * @brief This test checks that when the ADD_SEGMENT update is attempted through the 
- * attempt_add_segment method, it is accepted with the correct rate, in the specific case
+ * Diagram_core::attempt_add_segment method, it is accepted with the correct rate, in the specific case
  * where the segment is added in front of the list. 
  * This test is useful to check that the vertices and spin of the new segment are calculated correctly by the method,
  * in the boundary cases for the algorithm that sweeps the list of vertices.
@@ -686,7 +687,7 @@ TEST(TestDiagram_core, attempt_add_segment_correct_rate)
  * faster expression inside the method. 
  * 
  * WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to 
- * two copies of the same test diagram
+ * the method Diagram_core::attempt_add_segment of two copies of the same test diagram
  * 
  * THEN: the update is accepted if RNacc < expected_acceptance_rate, rejected if RNacc > expected_acceptance_rate
  */
@@ -710,15 +711,15 @@ TEST(TestDiagram_core, attempt_add_segment_correct_rate_beginning)
 
     double expected_acceptance_rate = diag_new / diag_current * GAMMA*GAMMA * beta * (tau3 - tau1) / (diag_current.order() + 1);
 
-    EXPECT_TRUE(diag_test1.attempt_add_segment(RN1, RN2, expected_acceptance_rate - 0.00001));   //acctepted if RNG < acc
-    EXPECT_FALSE(diag_test2.attempt_add_segment(RN1, RN2, expected_acceptance_rate + 0.00001));  //recjected if RNG > acc
+    EXPECT_TRUE(diag_test1.attempt_add_segment(RN1, RN2, expected_acceptance_rate - 0.00001)) << "not accepted even if RNG < acc";
+    EXPECT_FALSE(diag_test2.attempt_add_segment(RN1, RN2, expected_acceptance_rate + 0.00001)) << "not rejected even if RNG > acc";
     
 }
 
 
 /**
  * @brief This test checks that when the ADD_SEGMENT update is attempted through the 
- * attempt_add_segment method, it is accepted with the correct rate, in the specific case
+ * Diagram_core::attempt_add_segment method, it is accepted with the correct rate, in the specific case
  * where the segment is added at the end of the list. 
  * This test is useful to check that the vertices and spin of the new segment are calculated correctly by the method,
  * in the boundary cases for the algorithm that sweeps the list of vertices.
@@ -729,7 +730,7 @@ TEST(TestDiagram_core, attempt_add_segment_correct_rate_beginning)
  * faster expression inside the method. 
  * 
  * WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to 
- * two copies of the same test diagram
+ * the method Diagram_core::attempt_add_segment of two copies of the same test diagram
  * 
  * THEN: the update is accepted if RNacc < expected_acceptance_rate, rejected if RNacc > expected_acceptance_rate
  */
@@ -753,15 +754,15 @@ TEST(TestDiagram_core, attempt_add_segment_correct_rate_end)
 
     double expected_acceptance_rate = diag_new / diag_current * GAMMA*GAMMA * beta * (tau3 - tau1) / (diag_current.order() + 1);
 
-    EXPECT_TRUE(diag_test1.attempt_add_segment(RN1, RN2, expected_acceptance_rate - 0.00001));   //acctepted if RNG < acc
-    EXPECT_FALSE(diag_test2.attempt_add_segment(RN1, RN2, expected_acceptance_rate + 0.00001));  //recjected if RNG > acc
+    EXPECT_TRUE(diag_test1.attempt_add_segment(RN1, RN2, expected_acceptance_rate - 0.00001)) << "not accepted even if RNG < acc";
+    EXPECT_FALSE(diag_test2.attempt_add_segment(RN1, RN2, expected_acceptance_rate + 0.00001)) << "not rejected even if RNG > acc";
     
 }
 
 
 /**
  * @brief This test checks that when the ADD_SEGMENT update is attempted through the 
- * attempt_add_segment method, it is accepted with the correct rate, in the specific case
+ * Diagram_core::attempt_add_segment method, it is accepted with the correct rate, in the specific case
  * where the diagram is of zero order (no vertices - empty list). 
  * This test is useful to check that the vertices and spin of the new segment are calculated correctly by the method,
  * in the boundary cases for the algorithm that sweeps the list of vertices.
@@ -772,7 +773,7 @@ TEST(TestDiagram_core, attempt_add_segment_correct_rate_end)
  * faster expression inside the method. 
  * 
  * WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to 
- * two copies of the same test diagram
+ * the method Diagram_core::attempt_add_segment of two copies of the same test diagram
  * 
  * THEN: the update is accepted if RNacc < expected_acceptance_rate, rejected if RNacc > expected_acceptance_rate
  */
@@ -797,15 +798,15 @@ TEST(TestDiagram_core, attempt_add_segment_correct_rate_zeroorder)
 
     double expected_acceptance_rate = diag_new / diag_current * GAMMA*GAMMA * beta * (tau3 - tau1) / (diag_current.order() + 1);
 
-    EXPECT_TRUE(diag_test1.attempt_add_segment(RN1, RN2, expected_acceptance_rate - 0.00001));   //acctepted if RNG < acc
-    EXPECT_FALSE(diag_test2.attempt_add_segment(RN1, RN2, expected_acceptance_rate + 0.00001));  //recjected if RNG > acc
+    EXPECT_TRUE(diag_test1.attempt_add_segment(RN1, RN2, expected_acceptance_rate - 0.00001)) << "not accepted even if RNG < acc";
+    EXPECT_FALSE(diag_test2.attempt_add_segment(RN1, RN2, expected_acceptance_rate + 0.00001)) << "not rejected even if RNG > acc";
     
 }
 
 
 /**
  * @brief This test checks that when the REMOVE_SEGMENT update is attempted through the 
- * attempt_remove_segment method, it is accepted with the correct rate.
+ * Diagram_core::attempt_remove_segment method, it is accepted with the correct rate.
  * This test is useful to check that the vertices and spin of the segment to be removed are calculated correctly by the method.
  * 
  * GIVEN: a diagram with 6 vertices ([1,2, 5, 5.5, 8,9]), a "fake random number" RN1 that should result
@@ -814,7 +815,7 @@ TEST(TestDiagram_core, attempt_add_segment_correct_rate_zeroorder)
  * faster expression inside the method. 
  * 
  * WHEN: RN1 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to 
- * two copies of the same test diagram
+ * the method Diagram_core::attempt_add_segment of two copies of the same test diagram
  * 
  * THEN: the update is accepted if RNacc < expected_acceptance_rate, rejected if RNacc > expected_acceptance_rate
  */
@@ -837,15 +838,15 @@ TEST(TestDiagram_core, attempt_remove_segment_correct_rate)
 
     double expected_acceptance_rate = diag_new / diag_current * (diag_current.order() - 1) / ( GAMMA*GAMMA * beta * (tau3-tau1) ) ;
 
-    EXPECT_TRUE(diag_test1.attempt_remove_segment(RN1, expected_acceptance_rate - 0.00001));   //acctepted if RNG < acc
-    EXPECT_FALSE(diag_test2.attempt_remove_segment(RN1, expected_acceptance_rate + 0.00001));  //recjected if RNG > acc
+    EXPECT_TRUE(diag_test1.attempt_remove_segment(RN1, expected_acceptance_rate - 0.00001)) << "not accepted even if RNG < acc";
+    EXPECT_FALSE(diag_test2.attempt_remove_segment(RN1, expected_acceptance_rate + 0.00001)) << "not rejected even if RNG > acc";
    
 }
 
 
 /**
  * @brief This test checks that when the REMOVE_SEGMENT update is attempted through the 
- * attempt_remove_segment method, it is accepted with the correct rate, in the specific case where the segment
+ * Diagram_core::attempt_remove_segment method, it is accepted with the correct rate, in the specific case where the segment
  * to be removed is at the front of the diagram.
  * This test is useful to check that the vertices and spin of the segment to be removed are calculated correctly by the method.
  * 
@@ -855,7 +856,7 @@ TEST(TestDiagram_core, attempt_remove_segment_correct_rate)
  * faster expression inside the method. 
  * 
  * WHEN: RN1 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to 
- * two copies of the same test diagram
+ * the method Diagram_core::attempt_add_segment of two copies of the same test diagram
  * 
  * THEN: the update is accepted if RNacc < expected_acceptance_rate, rejected if RNacc > expected_acceptance_rate
  */
@@ -878,15 +879,15 @@ TEST(TestDiagram_core, attempt_remove_segment_correct_rate_beginning)
 
     double expected_acceptance_rate = diag_new / diag_current * (diag_current.order() - 1) / ( GAMMA*GAMMA * beta * (tau3-tau1) ) ;
 
-    EXPECT_TRUE(diag_test1.attempt_remove_segment(RN1, expected_acceptance_rate - 0.00001));   //acctepted if RNG < acc
-    EXPECT_FALSE(diag_test2.attempt_remove_segment(RN1, expected_acceptance_rate + 0.00001));  //recjected if RNG > acc
+    EXPECT_TRUE(diag_test1.attempt_remove_segment(RN1, expected_acceptance_rate - 0.00001)) << "not accepted even if RNG < acc";
+    EXPECT_FALSE(diag_test2.attempt_remove_segment(RN1, expected_acceptance_rate + 0.00001)) << "not rejected even if RNG > acc";
    
 }
 
 
 /**
  * @brief This test checks that when the REMOVE_SEGMENT update is attempted through the 
- * attempt_remove_segment method, it is accepted with the correct rate, in the specific case where the segment
+ * Diagram_core::attempt_remove_segment method, it is accepted with the correct rate, in the specific case where the segment
  * to be removed is at the end of the diagram.
  * This test is useful to check that the vertices and spin of the segment to be removed are calculated correctly by the method.
  * 
@@ -896,7 +897,7 @@ TEST(TestDiagram_core, attempt_remove_segment_correct_rate_beginning)
  * faster expression inside the method. 
  * 
  * WHEN: RN1 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to 
- * two copies of the same test diagram
+ * the method Diagram_core::attempt_add_segment of two copies of the same test diagram
  * 
  * THEN: the update is accepted if RNacc < expected_acceptance_rate, rejected if RNacc > expected_acceptance_rate
  */
@@ -918,21 +919,21 @@ TEST(TestDiagram_core, attempt_remove_segment_correct_rate_end)
 
     double expected_acceptance_rate = diag_new / diag_current * (diag_current.order() - 1) / ( GAMMA*GAMMA * beta * (tau3-tau1) ) ;
 
-    EXPECT_TRUE(diag_test1.attempt_remove_segment(RN1, expected_acceptance_rate - 0.00001));   //acctepted if RNG < acc
-    EXPECT_FALSE(diag_test2.attempt_remove_segment(RN1, expected_acceptance_rate + 0.00001));  //recjected if RNG > acc
+    EXPECT_TRUE(diag_test1.attempt_remove_segment(RN1, expected_acceptance_rate - 0.00001)) << "not accepted even if RNG < acc";
+    EXPECT_FALSE(diag_test2.attempt_remove_segment(RN1, expected_acceptance_rate + 0.00001)) << "not rejected even if RNG > acc";
    
 }
 
 
 /**
  * @brief This test checks that when the SPIN_FLIP update is attempted through the 
- * attempt_spin_flip method, it is accepted with the correct rate.
+ * Diagram_core::attempt_spin_flip method, it is accepted with the correct rate.
  * 
  * GIVEN: a diagram with spin up (s0=+1) and the expected_acceptance_rate, calculated using the ratio 
  * of the WEIGTHS (values) of the new and current diagram, instead of the faster expression inside the method. 
  * 
  * WHEN: RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 is passed as parameter to 
- * two copies of the same test diagram
+ * the method Diagram_core::attempt_add_segment of two copies of the same test diagram
  * 
  * THEN: the update is accepted if RNacc < expected_acceptance_rate, rejected if RNacc > expected_acceptance_rate
  */
@@ -946,19 +947,19 @@ TEST(TestDiagram_core, attempt_spin_flip_correct_rate)
 
     double expected_acceptance_rate = diag_new / diag_current;
 
-    EXPECT_TRUE(diag_test1.attempt_spin_flip(expected_acceptance_rate - 0.00001));   //acctepted if RNG < acc
-    EXPECT_FALSE(diag_test2.attempt_spin_flip(expected_acceptance_rate + 0.00001));  //recjected if RNG > acc    
+    EXPECT_TRUE(diag_test1.attempt_spin_flip(expected_acceptance_rate - 0.00001)) << "not accepted even if RNG < acc";
+    EXPECT_FALSE(diag_test2.attempt_spin_flip(expected_acceptance_rate + 0.00001)) << "not rejected even if RNG > acc";   
 }
 
 
 /**
  * @brief This test checks that the REMOVE_SEGMENT update, attempted through the 
- * attempt_remove_segment method, is always rejected immediately if the diagram is of zero order.
+ * Diagram_core::attempt_remove_segment method, is always rejected immediately if the diagram is of zero order.
  * 
  * GIVEN: a diagram of 0 order (no vertices - empty list)
  * 
- * WHEN: RNacc = -1 is passed to attempt_remove_segment, so that in principle the update should be 
- * always accepted 
+ * WHEN: RNacc = -1 is passed to the Diagram_core::attempt_remove_segment method of the diagram, 
+ * so that in principle the update should be always accepted 
  * 
  * THEN: the update is rejected
  */
@@ -976,4 +977,42 @@ TEST(TestDiagram_core, attempt_remove_segment_always_rejects_for_zero_order)
 
 //#############################################################################################
 
-//Test for the main loop of the algorithm
+//Test for the core function of the MCMC alogrithm
+
+/**
+ * @brief This test checks that the run_simulation function, that executes the MCMC algorithm,
+ * produces the correct result
+ * 
+ * GIVEN: values for the simulation parameters
+ * WHEN: these parameters are passed to the run_simulation function
+ * THEN: the function returns a SingleRunResults object, with correct values of measured_sigmaz and measured_sigmax
+ */
+TEST(Simulation, run_simulation_results_are_correct)
+{
+
+    double beta = 1;
+    int initial_s0 = 1;
+    double H = -0.5;
+    double GAMMA = 0.1;
+    unsigned long long N_total_steps = 50000000;
+    unsigned long long N_thermalization_steps = 0;
+    unsigned long long update_choice_seed = 1111;
+    unsigned long long diagram_seed = 2222;
+
+
+    SingleRunResults results = run_simulation(
+        beta,
+        initial_s0, 
+        H, 
+        GAMMA, 
+        N_total_steps, 
+        N_thermalization_steps,
+        update_choice_seed,
+        diagram_seed);
+
+
+    EXPECT_NEAR(results.measured_sigmaz, 0.46074, 1e-2) << "wrong sigma_z";
+    EXPECT_NEAR(results.measured_sigmax, -0.09215, 1e-2) << "wrong sigma_x";
+
+}
+

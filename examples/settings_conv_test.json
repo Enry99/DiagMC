@@ -7,11 +7,10 @@
     "beta" : 1,
     "H" : 1,
     "GAMMA" : 1,
+
     "N_total_steps_min" : 1e3,
     "N_total_steps_max" : 1e8,
-    "N_total_steps_points_per_decade" : 4,
-
-    "N_thermalization_steps" : 0
+    "N_total_steps_points_per_decade" : 4
 
 
 }

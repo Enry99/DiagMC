@@ -157,7 +157,7 @@ class Diagram_core
      * @param RN2 Random number for the extraction of tau2, must be in range [0, 1]
      * @param RNacc Random number for the acceptance, should be in range [0,1]
      * @return true if update was accepted,
-     * @return false if update wa rejected
+     * @return false if update was rejected
      */
     bool attempt_add_segment(double RN1, double RN2, double RNacc);
 
@@ -168,7 +168,7 @@ class Diagram_core
      * @param RN1 Random number for the extraction of first vertex, must be in range [0, 1]
      * @param RNacc Random number for the acceptance, should be in range [0,1]
      * @return true if update was accepted,
-     * @return false if update wa rejected
+     * @return false if update was rejected
      */
     bool attempt_remove_segment(double RN1, double RNacc);
 
@@ -178,7 +178,7 @@ class Diagram_core
      * 
      * @param RNacc Random number for the acceptance, should be in range [0,1]
      * @return true if update was accepted,
-     * @return false if update wa rejected 
+     * @return false if update was rejected 
      */
     bool attempt_spin_flip(double RNacc);
 
@@ -226,7 +226,7 @@ class Diagram: public Diagram_core
      * @brief Attemps the ADD_SEGMENT update for the current status of the diagram.
      * 
      * @return true if update was accepted,
-     * @return false if update wa rejected
+     * @return false if update was rejected
      */
     bool attempt_add_segment();
 
@@ -234,7 +234,7 @@ class Diagram: public Diagram_core
      * @brief Attemps the REMOVE_SEGMENT update for the current status of the diagram.
      * 
      * @return true if update was accepted,
-     * @return false if update wa rejected
+     * @return false if update was rejected
      */
     bool attempt_remove_segment(); 
 
@@ -242,7 +242,7 @@ class Diagram: public Diagram_core
      * @brief Attemps the SPIN_FLIP update for the current status of the diagram.
      * 
      * @return true if update was accepted,
-     * @return false if update wa rejected
+     * @return false if update was rejected
      */
     bool attempt_spin_flip();
 
@@ -270,7 +270,7 @@ class Diagram: public Diagram_core
  * 
  * @param list1 First list
  * @param list2 Second list
- * @return true if lists are equal
+ * @return true if lists are equal,
  * @return false otherwise
  */
 bool lists_are_float_equal(const std::list<double>& list1, const std::list<double>& list2);

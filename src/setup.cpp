@@ -187,7 +187,7 @@ void single_run(const json & settings)
     );
 
     //assign default values to optional keys if not present in settings.json
-    int initial_s0 = settings.contains("initial_s0") ? (int) settings["N_thermalization_steps"] : INITIAL_S0_DEFAULT;
+    int initial_s0 = settings.contains("initial_s0") ? (int) settings["initial_s0"] : INITIAL_S0_DEFAULT;
     unsigned long long N_thermalization_steps = settings.contains("N_thermalization_steps") ? (unsigned long long) settings["N_thermalization_steps"] : N_THERMALIZATION_STEPS_DEFAULT;
     unsigned long long int update_choice_seed = settings.contains("update_choice_seed") ? int(settings["update_choice_seed"]) : NEW_SEED;
     unsigned long long int diagram_seed = settings.contains("diagram_seed") ? int(settings["diagram_seed"]) : NEW_SEED;
@@ -233,7 +233,7 @@ void sweep(const json & settings)
 
 
     //assign default values to optional keys if not present in settings.json
-    int initial_s0 = settings.contains("initial_s0") ? (int) settings["N_thermalization_steps"] : INITIAL_S0_DEFAULT;
+    int initial_s0 = settings.contains("initial_s0") ? (int) settings["initial_s0"] : INITIAL_S0_DEFAULT;
     unsigned long long N_thermalization_steps = settings.contains("N_thermalization_steps") ? (unsigned long long) settings["N_thermalization_steps"] : N_THERMALIZATION_STEPS_DEFAULT;
     int samples_per_point = settings.contains("samples_per_point") ? int(settings["samples_per_point"]) : SAMPLES_PER_POINT_DEFAULT;
     //############################################################################
@@ -304,7 +304,7 @@ void convergence_test(const json & settings)
     std::vector<double> N_thermalization_steps_values;
 
     //assign default values to optional keys if not present in settings.json
-    int initial_s0 = settings.contains("initial_s0") ? (int) settings["N_thermalization_steps"] : 1;
+    int initial_s0 = settings.contains("initial_s0") ? (int) settings["initial_s0"] : 1;
     if( !settings.contains("N_thermalization_steps") && !settings.contains("N_thermalization_step_max")) N_thermalization_steps_values = {0};
     else N_thermalization_steps_values = log_range_generator(settings, "N_thermalization_steps");
     unsigned long long int update_choice_seed = settings.contains("update_choice_seed") ? int(settings["update_choice_seed"]) : NEW_SEED;
