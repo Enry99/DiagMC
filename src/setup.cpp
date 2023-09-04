@@ -70,6 +70,7 @@ std::vector<double> range_generator(const json & settings, std::string which)
     return range_vector;
 }
 
+
 std::vector<double> log_range_generator(const json & settings, std::string which)
 {
     //vector to store the list of values of the 'which' parameter
@@ -103,6 +104,7 @@ std::vector<double> log_range_generator(const json & settings, std::string which
 
     return range_vector;
 }
+
 
 void print_progress_bar(double progress)
 {

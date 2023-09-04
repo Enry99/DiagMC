@@ -7,8 +7,12 @@
 
 #include <gtest/gtest.h>
 #include <diagmc/diagram.h>
+#include <diagmc/simulation.h>
 
 
+
+//Series of tests that check that an std::invalid_argument exception is thrown when
+//incorrect parameters are passed to Diagram_core constructor or Diagram::reset_diagram method
 
 /**
  * @brief This test checks that the Diagram_core class constructor throws an exception if 
@@ -191,9 +195,9 @@ TEST(TestDiagram, reset_diagram_throws_for_vertices_argument_notsorted)
  * @brief This test checks that the reset_diagram method of Diagram class stores correctly
  * the new parameters in the class variables
  * 
- * GIVEN: valid beta, s0 , H, GAMMA, vertices, seed parameters
- * WHEN: they are provided as parameters to the reset_diagram method of Diagram class
- * THEN: the object whose reset_diagram method is equal to a newly constructed object with the same parameters
+ * GIVEN: a test Diagram initialized with beta=s0=H=GAMMA=1 and empty vertices, and a comparison Diagram initialized with different parameters and a list of vertices
+ * WHEN: the Diagram::reset_diagram of the first (test) diagram is called, with the parameters given to the second (comparison) diagram
+ * THEN: the test diagram is equal to the comparison diagram
  */
 TEST(TestDiagram, reset_diagram_sets_correct_values)
 {
@@ -212,6 +216,127 @@ TEST(TestDiagram, reset_diagram_sets_correct_values)
 
     EXPECT_EQ(diag_test, diag_expected);
    
+}
+
+//#########################################################################################
+
+//Series of tests to check that the diagram value and acceptance rates are calculated
+//correctly according to the theoretical formulas
+
+/**
+ * @brief This test checks that the sum_deltatau method of Diagrm_core class works as expected
+ * 
+ * GIVEN: a Diagram_core object initialized with a list of vertices
+ * WHEN: the Diagram_core::sum_deltatau() is called from the object
+ * THEN: the value returned by the method is the one expected, calculated "manually"
+ */
+TEST(TestDiagram_core, sum_deltatau_returns_correct_value)
+{
+    Diagram_core diag_test(10, 1, 1, 1, {1, 2, 4.3, 5, 6.1, 9});
+
+    EXPECT_DOUBLE_EQ(diag_test.sum_deltatau(), (9-6.1)+(5-4.3)+(2-1));
+}
+
+
+/**
+ * @brief This test checks that the sum_deltatau method of Diagrm_core class works as expected,
+ * in the specific case of a zero order diagram (with no vertices)
+ * 
+ * GIVEN: a zero-order Diagram_core object initialized with an empty list of vetices
+ * WHEN: the Diagram_core::sum_deltatau() is 0
+ */
+TEST(TestDiagram_core, sum_deltatau_returns_correct_value_zeroorder)
+{
+    Diagram_core diag_test(10, 1, 1, 1, {});
+
+    EXPECT_DOUBLE_EQ(diag_test.sum_deltatau(), 0);
+}
+
+
+/**
+ * @brief This test checks that Diagram_core::value returns the correct value
+ * 
+ * GIVEN: two diagram objects with different parameters
+ * WHEN: the value() method is called for both objects
+ * THEN: both objects return the theoretical value calculated "by hand"
+ */
+TEST(TestDiagram_core, value_method_returns_correct_value)
+{
+    Diagram_core diag_test1(10, -1, 0.5, 1.1, {1,2, 7,9});
+    Diagram_core diag_test2(10, 1, 0.2, 0.5, {1,2, 7,9});
+
+    EXPECT_NEAR(diag_test1.value(), 10.8183170344, 1e-8);
+    EXPECT_NEAR(diag_test2.value(), 0.0280830602573, 1e-8);
+}
+
+
+/**
+ * @brief This test checks that Diagram_core::acceptance_rate_add returns the correct value.
+ * It is meaningful only if value_method_returns_correct_value is passing
+ * 
+ * GIVEN: two diagram objects with the same parameters, one of order 4 (current), and the other of order 6 (new), with two more vertices in the middle
+ * WHEN: the acceptance_rate_add() method is called from the 4-th order diagram, with additional vertices of the 6-th order diagram
+ * THEN: the method returns the expected theoretical value 
+ */
+TEST(TestDiagram_core, acceptance_rate_add_returns_correct_value)
+{
+
+    double beta = 10;
+    double tau1 = 4;
+    double tau2 = 5;
+    double tau3 = 7;
+
+    Diagram_core diag_current(beta, -1, 0.5, 1.1, {1,2,             tau3,9});
+    Diagram_core diag_new(beta, -1, 0.5, 1.1,     {1,2, tau1,tau2,  tau3,9});
+
+
+    EXPECT_NEAR(diag_current.acceptance_rate_add(tau1, tau2, tau3, 1), diag_new/diag_current * beta * (tau3-tau1) / 5, 1e-10);
+
+}
+
+
+/**
+ * @brief This test checks that Diagram_core::acceptance_rate_remove returns the correct value
+ * It is meaningful only if value_method_returns_correct_value is passing
+ * 
+ * GIVEN: two diagram objects with the same parameters, one of order 6 (current), and the other of order 4 (new), with two less in the middle
+ * WHEN: the acceptance_rate_remove() method is called from the 6-th order diagram, with the vertices to be removed
+ * THEN: the method returns the expected theoretical value 
+ */
+TEST(TestDiagram_core, acceptance_rate_remove_returns_correct_value)
+{
+
+    double beta = 10;
+    double tau1 = 4;
+    double tau2 = 5;
+    double tau3 = 7;
+
+    Diagram_core diag_current(beta, -1, 0.5, 1.1, {1,2, tau1,tau2,  tau3,9});
+    Diagram_core diag_new(beta, -1, 0.5, 1.1,     {1,2,             tau3,9});
+
+
+    EXPECT_NEAR(diag_current.acceptance_rate_remove(tau1, tau2, tau3, 1), diag_new/diag_current * 5. / (beta * (tau3-tau1)), 1e-10);
+
+}
+
+
+/**
+ * @brief This test checks that Diagram_core::acceptance_rate_flip returns the correct value
+ * It is meaningful only if value_method_returns_correct_value is passing
+ * 
+ * GIVEN: two diagram objects with the same parameters, but opposite spin
+ * WHEN: the acceptance_rate_flip() method is called from the (current) spin = -1 diagram
+ * THEN: the method returns the expected theoretical value 
+ */
+TEST(TestDiagram_core, acceptance_rate_flip_returns_correct_value)
+{
+
+    Diagram_core diag_current(10, -1, 0.5, 1.1, {1,2,7,9});
+    Diagram_core diag_new(10, 1, 0.5, 1.1,     {1,2,7,9});
+
+
+    EXPECT_NEAR(diag_current.acceptance_rate_flip(), diag_new/diag_current, 1e-10);
+
 }
 
 
@@ -849,14 +974,6 @@ TEST(TestDiagram_core, attempt_remove_segment_always_rejects_for_zero_order)
 
 
 
+//#############################################################################################
 
-
-
-/*
-
-TEST: 
--Controllo sia su value() che sui 3 acceptance_rate() con valori numerici calcolati "a mano"
--Test per sum_deltatau
--Insead of checking for equality of the diagrams, should I check float equality of their values?
-
-*/
+//Test for the main loop of the algorithm

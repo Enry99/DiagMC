@@ -11,7 +11,7 @@
 #include <random>
 #include <chrono>
 
-
+#define EPSILON 1e-10  //theshold for floating point comparison
 
 /**
  * @class Diagram_core 
@@ -197,7 +197,7 @@ class Diagram: public Diagram_core
 
     private:
         std::uniform_real_distribution<double> _uniform_dist; ///< uniform distribution for random number generation
-        std::mt19937 _mt_generator;                           //Mersenne-Twister random number generator
+        std::mt19937 _mt_generator;                           ///< Mersenne-Twister random number generator
 
 
     public:
@@ -261,3 +261,16 @@ class Diagram: public Diagram_core
         unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count());
 
 };
+
+
+/**
+ * @brief Small helper function that checks if two lists of floating points numbers are equal,
+ * performing element-by-element comparison.
+ * If list1[i] and list2[i] are within EPSILON=1e-10 for every i, the two lists are considered equal
+ * 
+ * @param list1 First list
+ * @param list2 Second list
+ * @return true if lists are equal
+ * @return false otherwise
+ */
+bool lists_are_float_equal(const std::list<double>& list1, const std::list<double>& list2);

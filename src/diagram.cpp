@@ -14,8 +14,34 @@
 #include <limits>
 #include <cmath>
 #include <algorithm>
+#include <list>
 
-#define RNG _uniform_dist(_mt_generator)
+#define RNG _uniform_dist(_mt_generator) //extracts a random number uniformly in [0,1]
+
+
+bool lists_are_float_equal(const std::list<double>& list1, const std::list<double>& list2) {
+    
+    // Check if lists have the same size
+    if (list1.size() != list2.size()) {
+        return false;
+    }
+
+    // Initialize two iterators to run through the two lists
+    auto it1 = list1.begin();
+    auto it2 = list2.begin();
+
+    // Element-by-element comparison
+    while (it1 != list1.end() && it2 != list2.end()) {
+        if (std::fabs(*it1 - *it2) > EPSILON) {
+            return false;
+        }
+        ++it1;
+        ++it2;
+    }
+
+    // If no differences were found, the lists are equal, so return true
+    return true;
+}
 
 
 //Methods definitions for class Diagram_core -------------------------------------------------------
@@ -66,11 +92,11 @@ Diagram_core::Diagram_core(double beta, int s0, double H, double GAMMA, std::lis
 
 bool Diagram_core::operator==(const Diagram_core &other) const
 {
-    if (this->_beta == other._beta 
-        && this->_s0 == other._s0
-        && this->_H == other._H
-        && this->_GAMMA == other._GAMMA
-        && this->_vertices == other._vertices) return true;
+    if ( std::fabs(this->_beta - other._beta ) < EPSILON
+        && std::fabs(this->_s0 - other._s0) < EPSILON
+        && std::fabs(this->_H - other._H) < EPSILON
+        && std::fabs(this->_GAMMA - other._GAMMA) < EPSILON
+        && lists_are_float_equal(this->_vertices, other._vertices) ) return true;
     else return false;
 }
 

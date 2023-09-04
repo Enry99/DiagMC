@@ -14,7 +14,7 @@ FetchContent_MakeAvailable(googletest)
 
 #add test executable
 add_executable(tests tests.cpp)
-target_link_libraries(tests gtest_main diagram)
+target_link_libraries(tests gtest_main diagram simulation)
 
 
 include(GoogleTest)
