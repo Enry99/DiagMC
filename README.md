@@ -3,6 +3,12 @@
 ![example workflow](https://github.com/Enry99/DiagMC/actions/workflows/cmake-multi-platform.yml/badge.svg)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
+This program implements a Markov Chain Monte Carlo algorithm, based on [Metropolis-Hastings](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm), to sample Feynman diagrams
+associated to a series expansion of the partition function for a 2-level spin system in an external magnetic field, with longitudinal and transversal components.
+This method allows to calculate the magnetization along z and x, that can be compared to the theoretical values obtained by the exact diagonalization of the Hamiltonian.
+Its purpose is to use a simple and analytically-solvable system to become familiar with the implementation of a Diagrammatic Monte Carlo algorithm, which can be applied effectively in cases where no analytical solution exists,
+such as the study of complex electron-phonon interactions.
+
 ## Installation using CMake
 The installation procedure relies on [CMake](https://cmake.org/), which is cross-platform and can be used on many operative systems, like Linux and Windows.\
 Note that on Windows you need to have an available C++ compiler, such as [MSVC](https://docs.microsoft.com/en-us/cpp/), which is provided with [Visual Studio](https://visualstudio.microsoft.com/).\
@@ -51,13 +57,42 @@ $ ctest
 ## Utilization guide
 
 
+
+
 ## Examples
+  [settings_singlerun.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_singlerun.json)
+  [settings_sweep.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_sweep.json)
+  [settings_conv_test.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_conv_test.json)
+
+  [results_sweep.csv](https://github.com/Enry99/DiagMC/blob/main/examples/results_sweep.csv) and
+  [results_conv_test.csv](https://github.com/Enry99/DiagMC/blob/main/examples/results_conv_test.csv)
 
 <img src="/examples/sweep_beta=10.0.png" width="800">
 <img src="/examples/convergence_test.png" width="800">
 
 ## Structure of the project
 
+The project is structured as follows:
+1. the [include/diagmc](https://github.com/Enry99/DiagMC/blob/main/include/diagmc) and [src](https://github.com/Enry99/DiagMC/blob/main/src) folders, which contain the declarations and definitions of the classes and functions.\
+   The code is composed by the following units: 
+    - [diagram.h](https://github.com/Enry99/DiagMC/blob/main/include/diagmc/diagram.h) / [diagram.cpp](https://github.com/Enry99/DiagMC/blob/main/src/diagram.cpp) implement the Diagram_core and Diagram classes,
+      which contain the variables defining a Feynman diagram, and the methods to attempt and perform the Monte Carlo updates, modifying the variables inside the object.\
+      In particular, Diagram_core contains all the main functionalities of the diagram object, involving the **fully deterministic** part of the code, while Diagram is a derived class of Diagram_core,
+      adding the random behaviour by including the ([Mersenne-Twister](https://en.wikipedia.org/wiki/Mersenne_Twister)) random number generator, which allows to randomly perform updates within the object, without needing to pass values to the methods.\
+      A Diagram object, once initalized, is fully self-sufficient to perform the desired sequence of updates.
+    - [simulation.h](https://github.com/Enry99/DiagMC/blob/main/include/diagmc/simulation.h) / [simulation.cpp](https://github.com/Enry99/DiagMC/blob/main/src/simulation.cpp) implement the core function of the algorithm, run_simulation,
+      which executes the Metropolis Hastings algorithm loop, attempting updates at each iteration, and collecting statistics.\
+      Moreover, in these files the class SingleRunResults is implemented, which collects all the data pertaining to a run of the DMC loop (i.e. the input parameters, the results and the statisics).\
+      The SingleRunResults class has a method for printing a summary of the results to standard output, and a method to write the data to file in csv format. An object of this class is returned by the run_simulation function.
+    - [setup.h](https://github.com/Enry99/DiagMC/blob/main/include/diagmc/setup.h) / [setup.cpp](https://github.com/Enry99/DiagMC/blob/main/src/setup.cpp) implement the functions to read the settings from file, setup the proper parameters and run the
+      selected type of calculations. In particular, the functions contain the loops to sweep over a range of the parameters and save the results of all the combination of parameters as rows of a csv file.
+    - [main.cpp](https://github.com/Enry99/DiagMC/blob/main/src/main.cpp) is the main function of the executable, which calls the function setup function, with the possiblity to pass the name of the settings file as a command line argument.
+3. the [tests](https://github.com/Enry99/DiagMC/blob/main/tests) folder, which contains the [tests.cpp](https://github.com/Enry99/DiagMC/blob/main/test/tests.cpp) source file, with all the unit tests for the program.
+   The test involve all methods of the Diagram_core class, and the Metropolis-Hastings loop function, checking that the results coincide with the expected values
+5. the [examples](https://github.com/Enry99/DiagMC/blob/main/examples) folder, which contains three examples of settings files, two csv files with the results of the calculations, two python scripts to plot the results, and the plotted images.
+   More on this in the Examples section.
+
+  
 ## Theory
 Diagrammatic Monte Carlo (DMC) is a very powerful method that allows to calculate quantities that can be expressed in terms of diagrammatic expansions of the form
     $$Q({y}) = \sum_{n=0}^\infty \sum_{\xi_n}\int dx_1 ... dx_n D_n^{\xi_n}(\{y\}; x_1,...,x_n)$$
@@ -77,7 +112,7 @@ This Hamiltonian can be exactly diagonalized, with eigenvalues $\pm E := \pm\sqr
 In the diagonalized basis, the partition function $Z$ of the system is simply given by
 
 $$Z = Tr( e^{-\beta \hat{H}} ) =  \bra{\Psi_+} e^{-\beta \hat{H}} \ket{\Psi_+} + \bra{\Psi_-} e^{-\beta \hat{H}} \ket{\Psi_-} = e^{-\beta E} + e^{\beta E}$$
-where $\beta = \frac{1}{k_bT}$ is the inverse temperature.
+where $\beta = \frac{1}{T}$ is the inverse temperature.
 
 In the same way, just with a bit more algebra, it's possible to calculate the **exact expressions for the magnetization in the z and x directions**:
 
@@ -159,7 +194,7 @@ The algorithm used to draw samples from the unknown diagram distribution is a Ma
 
     -   Calculate the acceptance rate $A$ for the update
 
-    -   Extract a random number r $\sim U(0,1)$, if $r &lt; A$ accept the
+    -   Extract a random number $r \sim U(0,1)$, if $r &lt; A$ accept the
         update, setting the proposed diagram as the current one,
         otherwise reject the update.
 
