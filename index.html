@@ -85,8 +85,6 @@ Installation using CMake</h1>
 <div class="line">$ cmake ..</div>
 <div class="line">$ cmake --build . --target install --config Release</div>
 </div><!-- fragment --><p> <b>The program executable can be found in <code>DiagMC/bin</code></b>.</p>
-<p >Note that by default the build type is set to <code>Release</code>. To build for <code>Debug</code>, instead of <code>$ cmake ..</code> in the third line, run: </p><div class="fragment"><div class="line">$ cmake --build . --target install --config Debug</div>
-</div><!-- fragment --><p> Be aware that due to the absence of compiler optimization, the performance of the program built in Debug mode is massively impacted.</p>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Dependencies</h2>
 <p >The program depends on the <a href="https://github.com/nlohmann/json.git">json</a> library for reading the settings from file, and on <a href="https://github.com/google/googletest.git">googletest</a> for unit testing. Both dependencies are automatically downloaded and included by CMake during the build process, so an Internet connection is required during the installation.</p>
@@ -97,9 +95,46 @@ Execute unit tests</h2>
 <p >In order to execute the tests, go to the <code>build</code> directory and run: </p><div class="fragment"><div class="line">$ ctest</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
 Utilization guide</h1>
+<p >The program reads the parameters from a json settings file.</p>
+<p >The path of the file can be passed as command line argument upon execution. If nothing is specified, the programs looks for 'settings.json'.</p>
+<p >Three types of calculations are possible, and need to be specified in the flag <code>CALC_TYPE</code>:</p><ol type="1">
+<li>**"single"**, which performs a single run of the algorithm for the given parameters, and prints a summary of the results. An example of settings file for this type of calculation is <a href="https://github.com/Enry99/DiagMC/blob/main/examples/settings_singlerun.json">settings_singlerun.json</a></li>
+<li>**"sweep"**, which runs the algorithm for different values of <code>H</code>, <code>GAMMA</code> and <code>beta</code> in the given range, for all the combinations, and writes the results to a csv file. An example of settings file for this type of calculation is <a href="https://github.com/Enry99/DiagMC/blob/main/examples/settings_sweep.json">settings_sweep.json</a></li>
+<li>**"convergence-test"**, which runs the program multiple times for a fixed set of physical parameters and the same seed, varying the number of steps of the simulation, <code>N_total_steps</code>, and optionally also <code>N_thermalization_steps</code>. An example of settings file for this type of calculation is <a href="https://github.com/Enry99/DiagMC/blob/main/examples/settings_conv_test.json">settings_conv_test.json</a></li>
+</ol>
+<p >The settings parameters for a single run are:</p><ul>
+<li><code>beta</code>: Inverse temperature (equal to legnth of the diagram). Must be &gt; 0.</li>
+<li><code>initial_s0</code> (optional): Spin of the 0-th segment of the diagram (0--&mdash;t1) at the beginning of the simulation. Must be +1 or -1. Defaults to +1 if not specified.</li>
+<li><code>H</code>: Value of the longitudinal component of magnetic field.</li>
+<li><code>GAMMA</code>: Value of the transversal component of magnetic field. Must be $\neq$ 0. Values much higher than one could cause severe slowdown due to creation of a huge number of vertices.</li>
+<li><code>N_total_steps</code>: Total number of steps of the MCMC algorithm. For this system, values above 10 million give very accurate results.</li>
+<li><code>N_thermalization_steps</code> (optional): Number of initial steps for which statistics is not collected. For the suggested value of <code>N_total_steps</code> can be safely set to 0. Defaults to 0 if not specified.</li>
+<li><code>update_choice_seed</code> (optional): Seed for the Mersenne-Twister random number generator to choose <em>which</em> update to attempt. Must be a non-negative integer.</li>
+<li><code>diagram_seed</code> (optional): Seed for the diagram, used <em>inside</em> the updates. Must be a non-negative integer.</li>
+</ul>
+<p >In "sweep" mode, one or more parameters between <code>H</code>, <code>GAMMA</code> and <code>beta</code> can be substituted by a parameter range and a step, with the variable name and the suffix <code>_min</code>, <code>_max</code> and <code>_step</code>, e.g.</p><ul>
+<li><code>H_min</code>= -1,</li>
+<li><code>H_max</code>= 1,</li>
+<li><code>H_step</code>= 0.2</li>
+</ul>
+<p >In this mode it is not possible to set the seeds, which are assigned automatically in a unique way based on system clock.</p>
+<p >In "convergence-test" mode, one or more parameters between <code>N_total_steps</code> and <code>N_thermalization_steps</code> can be substituted by a parameter range and the number of points per decade (the step is linear in logscale), with the variable name and the suffix <code>_min</code>, <code>_max</code> and <code>_points_per_decade</code>, e.g.</p>
+<ul>
+<li><code>N_total_steps_min</code> = 1e3,</li>
+<li><code>N_total_steps_max</code> = 1e8,</li>
+<li><code>N_total_steps_points_per_decade</code> = 4</li>
+</ul>
+<p >For both "sweep" and "convergence-test" modes, the <code>output_file</code> must be specified, indicating where to save the results.</p>
+<p >To run the program, go to the <code>bin</code> directory and execute it with: </p><div class="fragment"><div class="line">$ ./2levelDiagMC [settings_filename]</div>
+</div><!-- fragment --><p> where you should replace <code>settings_filename</code> with the proper name of the desired json settings file.</p>
+<p >The results for "sweep" and "convergence-test" modes are written to a csv file, with columns corresponding to variables and lines corresponding to each run. The reported values include all the input parameters, the results for the two magnetizations, the statistics of acceptance for the updates, the maximum and average diagram order, the two seeds for each run, and the runtime of the Metropolis-Hastings loop (in nanoseconds) in the column "run_time".</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Examples</h1>
+<p >The results of the sweep and convergence tests, produced with the two corresponding files in the <a href="https://github.com/Enry99/DiagMC/blob/main/examples">examples</a> folder, are reported in these images, showing a perfect match with the analytical results.</p>
 <p ><img src="/examples/sweep_beta=10.0.png" alt="" width="800" class="inline"/> <img src="/examples/convergence_test.png" alt="" width="800" class="inline"/></p>
+<p >These plots were generated using two Python scripts, provided in the <a href="https://github.com/Enry99/DiagMC/tree/main/examples">examples</a> folder. They can be run by passing as a command line argument the name of the csv with the results, e.g.</p>
+<div class="fragment"><div class="line">$ python3 plot_h_gamma_sweep.py results_sweep.csv</div>
+</div><!-- fragment --><p >Note that this scripts are provided just as examples and do not cover every plot possiblity from the results file.</p>
 <h1><a class="anchor" id="autotoc_md6"></a>
 Structure of the project</h1>
 <p >The project is structured as follows:</p><ol type="1">
