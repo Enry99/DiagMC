@@ -83,9 +83,9 @@ Installation using CMake</h1>
 </div><!-- fragment --><p> Now <b>build and install</b> the program using <b>CMake</b>: </p><div class="fragment"><div class="line">$ mkdir build</div>
 <div class="line">$ cd build</div>
 <div class="line">$ cmake ..</div>
-<div class="line">$ cmake --build . --target install</div>
+<div class="line">$ cmake --build . --target install --config Release</div>
 </div><!-- fragment --><p> <b>The program executable can be found in <code>DiagMC/bin</code></b>.</p>
-<p >Note that by default the build type is set to <code>Release</code>. To build for <code>Debug</code>, instead of <code>$ cmake ..</code> in the third line, run: </p><div class="fragment"><div class="line">$ cmake .. -DCMAKE_BUILD_TYPE=&quot;Debug&quot;</div>
+<p >Note that by default the build type is set to <code>Release</code>. To build for <code>Debug</code>, instead of <code>$ cmake ..</code> in the third line, run: </p><div class="fragment"><div class="line">$ cmake --build . --target install --config Debug</div>
 </div><!-- fragment --><p> Be aware that due to the absence of compiler optimization, the performance of the program built in Debug mode is massively impacted.</p>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Dependencies</h2>
@@ -99,8 +99,6 @@ Execute unit tests</h2>
 Utilization guide</h1>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Examples</h1>
-<p ><a href="https://github.com/Enry99/DiagMC/blob/main/examples/settings_singlerun.json">settings_singlerun.json</a> <a href="https://github.com/Enry99/DiagMC/blob/main/examples/settings_sweep.json">settings_sweep.json</a> <a href="https://github.com/Enry99/DiagMC/blob/main/examples/settings_conv_test.json">settings_conv_test.json</a></p>
-<p ><a href="https://github.com/Enry99/DiagMC/blob/main/examples/results_sweep.csv">results_sweep.csv</a> and <a href="https://github.com/Enry99/DiagMC/blob/main/examples/results_conv_test.csv">results_conv_test.csv</a></p>
 <p ><img src="/examples/sweep_beta=10.0.png" alt="" width="800" class="inline"/> <img src="/examples/convergence_test.png" alt="" width="800" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md6"></a>
 Structure of the project</h1>
