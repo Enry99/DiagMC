@@ -64,7 +64,7 @@ def plot_sweep(results_filename : str = 'results_sweep.csv'):
     ax2.set_title('$m_x$')
     ax2.set_ylabel('$m_x$')
     ax2.set_xlabel('h')
-    ax1.set_xlim(-1,1)
+    ax2.set_xlim(-1,1)
     ax2.grid(linestyle='dotted')
     ax2.legend()
 
