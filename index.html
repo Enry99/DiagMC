@@ -73,7 +73,34 @@ $(function() {
   <div class="headertitle"><div class="title">DiagMC </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a><img src="https://github.com/Enry99/DiagMC/actions/workflows/cmake-multi-platform.yml/badge.svg" alt="example workflow" style="pointer-events: none;" class="inline"/> </p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a><img src="https://github.com/Enry99/DiagMC/actions/workflows/cmake-multi-platform.yml/badge.svg" alt="example workflow" style="pointer-events: none;" class="inline"/> <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3" style="pointer-events: none;" class="inline"/></a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Installation using CMake</h1>
+<p >The installation procedure relies on <a href="https://cmake.org/">CMake</a>, which is cross-platform and can be used on many operative systems, like Linux and Windows.\ Note that on Windows you need to have an available C++ compiler, such as <a href="https://docs.microsoft.com/en-us/cpp/">MSVC</a>, which is provided with <a href="https://visualstudio.microsoft.com/">Visual Studio</a>.\ A viable alternative on Windows is to use <a href="https://learn.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux</a>.</p>
+<p >First, <b>clone the repository</b> in your local machine using <a href="https://git-scm.com/">git</a>: </p><div class="fragment"><div class="line">$ git clone https://github.com/Enry99/DiagMC.git</div>
+</div><!-- fragment --><p> This will create a folder called <code>DiagMC</code>. Go inside this folder with: </p><div class="fragment"><div class="line">$ cd DiagMC</div>
+</div><!-- fragment --><p> Now <b>build and install</b> the program using <b>CMake</b>: </p><div class="fragment"><div class="line">$ mkdir build</div>
+<div class="line">$ cd build</div>
+<div class="line">$ cmake ..</div>
+<div class="line">$ cmake --build . --target install</div>
+</div><!-- fragment --><p> <b>The program executable can be found in <code>DiagMC/bin</code></b>.</p>
+<p >Note that by default the build type is set to <code>Release</code>. To build for <code>Debug</code>, instead of <code>$ cmake ..</code> in the third line, run: </p><div class="fragment"><div class="line">$ cmake .. -DCMAKE_BUILD_TYPE=&quot;Debug&quot;</div>
+</div><!-- fragment --><p> Be aware that due to the absence of compiler optimization, the performance of the program built in Debug mode is massively impacted.</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Dependencies</h2>
+<p >The program depends on the <a href="https://github.com/nlohmann/json.git">json</a> library for reading the settings from file, and on <a href="https://github.com/google/googletest.git">googletest</a> for unit testing. Both dependencies are automatically downloaded and included by CMake during the build process, so an Internet connection is required during the installation.</p>
+<p >It is possible to exclude the googletest dependency by building without tests: </p><div class="fragment"><div class="line">$ cmake .. cmake .. -DBUILD_TESTING=OFF</div>
+</div><!-- fragment --><p> However, testing is recommended before using the program.</p>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Execute unit tests</h2>
+<p >In order to execute the tests, go to the <code>build</code> directory and run: </p><div class="fragment"><div class="line">$ ctest</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+Examples</h1>
+<p ><img src="/examples/sweep_beta=10.0.png" alt="" width="800" class="inline"/> <img src="/examples/convergence_test.png" alt="" width="800" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+License</h1>
+<p ><a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3" style="pointer-events: none;" class="inline"/></a></p>
+<p >This work is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0">GNU General Public License Version 3</a>. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
