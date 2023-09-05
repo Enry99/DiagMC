@@ -56,7 +56,7 @@ class SingleRunResults
      * @brief Construct a new Single_Run_Results object, initializing the parameters of the simulation with the arguments,
      * and the statistics variables to 0.
      * 
-     * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
+     * @param beta       Length of the diagram (here representing 1/T). Must be > 0.
      * @param initial_s0         Spin of the 0-th segment of the diagram [0---t1]. Must be +1 or -1.
      * @param H          Value of the longitudinal component of magnetic field
      * @param GAMMA      Value of the transversal component of magnetic field. Must be != 0.
@@ -108,7 +108,7 @@ class SingleRunResults
  * @brief Runs the Markov Chain Diagrammatic Monte Carlo algorithm for the 2-level spin sistem, with the given parameters,
  * returning the results statistics
  * 
- * @param beta       Length of the diagram (here representing 1/{k_bT}). Must be > 0.
+ * @param beta       Length of the diagram (here representing 1/T). Must be > 0.
  * @param initial_s0         Spin of the 0-th segment of the diagram [0---t1] at the beginning of the simulation. Must be +1 or -1
  * @param H          Value of the longitudinal component of magnetic field
  * @param GAMMA      Value of the transversal component of magnetic field. Must be != 0.
