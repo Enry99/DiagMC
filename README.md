@@ -27,13 +27,13 @@ Now **build and install** the program using **CMake**:
 $ mkdir build
 $ cd build
 $ cmake ..
-$ cmake --build . --target install
+$ cmake --build . --target install --config Release
 ```
 **The program executable can be found in ```DiagMC/bin```**.
 
 Note that by default the build type is set to ```Release```. To build for ```Debug```, instead of ```$ cmake ..``` in the third line, run:
 ```sh
-$ cmake .. -DCMAKE_BUILD_TYPE="Debug"
+$ cmake --build . --target install --config Debug
 ```
 Be aware that due to the absence of compiler optimization, the performance of the program built in Debug mode is massively impacted.
 
@@ -58,14 +58,8 @@ $ ctest
 
 
 
-
 ## Examples
-  [settings_singlerun.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_singlerun.json)
-  [settings_sweep.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_sweep.json)
-  [settings_conv_test.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_conv_test.json)
 
-  [results_sweep.csv](https://github.com/Enry99/DiagMC/blob/main/examples/results_sweep.csv) and
-  [results_conv_test.csv](https://github.com/Enry99/DiagMC/blob/main/examples/results_conv_test.csv)
 
 <img src="/examples/sweep_beta=10.0.png" width="800">
 <img src="/examples/convergence_test.png" width="800">
@@ -96,7 +90,7 @@ The project is structured as follows:
 ## Theory
 Diagrammatic Monte Carlo (DMC) is a very powerful method that allows to calculate quantities that can be expressed in terms of diagrammatic expansions of the form
     $$Q({y}) = \sum_{n=0}^\infty \sum_{\xi_n}\int dx_1 ... dx_n D_n^{\xi_n}(\{y\}; x_1,...,x_n)$$
-by stochastically sampling the diagrams using a Markov-Chain process [[1](https://doi.org/10.1016/j.phpro.2010.09.034)]. 
+by stochastically sampling the diagrams using a Markov-Chain process [ [1](https://doi.org/10.1016/j.phpro.2010.09.034) ]. 
 $Q$ is usually a Green's function, with $y$ external parameters, and $D_n^{\xi_n}(\{y\}; x_1,...,x_n)$ are the Feynman diagrams of order n, depending on the internal (integration) variables $x_1,...,x_n$, where $\xi_n$ distinguishes different diagram structures of same order.
 
 This program simulates a very simple quantum system: a single spin in an external magnetic field, which can be solved analytically, allowing direct comparison of the results with the exact theoretical values.
@@ -174,7 +168,7 @@ To extract the the two magnetizations along x and z, we use the following **Mont
 
 $$ \langle \sigma_x \rangle _{MC} = -\frac{\langle n \rangle}{\beta \Gamma}  $$
 
-$$ \langle \sigma_z \rangle_{MC} = \langle m_z(D) \rangle $$ 
+$$ \langle \sigma_z \rangle _{MC} = \langle m_z(D) \rangle $$ 
 
 where $m_z(D)$ is the magnetization of each diagram:
 
