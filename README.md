@@ -31,12 +31,6 @@ $ cmake --build . --target install --config Release
 ```
 **The program executable can be found in ```DiagMC/bin```**.
 
-Note that by default the build type is set to ```Release```. To build for ```Debug```, instead of ```$ cmake ..``` in the third line, run:
-```sh
-$ cmake --build . --target install --config Debug
-```
-Be aware that due to the absence of compiler optimization, the performance of the program built in Debug mode is massively impacted.
-
 ### Dependencies
 The program depends on the [json](https://github.com/nlohmann/json.git) library for reading the settings from file, and on [googletest](https://github.com/google/googletest.git) for unit testing.
 Both dependencies are automatically downloaded and included by CMake during the build process, so an Internet connection is required during the installation.
@@ -56,13 +50,68 @@ $ ctest
 
 ## Utilization guide
 
+The program reads the parameters from a json settings file.
+
+The path of the file can be passed as command line argument upon execution. If nothing is specified, the programs looks for 'settings.json'.
+
+Three types of calculations are possible, and need to be specified in the flag ```CALC_TYPE```:
+1. **"single"**, which performs a single run of the algorithm for the given parameters, and prints a summary of the results. An example of settings file for this type of calculation is [settings_singlerun.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_singlerun.json)
+2. **"sweep"**, which runs the algorithm for different values of ```H```, ```GAMMA``` and  ```beta``` in the given range, for all the combinations, and writes the results to a csv file. An example of settings file for this type of calculation is [settings_sweep.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_sweep.json)
+3. **"convergence-test"**, which runs the program multiple times for a fixed set of physical parameters and the same seed, varying the number of steps of the simulation, ```N_total_steps```, and optionally also ```N_thermalization_steps```. An example of settings file for this type of calculation is [settings_conv_test.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_conv_test.json)
+
+
+The settings parameters for a single run are:
+- ```beta```:	Inverse temperature (equal to legnth of the diagram). Must be > 0.
+- ```initial_s0``` (optional):	Spin of the 0-th segment of the diagram (0-----t1) at the beginning of the simulation. Must be +1 or -1. Defaults to +1 if not specified.
+- ```H```: Value of the longitudinal component of magnetic field.
+- ```GAMMA```: Value of the transversal component of magnetic field. Must be $\neq$ 0. Values much higher than one could cause severe slowdown due to creation of a huge number of vertices.
+- ```N_total_steps```: Total number of steps of the MCMC algorithm. For this system, values above 10 million give very accurate results.
+- ```N_thermalization_steps``` (optional):	Number of initial steps for which statistics is not collected. For the suggested value of ```N_total_steps``` can be safely set to 0. Defaults to 0 if not specified.
+- ```update_choice_seed``` (optional): Seed for the Mersenne-Twister random number generator to choose *which* update to attempt. Must be a non-negative integer.
+- ```diagram_seed``` (optional): Seed for the diagram, used *inside* the updates.  Must be a non-negative integer.
+
+In "sweep" mode, one or more parameters between ```H```, ```GAMMA``` and  ```beta``` can be substituted by a parameter range and a step, with the variable name and the suffix ```_min```, ```_max``` and ```_step```, e.g.
+- ```H_min```= -1,
+- ```H_max```= 1,
+- ```H_step```= 0.2
+
+In this mode it is not possible to set the seeds, which are assigned automatically in a unique way based on system clock.
+  
+
+In "convergence-test" mode, one or more parameters between ```N_total_steps``` and ```N_thermalization_steps``` can be substituted by a parameter range and the number of points per decade (the step is linear in logscale), with the variable name and the suffix ```_min```, ```_max``` and ```_points_per_decade```, e.g.
+
+- ```N_total_steps_min``` = 1e3,
+- ```N_total_steps_max``` = 1e8,
+- ```N_total_steps_points_per_decade``` = 4
+
+For both "sweep" and "convergence-test" modes, the ```output_file``` must be specified, indicating where to save the results.
+
+To run the program, go to the ```bin``` directory and execute it with:
+```sh
+$ ./2levelDiagMC [settings_filename]
+```
+where you should replace ```settings_filename``` with the proper name of the desired json settings file.
+
+The results for "sweep" and "convergence-test" modes are written to a csv file, with columns corresponding to variables and lines corresponding to each run.
+The reported values include all the input parameters, the results for the two magnetizations, the statistics of acceptance for the updates, the maximum and average diagram order, the two seeds for each run, and the runtime of the Metropolis-Hastings loop (in nanoseconds) in the column "run_time".
 
 
 ## Examples
 
+The results of the sweep and convergence tests, produced with the two corresponding files in the [examples](https://github.com/Enry99/DiagMC/blob/main/examples) folder, are reported in these images,
+showing a perfect match with the analytical results.
 
 <img src="/examples/sweep_beta=10.0.png" width="800">
 <img src="/examples/convergence_test.png" width="800">
+
+These plots were generated using two Python scripts, provided in the [examples](https://github.com/Enry99/DiagMC/tree/main/examples) folder.
+They can be run by passing as a command line argument the name of the csv with the results, e.g.
+
+```sh
+$ python3 plot_h_gamma_sweep.py results_sweep.csv
+```
+
+Note that this scripts are provided just as examples and do not cover every plot possiblity from the results file.
 
 ## Structure of the project
 
