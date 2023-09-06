@@ -26,7 +26,7 @@ Now **build and install** the program using **CMake**:
 ```sh
 $ mkdir build
 $ cd build
-$ cmake ..
+$ cmake .. -DCMAKE_BUILD_TYPE Release
 $ cmake --build . --target install --config Release
 ```
 **The program executable can be found in ```DiagMC/bin```**.
