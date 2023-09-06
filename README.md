@@ -135,11 +135,12 @@ The project is structured as follows:
 5. the [examples](https://github.com/Enry99/DiagMC/blob/main/examples) folder, which contains three examples of settings files, two csv files with the results of the calculations, two python scripts to plot the results, and the plotted images.
    More on this in the Examples section.
 
+The documentation of all classes and functions (generated with [Doxygen](https://www.doxygen.nl/)) can be found [here](https://enry99.github.io/DiagMC/) under the 'Classes' and 'Files' menus.
   
 ## Theory
 Diagrammatic Monte Carlo (DMC) is a very powerful method that allows to calculate quantities that can be expressed in terms of diagrammatic expansions of the form
     $$Q({y}) = \sum_{n=0}^\infty \sum_{\xi_n}\int dx_1 ... dx_n D_n^{\xi_n}(\{y\}; x_1,...,x_n)$$
-by stochastically sampling the diagrams using a Markov-Chain process [ [1](https://doi.org/10.1016/j.phpro.2010.09.034) ]. 
+by stochastically sampling the diagrams using a Markov-Chain process [[1](https://doi.org/10.1016/j.phpro.2010.09.034)]. 
 $Q$ is usually a Green's function, with $y$ external parameters, and $D_n^{\xi_n}(\{y\}; x_1,...,x_n)$ are the Feynman diagrams of order n, depending on the internal (integration) variables $x_1,...,x_n$, where $\xi_n$ distinguishes different diagram structures of same order.
 
 This program simulates a very simple quantum system: a single spin in an external magnetic field, which can be solved analytically, allowing direct comparison of the results with the exact theoretical values.
