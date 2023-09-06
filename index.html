@@ -82,7 +82,7 @@ Installation using CMake</h1>
 </div><!-- fragment --><p> This will create a folder called <code>DiagMC</code>. Go inside this folder with: </p><div class="fragment"><div class="line">$ cd DiagMC</div>
 </div><!-- fragment --><p> Now <b>build and install</b> the program using <b>CMake</b>: </p><div class="fragment"><div class="line">$ mkdir build</div>
 <div class="line">$ cd build</div>
-<div class="line">$ cmake ..</div>
+<div class="line">$ cmake .. -DCMAKE_BUILD_TYPE Release</div>
 <div class="line">$ cmake --build . --target install --config Release</div>
 </div><!-- fragment --><p> <b>The program executable can be found in <code>DiagMC/bin</code></b>.</p>
 <h2><a class="anchor" id="autotoc_md2"></a>
