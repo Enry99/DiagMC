@@ -72,6 +72,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classDiagram__core-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Diagram_core Class Reference</div></div>
@@ -148,6 +149,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3670a607575950320972b7f7f7089b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiagram__core.html#ae3670a607575950320972b7f7f7089b3">attempt_spin_flip</a> (double RNacc)</td></tr>
 <tr class="memdesc:ae3670a607575950320972b7f7f7089b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps the SPIN_FLIP update for the current status of the diagram, using the random number given in input.  <a href="classDiagram__core.html#ae3670a607575950320972b7f7f7089b3">More...</a><br /></td></tr>
 <tr class="separator:ae3670a607575950320972b7f7f7089b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:acd22baa80f6e7eb9579ee5f449ae0df6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiagram__core.html#acd22baa80f6e7eb9579ee5f449ae0df6">assert_parameters_validity</a> (double beta, int s0, double H, double GAMMA, std::list&lt; double &gt; vertices) const</td></tr>
+<tr class="memdesc:acd22baa80f6e7eb9579ee5f449ae0df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal (non-public) member function that checks wether all the parameters are within the allowed values. Throws an std::invalid_argument exception otherwise. It is used in the <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> constructor and in <a class="el" href="classDiagram.html#adfcf825aea6bfe7aeaecb2f5e7197264" title="Reset all diagram parameters with the new values.">Diagram::reset_diagram</a>.  <a href="classDiagram__core.html#acd22baa80f6e7eb9579ee5f449ae0df6">More...</a><br /></td></tr>
+<tr class="separator:acd22baa80f6e7eb9579ee5f449ae0df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -352,6 +359,72 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<a id="acd22baa80f6e7eb9579ee5f449ae0df6" name="acd22baa80f6e7eb9579ee5f449ae0df6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd22baa80f6e7eb9579ee5f449ae0df6">&#9670;&#160;</a></span>assert_parameters_validity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Diagram_core::assert_parameters_validity </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>H</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>GAMMA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::list&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>vertices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal (non-public) member function that checks wether all the parameters are within the allowed values. Throws an std::invalid_argument exception otherwise. It is used in the <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> constructor and in <a class="el" href="classDiagram.html#adfcf825aea6bfe7aeaecb2f5e7197264" title="Reset all diagram parameters with the new values.">Diagram::reset_diagram</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">beta</td><td>Length of the diagram (here representing the thermondinamical $\beta$ = 1/T). Must be &gt; 0. </td></tr>
+    <tr><td class="paramname">s0</td><td>Spin of the 0-th segment of the diagram [0&mdash;t1]. Must be +1 or -1. </td></tr>
+    <tr><td class="paramname">H</td><td>Value of the longitudinal component of magnetic field </td></tr>
+    <tr><td class="paramname">GAMMA</td><td>Value of the transversal component of magnetic field. Must be != 0. </td></tr>
+    <tr><td class="paramname">vertices</td><td>(optional) List containing the times of diagram _vertices, with t1&lt;t2&lt;t3... &lt; _beta (they need to be already sorted) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
