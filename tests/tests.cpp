@@ -233,8 +233,9 @@ TEST(TestDiagram, reset_diagram_sets_correct_values)
 TEST(TestDiagram_core, sum_deltatau_returns_correct_value)
 {
     Diagram_core diag_test(10, 1, 1, 1, {1, 2, 4.3, 5, 6.1, 9});
+    double expected_sum = (9-6.1)+(5-4.3)+(2-1);
 
-    EXPECT_DOUBLE_EQ(diag_test.sum_deltatau(), (9-6.1)+(5-4.3)+(2-1));
+    EXPECT_DOUBLE_EQ(diag_test.sum_deltatau(), expected_sum);
 }
 
 
@@ -290,8 +291,9 @@ TEST(TestDiagram_core, acceptance_rate_add_returns_correct_value)
     Diagram_core diag_current(beta, -1, 0.5, 1.1, {1,2,             tau3,9});
     Diagram_core diag_new(beta, -1, 0.5, 1.1,     {1,2, tau1,tau2,  tau3,9});
 
+    double expected_acc_rate_add = diag_new/diag_current * beta * (tau3-tau1) / 5;
 
-    EXPECT_NEAR(diag_current.acceptance_rate_add(tau1, tau2, tau3, 1), diag_new/diag_current * beta * (tau3-tau1) / 5, 1e-10);
+    EXPECT_NEAR(diag_current.acceptance_rate_add(tau1, tau2, tau3, 1), expected_acc_rate_add, 1e-10);
 
 }
 
@@ -315,8 +317,9 @@ TEST(TestDiagram_core, acceptance_rate_remove_returns_correct_value)
     Diagram_core diag_current(beta, -1, 0.5, 1.1, {1,2, tau1,tau2,  tau3,9});
     Diagram_core diag_new(beta, -1, 0.5, 1.1,     {1,2,             tau3,9});
 
+    double expected_acc_rate_remove = diag_new/diag_current * 5. / (beta * (tau3-tau1));
 
-    EXPECT_NEAR(diag_current.acceptance_rate_remove(tau1, tau2, tau3, 1), diag_new/diag_current * 5. / (beta * (tau3-tau1)), 1e-10);
+    EXPECT_NEAR(diag_current.acceptance_rate_remove(tau1, tau2, tau3, 1), expected_acc_rate_remove, 1e-10);
 
 }
 
@@ -335,8 +338,9 @@ TEST(TestDiagram_core, acceptance_rate_flip_returns_correct_value)
     Diagram_core diag_current(10, -1, 0.5, 1.1, {1,2,7,9});
     Diagram_core diag_new(10, 1, 0.5, 1.1,     {1,2,7,9});
 
+    double expected_acc_rate_flip = diag_new/diag_current;
 
-    EXPECT_NEAR(diag_current.acceptance_rate_flip(), diag_new/diag_current, 1e-10);
+    EXPECT_NEAR(diag_current.acceptance_rate_flip(), expected_acc_rate_flip, 1e-10);
 
 }
 
