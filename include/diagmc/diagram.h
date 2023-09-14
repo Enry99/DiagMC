@@ -47,7 +47,9 @@ class Diagram_core
     Diagram_core(double beta, int s0, double H, double GAMMA, std::list<double> vertices=std::list<double>() );
 
     /**
-     * @brief operator to test wether two Diagram_core objects are equal
+     * @brief operator to test wether two Diagram_core objects are equal. It is intended for TESTING purposes only, and not to be used within the program.
+     * It checks that all values defining a diagram (beta, s0, H, GAMMA and each vertex in the vertices list) 
+     * of the two Diagram_core objects are within EPSILON = 1e-10 from each other. EPSILON is defined at the beginning of diagram.h
      * 
      * @param other other Diagram_core object
      * @return true 
@@ -266,11 +268,12 @@ class Diagram: public Diagram_core
 /**
  * @brief Small helper function that checks if two lists of floating points numbers are equal,
  * performing element-by-element comparison.
- * If list1[i] and list2[i] are within EPSILON=1e-10 for every i, the two lists are considered equal
+ * If list1[i] and list2[i] are within epsilon for every i, the two lists are considered equal
  * 
  * @param list1 First list
  * @param list2 Second list
+ * @param epsilon absolute value of the difference below which two elements are considered equal
  * @return true if lists are equal,
  * @return false otherwise
  */
-bool lists_are_float_equal(const std::list<double>& list1, const std::list<double>& list2);
+bool lists_are_float_equal(const std::list<double>& list1, const std::list<double>& list2, double epsilon);

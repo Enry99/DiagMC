@@ -19,7 +19,7 @@
 #define RNG _uniform_dist(_mt_generator) //extracts a random number uniformly in [0,1]
 
 
-bool lists_are_float_equal(const std::list<double>& list1, const std::list<double>& list2) {
+bool lists_are_float_equal(const std::list<double>& list1, const std::list<double>& list2, double epsilon) {
     
     // Check if lists have the same size
     if (list1.size() != list2.size()) {
@@ -32,7 +32,7 @@ bool lists_are_float_equal(const std::list<double>& list1, const std::list<doubl
 
     // Element-by-element comparison
     while (it1 != list1.end() && it2 != list2.end()) {
-        if (std::fabs(*it1 - *it2) > EPSILON) {
+        if (std::fabs(*it1 - *it2) > epsilon) {
             return false;
         }
         ++it1;
@@ -93,10 +93,10 @@ Diagram_core::Diagram_core(double beta, int s0, double H, double GAMMA, std::lis
 bool Diagram_core::operator==(const Diagram_core &other) const
 {
     if ( std::fabs(this->_beta - other._beta ) < EPSILON
-        && std::fabs(this->_s0 - other._s0) < EPSILON
+        && this->_s0 == other._s0
         && std::fabs(this->_H - other._H) < EPSILON
         && std::fabs(this->_GAMMA - other._GAMMA) < EPSILON
-        && lists_are_float_equal(this->_vertices, other._vertices) ) return true;
+        && lists_are_float_equal(this->_vertices, other._vertices, EPSILON) ) return true;
     else return false;
 }
 
