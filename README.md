@@ -62,12 +62,12 @@ where you can replace ```settings_filename``` with the proper name of the desire
 The parameters for the settings file are described below.
 
 Three types of calculations are possible, and need to be specified in the flag ```CALC_TYPE```:
-1. **"single"**, which performs a single run of the algorithm for the given parameters, and prints a summary of the results. An example of settings file for this type of calculation is [settings_singlerun.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_singlerun.json)
+1. **"single"**, which performs a single run of the algorithm for the given parameters, writes the results to a csv file and prints a summary of the results on terminal. An example of settings file for this type of calculation is [settings_singlerun.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_singlerun.json)
 2. **"sweep"**, which runs the algorithm for different values of ```H```, ```GAMMA``` and  ```beta``` in the given range, for all the combinations, and writes the results to a csv file. An example of settings file for this type of calculation is [settings_sweep.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_sweep.json)
 3. **"convergence-test"**, which runs the program multiple times for a fixed set of physical parameters and the same seed, varying the number of steps of the simulation, ```N_total_steps```, and optionally also ```N_thermalization_steps```. An example of settings file for this type of calculation is [settings_conv_test.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_conv_test.json)
 
 
-The results for "sweep" and "convergence-test" modes are written to a csv file, which must be specified as ```output_file```, with columns corresponding to variables and lines corresponding to each run.
+The results for the three calculation types are written to a csv file, which must be specified as ```output_file```, and contains columns corresponding to variables and lines corresponding to each run.
 The reported values include all the input parameters, the results for the two magnetizations, the statistics of acceptance for the updates, the maximum and average diagram order, the two seeds for each run, and the runtime of the Metropolis-Hastings loop (in nanoseconds) in the column "run_time".
 
 
@@ -132,7 +132,7 @@ The project is structured as follows:
     - [main.cpp](https://github.com/Enry99/DiagMC/blob/main/src/main.cpp) is the main function of the executable, which calls the function setup function, with the possiblity to pass the name of the settings file as a command line argument.
 3. the [tests](https://github.com/Enry99/DiagMC/blob/main/tests) folder, which contains the [tests.cpp](https://github.com/Enry99/DiagMC/blob/main/test/tests.cpp) source file, with all the unit tests for the program.
    The test involve all methods of the Diagram_core class, and the Metropolis-Hastings loop function, checking that the results coincide with the expected values
-5. the [examples](https://github.com/Enry99/DiagMC/blob/main/examples) folder, which contains three examples of settings files, two csv files with the results of the calculations, two python scripts to plot the results, and the plotted images.
+5. the [examples](https://github.com/Enry99/DiagMC/blob/main/examples) folder, which contains three examples of settings files and the associated csv files with the results of the calculations, two python scripts to plot the results, and the plotted images.
    More on this in the Examples section.
 
 The documentation of all classes and functions (generated with [Doxygen](https://www.doxygen.nl/)) can be found [here](https://enry99.github.io/DiagMC/) under the 'Classes' and 'Files' menus.
