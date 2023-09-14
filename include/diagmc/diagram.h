@@ -32,6 +32,19 @@ class Diagram_core
     std::list<double> _vertices;  ///< list containing the times of the diagram vertices
 
 
+    /**
+     * @brief Internal (non-public) member function that checks wether all the parameters are within the allowed values.
+     * Throws an std::invalid_argument exception otherwise. It is used in the Diagram_core constructor and in Diagram::reset_diagram
+     * 
+     * @param beta       Length of the diagram (here representing the thermondinamical $\beta$ = 1/T). Must be > 0.
+     * @param s0         Spin of the 0-th segment of the diagram [0---t1]. Must be +1 or -1.
+     * @param H          Value of the longitudinal component of magnetic field
+     * @param GAMMA      Value of the transversal component of magnetic field. Must be != 0.
+     * @param vertices   (optional) List containing the times of diagram _vertices, with t1<t2<t3... < _beta (they need to be already sorted)
+     */
+    void assert_parameters_validity(double beta, int s0, double H, double GAMMA, std::list<double> vertices) const;
+
+
     public:
 
     /**

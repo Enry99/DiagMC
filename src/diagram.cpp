@@ -44,10 +44,8 @@ bool lists_are_float_equal(const std::list<double>& list1, const std::list<doubl
 }
 
 
-//Methods definitions for class Diagram_core -------------------------------------------------------
-Diagram_core::Diagram_core(double beta, int s0, double H, double GAMMA, std::list<double> vertices) 
-    : _beta(beta), _s0(s0), _H(H), _GAMMA(GAMMA), _vertices(vertices) {
-
+void Diagram_core::assert_parameters_validity(double beta, int s0, double H, double GAMMA, std::list<double> vertices) const
+{
     if(! (beta > 0)) 
     {
         throw std::invalid_argument( 
@@ -86,7 +84,15 @@ Diagram_core::Diagram_core(double beta, int s0, double H, double GAMMA, std::lis
     if(!std::is_sorted(vertices.begin(), vertices.end()))
     {
         throw std::invalid_argument("The list used to initialize the diagram was not sorted.");
-    }    
+    }  
+}
+
+//Methods definitions for class Diagram_core -------------------------------------------------------
+Diagram_core::Diagram_core(double beta, int s0, double H, double GAMMA, std::list<double> vertices) 
+    : _beta(beta), _s0(s0), _H(H), _GAMMA(GAMMA), _vertices(vertices) {
+
+    //check that parameters are in the correct range of values, throwing exception otherwise.
+    assert_parameters_validity(beta, s0, H, GAMMA, vertices);
 
 }
 
@@ -293,52 +299,10 @@ bool Diagram::attempt_spin_flip() {
 
 void Diagram::reset_diagram(double beta, int s0, double H, double GAMMA, std::list<double> vertices, unsigned int seed) {
 
+    //check that parameters are in the correct range of values, throwing exception otherwise.
+    assert_parameters_validity(beta, s0, H, GAMMA, vertices);  
 
-    if(! (beta > 0)) 
-    {
-        throw std::invalid_argument( 
-            std::string("beta must be > 0, but ") 
-            + std::to_string(beta) + std::string(" was provided.") 
-            );
-    }    
-    
-    if(s0 != 1 && s0 != -1) 
-    {
-        throw std::invalid_argument( 
-            std::string("The spin can either be +1 or -1, but ") 
-            + std::to_string(s0) + std::string(" was provided.") 
-            );
-    }
-   
-    if(std::abs(GAMMA) < std::numeric_limits<double>::epsilon() ) 
-    {
-        throw std::invalid_argument( 
-            std::string("GAMMA must be different from 0.")
-            ); 
-    }
-
-
-    if(vertices.size() % 2 != 0)
-    {
-        throw std::invalid_argument( 
-            std::string("The vertices list must contain an even number of elements.")
-            );         
-    }
-
-    for(auto v : vertices)
-    {
-        if (v > beta) throw std::invalid_argument("The vertices list contains values > beta."); 
-    }
-    
-
-    if(!std::is_sorted(vertices.begin(), vertices.end()))
-    {
-        throw std::invalid_argument("The list used to initialize the diagram was not sorted.");
-    }    
-
-    
-
-
+    //set the new value
     _beta     = beta,
     _s0       = s0,
     _H        = H,
