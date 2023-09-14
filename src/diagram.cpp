@@ -100,6 +100,11 @@ bool Diagram_core::operator==(const Diagram_core &other) const
     else return false;
 }
 
+bool Diagram_core::operator!=(const Diagram_core &other) const
+{
+    return !(*this == other);
+}
+
 
 double Diagram_core::operator/(const Diagram_core &other) const
 {

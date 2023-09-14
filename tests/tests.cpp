@@ -197,7 +197,7 @@ TEST(TestDiagram, reset_diagram_throws_for_vertices_argument_notsorted)
  * 
  * GIVEN: a test Diagram initialized with beta=s0=H=GAMMA=1 and empty vertices, and a comparison Diagram initialized with different parameters and a list of vertices
  * WHEN: the Diagram::reset_diagram of the first (test) diagram is called, with the parameters given to the second (comparison) diagram
- * THEN: the test diagram is equal to the comparison diagram
+ * THEN: the test diagram is different from the comparison diagram before executing reset_diagram, and becomes equal to the comparison diagram afterwards
  */
 TEST(TestDiagram, reset_diagram_sets_correct_values)
 {
@@ -211,7 +211,8 @@ TEST(TestDiagram, reset_diagram_sets_correct_values)
     Diagram diag_expected(beta, s0, H, GAMMA, vertices);
     Diagram diag_test(1,1,1,1);
     
-    
+    EXPECT_NE(diag_test, diag_expected);    
+
     diag_test.reset_diagram(beta, s0, H, GAMMA, vertices);
 
     EXPECT_EQ(diag_test, diag_expected);

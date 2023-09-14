@@ -57,6 +57,17 @@ class Diagram_core
      */
     bool operator==(const Diagram_core & other) const;
 
+
+    /**
+     * @brief operator to test wether two Diagram_core objects are different. It is the negation of operator==.
+     * It is intended for TESTING purposes only, and not to be used within the program.
+     * 
+     * @param other other Diagram_core object
+     * @return true 
+     * @return false 
+     */
+    bool operator!=(const Diagram_core & other) const;
+
     /**
      * @brief Returns the ratio of the weights of the two diagrams, i.e. this->value()/other.value()
      * 
