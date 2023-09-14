@@ -1,0 +1,2 @@
+beta,initial_s0,H,GAMMA,measured_sigmax,measured_sigmaz,N_measures,N_attempted_flips,N_accepted_flips,N_attempted_addsegment,N_accepted_addsegment,N_attempted_removesegment,N_accepted_removesegment,max_diagram_order,avg_diagram_order,run_time,N_total_steps,N_thermalization_steps,update_choice_seed,diagram_seed
+1,1,1,1,-0.627866,-0.628183,50000000,16671384,5471745,16661864,4236089,16666752,4236089,10,0,2216023100,50000000,0,1694693316578956500,1694693316578957400

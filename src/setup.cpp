@@ -184,6 +184,7 @@ void single_run(const json & settings)
             "H",
             "GAMMA",
             "N_total_steps",
+            "output_file"
         }
     );
 
@@ -195,11 +196,16 @@ void single_run(const json & settings)
     //############################################################################
 
 
+    //open file stream to write results in output file, write the header row containing the titles of the columns
+    std::ofstream output_file_stream(static_cast<std::string>(settings["output_file"]));
+    output_file_stream << SingleRunResults::ostream_output_header();
+
+
     //SIMULATION#################################################################
     std::cout<<"Running single run simulation...\n";
 
     //execute single run simulation, and print results to terminal standard output
-    run_simulation( 
+    SingleRunResults results = run_simulation( 
         settings["beta"],
         initial_s0, 
         settings["H"], 
@@ -208,7 +214,12 @@ void single_run(const json & settings)
         N_thermalization_steps, 
         update_choice_seed, 
         diagram_seed
-    ).print_results();
+    );
+    output_file_stream << results;    
+    output_file_stream.close();
+
+    //for single run, also print summary on console standard output
+    results.print_results();
     //############################################################################
 
 }

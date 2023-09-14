@@ -1,6 +1,9 @@
 {
     "CALC_TYPE" : "single",
 
+    "output_file" : "result_single_run.csv",
+
+
     "beta" : 1,
     "H" : 1,
     "GAMMA" : 1,
