@@ -133,7 +133,8 @@ json read_settings(std::string filename)
     //check that file was opened correctly, terminate program otherwise
     if (!filestream) {
 
-        std::cerr << "Unable to open the settings.json file. Make sure that it is present in the same folder of the executable." << std::endl;     
+        std::cerr << "Unable to open the settings.json file. Make sure that it is present in the same folder of the executable." << std::endl;
+        filestream.close();      
         exit(EXIT_FAILURE);
     }
 
