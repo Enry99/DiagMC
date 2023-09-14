@@ -254,7 +254,7 @@ Functions</h2></td></tr>
 <p>This test checks that the run_simulation function, that executes the MCMC algorithm, produces the correct result. </p>
 <p >GIVEN: values for the simulation parameters WHEN: these parameters are passed to the run_simulation function THEN: the function returns a <a class="el" href="classSingleRunResults.html" title="Container class to store all the simulation parameters, and the results of a run. It provides methods...">SingleRunResults</a> object, with correct values of measured_sigmaz and measured_sigmax </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00990">990</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00995">995</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -285,7 +285,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This test checks that the <a class="el" href="classDiagram.html#adfcf825aea6bfe7aeaecb2f5e7197264" title="Reset all diagram parameters with the new values.">Diagram::reset_diagram</a> method stores correctly the new parameters in the class variables. </p>
-<p >GIVEN: a test <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> initialized with beta=s0=H=GAMMA=1 and empty vertices, and a comparison <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> initialized with different parameters and a list of vertices WHEN: the <a class="el" href="classDiagram.html#adfcf825aea6bfe7aeaecb2f5e7197264" title="Reset all diagram parameters with the new values.">Diagram::reset_diagram</a> of the first (test) diagram is called, with the parameters given to the second (comparison) diagram THEN: the test diagram is equal to the comparison diagram </p>
+<p >GIVEN: a test <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> initialized with beta=s0=H=GAMMA=1 and empty vertices, and a comparison <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> initialized with different parameters and a list of vertices WHEN: the <a class="el" href="classDiagram.html#adfcf825aea6bfe7aeaecb2f5e7197264" title="Reset all diagram parameters with the new values.">Diagram::reset_diagram</a> of the first (test) diagram is called, with the parameters given to the second (comparison) diagram THEN: the test diagram is different from the comparison diagram before executing reset_diagram, and becomes equal to the comparison diagram afterwards </p>
 
 <p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00202">202</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
@@ -519,7 +519,7 @@ Functions</h2></td></tr>
 <p>This test checks that <a class="el" href="classDiagram__core.html#a135fa49c23c0d8cc167ea4474bbe3665" title="Returns the acceptance rate for the ADD_SEGMENT update for the given parameters.">Diagram_core::acceptance_rate_add</a> returns the correct value. It is meaningful only if value_method_returns_correct_value is passing. </p>
 <p >GIVEN: two diagram objects with the same parameters, one of order 4 (current), and the other of order 6 (new), with two more vertices in the middle WHEN: the <a class="el" href="classDiagram__core.html#a135fa49c23c0d8cc167ea4474bbe3665" title="Returns the acceptance rate for the ADD_SEGMENT update for the given parameters.">Diagram_core::acceptance_rate_add()</a> method is called from the 4-th order diagram, with additional vertices of the 6-th order diagram THEN: the method returns the expected theoretical value </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00282">282</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00284">284</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -552,7 +552,7 @@ Functions</h2></td></tr>
 <p>This test checks that <a class="el" href="classDiagram__core.html#ac5fb020c25a1420378ed6e0fcd2cf58b" title="Returns the acceptance rate for the SPIN_FLIP update for the given parameter.">Diagram_core::acceptance_rate_flip</a> returns the correct value It is meaningful only if value_method_returns_correct_value is passing. </p>
 <p >GIVEN: two diagram objects with the same parameters, but opposite spin WHEN: the <a class="el" href="classDiagram__core.html#ac5fb020c25a1420378ed6e0fcd2cf58b" title="Returns the acceptance rate for the SPIN_FLIP update for the given parameter.">Diagram_core::acceptance_rate_flip()</a> method is called from the (current) spin = -1 diagram THEN: the method returns the expected theoretical value </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00332">332</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00336">336</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -585,7 +585,7 @@ Functions</h2></td></tr>
 <p>This test checks that <a class="el" href="classDiagram__core.html#a67fc42f29b5c3fd7b498585e5399c0b8" title="Returns the acceptance rate for the REMOVE_SEGMENT update for the given parameters.">Diagram_core::acceptance_rate_remove</a> returns the correct value It is meaningful only if value_method_returns_correct_value is passing. </p>
 <p >GIVEN: two diagram objects with the same parameters, one of order 6 (current), and the other of order 4 (new), with two less in the middle WHEN: the <a class="el" href="classDiagram__core.html#a67fc42f29b5c3fd7b498585e5399c0b8" title="Returns the acceptance rate for the REMOVE_SEGMENT update for the given parameters.">Diagram_core::acceptance_rate_remove()</a> method is called from the 6-th order diagram, with the vertices to be removed THEN: the method returns the expected theoretical value </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00307">307</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00310">310</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -620,7 +620,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to the method <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00650">650</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00655">655</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -655,7 +655,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to the method <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00694">694</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00699">699</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -690,7 +690,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to the method <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00737">737</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00742">742</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -725,7 +725,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to the method <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00780">780</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00785">785</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -760,7 +760,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc are passed as parameters to the <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of the diagram object with 4 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 6 vertices, containing the same 4 vertices of the test diagram, plus the [tau1, tau2] segment </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00364">364</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00369">369</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -795,7 +795,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc are passed as parameters to the <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of the diagram object with 4 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 8 vertices, containing the same 6 vertices of the test diagram, plus the [tau1, tau2] segment in front </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00402">402</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00407">407</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -830,7 +830,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc are passed as parameters to the <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of the diagram object with 6 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 8 vertices, containing the same 6 vertices of the test diagram, plus the [tau1, tau2] segment at the end </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00440">440</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00445">445</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -865,7 +865,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1, RN2 and RNacc are passed as parameters to the <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of the diagram object with no vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 2 vertices, containing the [tau1, tau2] segment </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00477">477</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00482">482</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -900,7 +900,7 @@ Functions</h2></td></tr>
 <p >WHEN: RNacc = -1 is passed to the <a class="el" href="classDiagram__core.html#a19e8ede935e4370f2253a9d4e316367e" title="Attemps the REMOVE_SEGMENT update for the current status of the diagram, using the two random numbers...">Diagram_core::attempt_remove_segment</a> method of the diagram, so that in principle the update should be always accepted</p>
 <p >THEN: the update is rejected </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00966">966</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00971">971</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -935,7 +935,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to the method <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00822">822</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00827">827</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -970,7 +970,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to the method <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00863">863</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00868">868</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -1005,7 +1005,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 are passed as parameters to the method <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00904">904</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00909">909</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -1040,7 +1040,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc are passed as parameters to the <a class="el" href="classDiagram__core.html#a19e8ede935e4370f2253a9d4e316367e" title="Attemps the REMOVE_SEGMENT update for the current status of the diagram, using the two random numbers...">Diagram_core::attempt_remove_segment</a> of the diagram object with 6 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 4 vertices, containing the same vertices of the test diagram, minus the removed one </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00512">512</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00517">517</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -1075,7 +1075,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc are passed as parameters to the <a class="el" href="classDiagram__core.html#a19e8ede935e4370f2253a9d4e316367e" title="Attemps the REMOVE_SEGMENT update for the current status of the diagram, using the two random numbers...">Diagram_core::attempt_remove_segment</a> of the diagram object with 6 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 4 vertices, containing the same vertices of the test diagram, minus the removed one </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00545">545</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00550">550</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -1110,7 +1110,7 @@ Functions</h2></td></tr>
 <p >WHEN: RN1 and RNacc are passed as parameters to the <a class="el" href="classDiagram__core.html#a19e8ede935e4370f2253a9d4e316367e" title="Attemps the REMOVE_SEGMENT update for the current status of the diagram, using the two random numbers...">Diagram_core::attempt_remove_segment</a> of the diagram object with 6 vertices</p>
 <p >THEN: the diagram under test becomes equal to another diagram with 4 vertices, containing the same vertices of the test diagram, minus the removed one </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00578">578</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00583">583</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -1145,7 +1145,7 @@ Functions</h2></td></tr>
 <p >WHEN: RNacc = expected_acceptance_rate + 0.00001 and - 0.00001 is passed as parameter to the method <a class="el" href="classDiagram__core.html#ae9a482ecbb07de5a51e6c6f65072064c" title="Attemps the ADD_SEGMENT update for the current status of the diagram, using the three random numbers ...">Diagram_core::attempt_add_segment</a> of two copies of the same test diagram</p>
 <p >THEN: the update is accepted if RNacc &lt; expected_acceptance_rate, rejected if RNacc &gt; expected_acceptance_rate </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00940">940</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00945">945</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -1180,7 +1180,7 @@ Functions</h2></td></tr>
 <p >WHEN: RNacc is passed twice as parameters to the <a class="el" href="classDiagram__core.html#a19e8ede935e4370f2253a9d4e316367e" title="Attemps the REMOVE_SEGMENT update for the current status of the diagram, using the two random numbers...">Diagram_core::attempt_remove_segment</a> of the tested diagram object</p>
 <p >THEN: the diagram under test, intially with spin up(s0=+1), becomes equal to another diagram with spin down(s0=-1) when attempt_spin_flip is executed for the first time. Then, executing again attempt_spin_flip the test diagram becomes equal to the diagram with spin up, and so also to its initial value before the double flip. </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00610">610</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00615">615</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -1411,7 +1411,7 @@ Functions</h2></td></tr>
 <p>This test checks that the <a class="el" href="classDiagram__core.html#aba13d374579835ad2facb23c4c8391e0" title="Small helper function, performing the sum (... +t4-t3 + t2-t1)">Diagram_core::sum_deltatau</a> method works as expected. </p>
 <p >GIVEN: a <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> object initialized with a list of vertices WHEN: the <a class="el" href="classDiagram__core.html#aba13d374579835ad2facb23c4c8391e0" title="Small helper function, performing the sum (... +t4-t3 + t2-t1)">Diagram_core::sum_deltatau()</a> is called from the object THEN: the value returned by the method is the one expected, calculated "manually" </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00233">233</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00234">234</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -1444,7 +1444,7 @@ Functions</h2></td></tr>
 <p>This test checks that the <a class="el" href="classDiagram__core.html#aba13d374579835ad2facb23c4c8391e0" title="Small helper function, performing the sum (... +t4-t3 + t2-t1)">Diagram_core::sum_deltatau</a> method works as expected, in the specific case of a zero order diagram (with no vertices) </p>
 <p >GIVEN: a zero-order <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> object initialized with an empty list of vetices WHEN: the <a class="el" href="classDiagram__core.html#aba13d374579835ad2facb23c4c8391e0" title="Small helper function, performing the sum (... +t4-t3 + t2-t1)">Diagram_core::sum_deltatau()</a> is called from the object THEN: the value returned by the method is 0 </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00249">249</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00251">251</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>
@@ -1477,7 +1477,7 @@ Functions</h2></td></tr>
 <p>This test checks that <a class="el" href="classDiagram__core.html#a1f5b753c4d6b05025256eefdff36b478" title="Returns the value (&quot;weight&quot;) of the current diagram.">Diagram_core::value</a> returns the correct value. </p>
 <p >GIVEN: two diagram objects with different parameters WHEN: the <a class="el" href="classDiagram__core.html#a1f5b753c4d6b05025256eefdff36b478" title="Returns the value (&quot;weight&quot;) of the current diagram.">Diagram_core::value()</a> method is called for both objects THEN: both objects return the theoretical value calculated "by hand" </p>
 
-<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00264">264</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tests_8cpp_source.html#l00266">266</a> of file <a class="el" href="tests_8cpp_source.html">tests.cpp</a>.</p>
 
 </div>
 </div>

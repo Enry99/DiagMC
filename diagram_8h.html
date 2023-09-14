@@ -127,9 +127,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0bcd7c564627b7a65e25dcef3bad2985"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diagram_8h.html#a0bcd7c564627b7a65e25dcef3bad2985">lists_are_float_equal</a> (const std::list&lt; double &gt; &amp;list1, const std::list&lt; double &gt; &amp;list2)</td></tr>
-<tr class="memdesc:a0bcd7c564627b7a65e25dcef3bad2985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Small helper function that checks if two lists of floating points numbers are equal, performing element-by-element comparison. If list1[i] and list2[i] are within EPSILON=1e-10 for every i, the two lists are considered equal.  <a href="diagram_8h.html#a0bcd7c564627b7a65e25dcef3bad2985">More...</a><br /></td></tr>
-<tr class="separator:a0bcd7c564627b7a65e25dcef3bad2985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa959f24e10bcd1faff39dd79d5e5a59b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diagram_8h.html#aa959f24e10bcd1faff39dd79d5e5a59b">lists_are_float_equal</a> (const std::list&lt; double &gt; &amp;list1, const std::list&lt; double &gt; &amp;list2, double epsilon)</td></tr>
+<tr class="memdesc:aa959f24e10bcd1faff39dd79d5e5a59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Small helper function that checks if two lists of floating points numbers are equal, performing element-by-element comparison. If list1[i] and list2[i] are within epsilon for every i, the two lists are considered equal.  <a href="diagram_8h.html#aa959f24e10bcd1faff39dd79d5e5a59b">More...</a><br /></td></tr>
+<tr class="separator:aa959f24e10bcd1faff39dd79d5e5a59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Header file for <a class="el" href="classDiagram.html" title="This is the main Diagram class, containing the variables defining the diagram - inherited from Diagra...">Diagram</a> and <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> classes. </p>
@@ -155,8 +155,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0bcd7c564627b7a65e25dcef3bad2985" name="a0bcd7c564627b7a65e25dcef3bad2985"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bcd7c564627b7a65e25dcef3bad2985">&#9670;&#160;</a></span>lists_are_float_equal()</h2>
+<a id="aa959f24e10bcd1faff39dd79d5e5a59b" name="aa959f24e10bcd1faff39dd79d5e5a59b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa959f24e10bcd1faff39dd79d5e5a59b">&#9670;&#160;</a></span>lists_are_float_equal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +171,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::list&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>list2</em>&#160;</td>
+          <td class="paramname"><em>list2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -181,11 +187,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Small helper function that checks if two lists of floating points numbers are equal, performing element-by-element comparison. If list1[i] and list2[i] are within EPSILON=1e-10 for every i, the two lists are considered equal. </p>
+<p>Small helper function that checks if two lists of floating points numbers are equal, performing element-by-element comparison. If list1[i] and list2[i] are within epsilon for every i, the two lists are considered equal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">list1</td><td>First list </td></tr>
     <tr><td class="paramname">list2</td><td>Second list </td></tr>
+    <tr><td class="paramname">epsilon</td><td>absolute value of the difference below which two elements are considered equal </td></tr>
   </table>
   </dd>
 </dl>

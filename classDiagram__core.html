@@ -98,8 +98,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4639a70b020a2d08bc473cafd00297b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new diagram, setting its defining parameters. The list of vertices is optional: by default it is the 0-th order diagram [0]----&mdash;[beta].  <a href="classDiagram__core.html#a4639a70b020a2d08bc473cafd00297b3">More...</a><br /></td></tr>
 <tr class="separator:a4639a70b020a2d08bc473cafd00297b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8dd175c90e15c42ed4e823e540f6e8e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiagram__core.html#aa8dd175c90e15c42ed4e823e540f6e8e">operator==</a> (const <a class="el" href="classDiagram__core.html">Diagram_core</a> &amp;other) const</td></tr>
-<tr class="memdesc:aa8dd175c90e15c42ed4e823e540f6e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator to test wether two <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> objects are equal  <a href="classDiagram__core.html#aa8dd175c90e15c42ed4e823e540f6e8e">More...</a><br /></td></tr>
+<tr class="memdesc:aa8dd175c90e15c42ed4e823e540f6e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator to test wether two <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> objects are equal. It is intended for TESTING purposes only, and not to be used within the program. It checks that all values defining a diagram (beta, s0, H, GAMMA and each vertex in the vertices list) of the two <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> objects are within EPSILON = 1e-10 from each other. EPSILON is defined at the beginning of <a class="el" href="diagram_8h.html" title="Header file for Diagram and Diagram_core classes.">diagram.h</a>  <a href="classDiagram__core.html#aa8dd175c90e15c42ed4e823e540f6e8e">More...</a><br /></td></tr>
 <tr class="separator:aa8dd175c90e15c42ed4e823e540f6e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a075ab0cd5379b1daafd1ed2d784f9c11"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiagram__core.html#a075ab0cd5379b1daafd1ed2d784f9c11">operator!=</a> (const <a class="el" href="classDiagram__core.html">Diagram_core</a> &amp;other) const</td></tr>
+<tr class="memdesc:a075ab0cd5379b1daafd1ed2d784f9c11"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator to test wether two <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> objects are different. It is the negation of operator==. It is intended for TESTING purposes only, and not to be used within the program.  <a href="classDiagram__core.html#a075ab0cd5379b1daafd1ed2d784f9c11">More...</a><br /></td></tr>
+<tr class="separator:a075ab0cd5379b1daafd1ed2d784f9c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a148caefd3fb39abe311c6d42a6e0a8f5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDiagram__core.html#a148caefd3fb39abe311c6d42a6e0a8f5">operator/</a> (const <a class="el" href="classDiagram__core.html">Diagram_core</a> &amp;other) const</td></tr>
 <tr class="memdesc:a148caefd3fb39abe311c6d42a6e0a8f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the ratio of the weights of the two diagrams, i.e. this-&gt;<a class="el" href="classDiagram__core.html#a1f5b753c4d6b05025256eefdff36b478" title="Returns the value (&quot;weight&quot;) of the current diagram.">value()</a>/other.<a class="el" href="classDiagram__core.html#a1f5b753c4d6b05025256eefdff36b478" title="Returns the value (&quot;weight&quot;) of the current diagram.">value()</a>  <a href="classDiagram__core.html#a148caefd3fb39abe311c6d42a6e0a8f5">More...</a><br /></td></tr>
 <tr class="separator:a148caefd3fb39abe311c6d42a6e0a8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -568,6 +571,35 @@ false if update was rejected </dd></dl>
 
 </div>
 </div>
+<a id="a075ab0cd5379b1daafd1ed2d784f9c11" name="a075ab0cd5379b1daafd1ed2d784f9c11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a075ab0cd5379b1daafd1ed2d784f9c11">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Diagram_core::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDiagram__core.html">Diagram_core</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>operator to test wether two <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> objects are different. It is the negation of operator==. It is intended for TESTING purposes only, and not to be used within the program. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>other <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
 <a id="a148caefd3fb39abe311c6d42a6e0a8f5" name="a148caefd3fb39abe311c6d42a6e0a8f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a148caefd3fb39abe311c6d42a6e0a8f5">&#9670;&#160;</a></span>operator/()</h2>
 
@@ -605,7 +637,7 @@ false if update was rejected </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>operator to test wether two <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> objects are equal </p>
+<p>operator to test wether two <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> objects are equal. It is intended for TESTING purposes only, and not to be used within the program. It checks that all values defining a diagram (beta, s0, H, GAMMA and each vertex in the vertices list) of the two <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> objects are within EPSILON = 1e-10 from each other. EPSILON is defined at the beginning of <a class="el" href="diagram_8h.html" title="Header file for Diagram and Diagram_core classes.">diagram.h</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>other <a class="el" href="classDiagram__core.html" title="This class is the base class of Diagram, and should not be used directly, aside from testing function...">Diagram_core</a> object </td></tr>
