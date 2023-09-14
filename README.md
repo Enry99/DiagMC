@@ -51,13 +51,24 @@ $ ctest
 ## Utilization guide
 
 The program reads the parameters from a json settings file.
-
 The path of the file can be passed as command line argument upon execution. If nothing is specified, the programs looks for 'settings.json'.
+
+To run the program, go to the ```bin``` directory and execute it with:
+```sh
+$ ./2levelDiagMC [settings_filename]
+```
+where you can replace ```settings_filename``` with the proper name of the desired json settings file.
+
+The parameters for the settings file are described below.
 
 Three types of calculations are possible, and need to be specified in the flag ```CALC_TYPE```:
 1. **"single"**, which performs a single run of the algorithm for the given parameters, and prints a summary of the results. An example of settings file for this type of calculation is [settings_singlerun.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_singlerun.json)
 2. **"sweep"**, which runs the algorithm for different values of ```H```, ```GAMMA``` and  ```beta``` in the given range, for all the combinations, and writes the results to a csv file. An example of settings file for this type of calculation is [settings_sweep.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_sweep.json)
 3. **"convergence-test"**, which runs the program multiple times for a fixed set of physical parameters and the same seed, varying the number of steps of the simulation, ```N_total_steps```, and optionally also ```N_thermalization_steps```. An example of settings file for this type of calculation is [settings_conv_test.json](https://github.com/Enry99/DiagMC/blob/main/examples/settings_conv_test.json)
+
+
+The results for "sweep" and "convergence-test" modes are written to a csv file, which must be specified as ```output_file```, with columns corresponding to variables and lines corresponding to each run.
+The reported values include all the input parameters, the results for the two magnetizations, the statistics of acceptance for the updates, the maximum and average diagram order, the two seeds for each run, and the runtime of the Metropolis-Hastings loop (in nanoseconds) in the column "run_time".
 
 
 The settings parameters for a single run are:
@@ -83,17 +94,6 @@ In "convergence-test" mode, one or more parameters between ```N_total_steps``` a
 - ```N_total_steps_min``` = 1e3,
 - ```N_total_steps_max``` = 1e8,
 - ```N_total_steps_points_per_decade``` = 4
-
-For both "sweep" and "convergence-test" modes, the ```output_file``` must be specified, indicating where to save the results.
-
-To run the program, go to the ```bin``` directory and execute it with:
-```sh
-$ ./2levelDiagMC [settings_filename]
-```
-where you should replace ```settings_filename``` with the proper name of the desired json settings file.
-
-The results for "sweep" and "convergence-test" modes are written to a csv file, with columns corresponding to variables and lines corresponding to each run.
-The reported values include all the input parameters, the results for the two magnetizations, the statistics of acceptance for the updates, the maximum and average diagram order, the two seeds for each run, and the runtime of the Metropolis-Hastings loop (in nanoseconds) in the column "run_time".
 
 
 ## Examples
