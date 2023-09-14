@@ -95,13 +95,16 @@ Execute unit tests</h2>
 <p >In order to execute the tests, go to the <code>build</code> directory and run: </p><div class="fragment"><div class="line">$ ctest</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
 Utilization guide</h1>
-<p >The program reads the parameters from a json settings file.</p>
-<p >The path of the file can be passed as command line argument upon execution. If nothing is specified, the programs looks for 'settings.json'.</p>
+<p >The program reads the parameters from a json settings file. The path of the file can be passed as command line argument upon execution. If nothing is specified, the programs looks for 'settings.json'.</p>
+<p >To run the program, go to the <code>bin</code> directory and execute it with: </p><div class="fragment"><div class="line">$ ./2levelDiagMC [settings_filename]</div>
+</div><!-- fragment --><p> where you can replace <code>settings_filename</code> with the proper name of the desired json settings file.</p>
+<p >The parameters for the settings file are described below.</p>
 <p >Three types of calculations are possible, and need to be specified in the flag <code>CALC_TYPE</code>:</p><ol type="1">
 <li>**"single"**, which performs a single run of the algorithm for the given parameters, and prints a summary of the results. An example of settings file for this type of calculation is <a href="https://github.com/Enry99/DiagMC/blob/main/examples/settings_singlerun.json">settings_singlerun.json</a></li>
 <li>**"sweep"**, which runs the algorithm for different values of <code>H</code>, <code>GAMMA</code> and <code>beta</code> in the given range, for all the combinations, and writes the results to a csv file. An example of settings file for this type of calculation is <a href="https://github.com/Enry99/DiagMC/blob/main/examples/settings_sweep.json">settings_sweep.json</a></li>
 <li>**"convergence-test"**, which runs the program multiple times for a fixed set of physical parameters and the same seed, varying the number of steps of the simulation, <code>N_total_steps</code>, and optionally also <code>N_thermalization_steps</code>. An example of settings file for this type of calculation is <a href="https://github.com/Enry99/DiagMC/blob/main/examples/settings_conv_test.json">settings_conv_test.json</a></li>
 </ol>
+<p >The results for "sweep" and "convergence-test" modes are written to a csv file, which must be specified as <code>output_file</code>, with columns corresponding to variables and lines corresponding to each run. The reported values include all the input parameters, the results for the two magnetizations, the statistics of acceptance for the updates, the maximum and average diagram order, the two seeds for each run, and the runtime of the Metropolis-Hastings loop (in nanoseconds) in the column "run_time".</p>
 <p >The settings parameters for a single run are:</p><ul>
 <li><code>beta</code>: Inverse temperature (equal to legnth of the diagram). Must be &gt; 0.</li>
 <li><code>initial_s0</code> (optional): Spin of the 0-th segment of the diagram (0--&mdash;t1) at the beginning of the simulation. Must be +1 or -1. Defaults to +1 if not specified.</li>
@@ -124,10 +127,6 @@ Utilization guide</h1>
 <li><code>N_total_steps_max</code> = 1e8,</li>
 <li><code>N_total_steps_points_per_decade</code> = 4</li>
 </ul>
-<p >For both "sweep" and "convergence-test" modes, the <code>output_file</code> must be specified, indicating where to save the results.</p>
-<p >To run the program, go to the <code>bin</code> directory and execute it with: </p><div class="fragment"><div class="line">$ ./2levelDiagMC [settings_filename]</div>
-</div><!-- fragment --><p> where you should replace <code>settings_filename</code> with the proper name of the desired json settings file.</p>
-<p >The results for "sweep" and "convergence-test" modes are written to a csv file, with columns corresponding to variables and lines corresponding to each run. The reported values include all the input parameters, the results for the two magnetizations, the statistics of acceptance for the updates, the maximum and average diagram order, the two seeds for each run, and the runtime of the Metropolis-Hastings loop (in nanoseconds) in the column "run_time".</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Examples</h1>
 <p >The results of the sweep and convergence tests, produced with the two corresponding files in the <a href="https://github.com/Enry99/DiagMC/blob/main/examples">examples</a> folder, are reported in these images, showing a perfect match with the analytical results.</p>
