@@ -149,13 +149,13 @@ This program simulates a very simple quantum system: a single spin in an externa
 The Hamiltonian of the single spin system in an external magnetic field is
 $$\hat{H} = \hat{H_0} + \hat{H_1} = h \sigma_z + \Gamma \sigma_x$$
 where $h$ and $\Gamma$ are the field strength in the z and x direction, respectively, while  $\sigma_x$ and $\sigma_z$ are the Pauli matrices.
-The basis states are $\ket{\uparrow} = (1,0)$ and $\ket{\downarrow} = (0,1)$, which are eigenstates of $\sigma_z$ with eigenvalues $\pm 1$.
+The basis states are $|\uparrow \rangle = (1,0)$ and $| \downarrow \rangle = (0,1)$, which are eigenstates of $\sigma_z$ with eigenvalues $\pm 1$.
 
-This Hamiltonian can be exactly diagonalized, with eigenvalues $\pm E := \pm\sqrt{h^2+\Gamma^2}$ and eigenvectors $\ket{\Psi_+}$, $\ket{\Psi_-}$
+This Hamiltonian can be exactly diagonalized, with eigenvalues $\pm E := \pm\sqrt{h^2+\Gamma^2}$ and eigenvectors $|\Psi_+\rangle$, $|\Psi_- \rangle$
 
 In the diagonalized basis, the partition function $Z$ of the system is simply given by
 
-$$Z = Tr( e^{-\beta \hat{H}} ) =  \bra{\Psi_+} e^{-\beta \hat{H}} \ket{\Psi_+} + \bra{\Psi_-} e^{-\beta \hat{H}} \ket{\Psi_-} = e^{-\beta E} + e^{\beta E}$$
+$$Z = Tr( e^{-\beta \hat{H}} ) =  \langle\Psi_+| e^{-\beta \hat{H}} |\Psi_+\rangle + \langle\Psi_-| e^{-\beta \hat{H}} |\Psi_-\rangle = e^{-\beta E} + e^{\beta E}$$
 where $\beta = \frac{1}{T}$ is the inverse temperature.
 
 In the same way, just with a bit more algebra, it's possible to calculate the **exact expressions for the magnetization in the z and x directions**:
@@ -170,7 +170,7 @@ To study this problem using DMC we will use a path integral representation in im
 partition function. In the Matsubara formalism, in fact, it's possible to replace the expectation values of operators in a canonical ensemble with the expectation values in ordinary QFT (so involving Feynman diagrams) by considering time evolution in imaginary time $\tau = it$ (with $0\leq t \leq \beta$).
 So the partition functions in this representation (for $\tau_1 < \tau_2 < ... < \tau_n$) reads as:
 
-$$   Z = \sum_{n=0}^\infty (-1)^n \sum_ {s = \downarrow, \uparrow} \int_0^\beta d\tau_1 \cdots \int_{\tau_{n-1}}^\beta d\tau_n \bra{s} e^{-\beta \hat{H_0}} \hat{H_1}(\tau_n) \cdots \hat{H_1}(\tau_1) \ket{s} $$
+$$   Z = \sum_{n=0}^\infty (-1)^n \sum_ {s = \downarrow, \uparrow} \int_0^\beta d\tau_1 \cdots \int_{\tau_{n-1}}^\beta d\tau_n\langle s| e^{-\beta \hat{H_0}} \hat{H_1}(\tau_n) \cdots \hat{H_1}(\tau_1) |s \rangle $$
 
 in which the operators $\hat{H_1}(\tau_k)$ are in the interaction picture, and are given by:
 
